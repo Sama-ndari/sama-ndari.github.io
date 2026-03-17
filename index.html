@@ -494,10 +494,10 @@
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active"><i class="bi bi-grid-3x3-gap"></i> All <span class="filter-count">13</span></li>
-              <li data-filter=".filter-ai"><i class="bi bi-robot"></i> AI Ops <span class="filter-count">7</span></li>
-              <li data-filter=".filter-web"><i class="bi bi-code-slash"></i> Engineering <span class="filter-count">4</span></li>
-              <li data-filter=".filter-mobile"><i class="bi bi-phone"></i> Mobile <span class="filter-count">2</span></li>
+              <li data-filter="*" class="filter-active"><i class="bi bi-grid-3x3-gap"></i> All <span class="filter-count"></span></li>
+              <li data-filter=".filter-ai"><i class="bi bi-robot"></i> AI Ops <span class="filter-count"></span></li>
+              <li data-filter=".filter-web"><i class="bi bi-code-slash"></i> Engineering <span class="filter-count"></span></li>
+              <li data-filter=".filter-mobile"><i class="bi bi-phone"></i> Mobile <span class="filter-count"></span></li>
             </ul>
           </div>
         </div>
@@ -547,6 +547,7 @@
             <div class="project-card">
               <div class="project-card__image">
                 <img src="assets/img/portfolio/mobile/esama/esama-pos.png" alt="E-Sama POS">
+                <img src="assets/img/portfolio/mobile/esama/esama-icon.png" alt="E-Sama Icon" class="project-card__app-icon">
                 <span class="project-badge project-badge--revenue"><i class="bi bi-currency-dollar"></i> Revenue</span>
                 <span class="project-badge project-badge--status">Active</span>
                 <div class="project-card__overlay">
@@ -600,29 +601,35 @@
             </div>
           </div>
 
-          <!-- 4. SamandariApp -->
+          <!-- 4. Velora (Revenue) -->
           <div class="portfolio-item filter-mobile">
             <div class="project-card">
               <div class="project-card__image">
-                <img src="assets/img/portfolio/mobile/samapp/samapp2.png" alt="SamandariApp">
+                <img src="assets/img/portfolio/mobile/velora/velora2.png" alt="Velora">
+                <img src="assets/img/portfolio/mobile/velora/velora-icon.png" alt="Velora Icon" class="project-card__app-icon">
+                <span class="project-badge project-badge--revenue"><i class="bi bi-currency-dollar"></i> Revenue</span>
+                <span class="project-badge project-badge--status">Active</span>
                 <div class="project-card__overlay">
-                  <a href="assets/img/portfolio/mobile/samapp/samapp2.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Productivity Hub"><i class="bx bx-fullscreen"></i></a>
+                  <a href="assets/img/portfolio/mobile/velora/velora2.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Velora - Productivity & Wellness"><i class="bx bx-fullscreen"></i></a>
                 </div>
               </div>
               <div class="project-card__body">
-                <span class="project-card__category">Mobile Productivity</span>
-                <h4 class="project-card__title">SamandariApp</h4>
-                <p class="project-card__desc"><strong>Problem:</strong> Fragmented productivity tools for mobile users.<br>
-                <strong>Architecture:</strong> Flutter + Dart with local SQLite storage for offline-first productivity.<br>
-                <strong>Outcome:</strong> All-in-one mobile hub for notes, tasks, and personal organization.</p>
+                <span class="project-card__category">Flutter / Paid App / Subscription</span>
+                <h4 class="project-card__title">Velora: Productivity & Wellness</h4>
+                <p class="project-card__desc"><strong>Problem:</strong> Existing productivity apps are either too complex, require internet, or lack monetization for indie developers.<br>
+                <strong>Architecture:</strong> Flutter offline-first app with Hive, custom device-tied license activation, GitHub Gist remote admin, and Google Drive backup.<br>
+                <strong>Outcome:</strong> Paid app with active subscribers. Habits, goals, smart alarms, journal, and admin panel for client management.</p>
                 <div class="project-card__tags">
                   <span class="tech-chip">Flutter</span>
                   <span class="tech-chip">Dart</span>
-                  <span class="tech-chip">SQLite</span>
+                  <span class="tech-chip">Hive</span>
+                  <span class="tech-chip">Provider</span>
+                  <span class="tech-chip">SaaS</span>
                 </div>
                 <div class="project-card__actions">
-                  <a href="portfolio/mobile/samapp/details.html" class="btn-action btn-action--primary portfolio-details-lightbox" data-glightbox="type: external"><i class="bx bx-link-external"></i> Details</a>
-                  <a href="https://github.com/Sama-ndari/SamandariApp" target="_blank" class="btn-action btn-action--ghost"><i class="bx bx-code-alt"></i> Code</a>
+                  <a href="portfolio/mobile/velora/details.html" class="btn-action btn-action--primary portfolio-details-lightbox" data-glightbox="type: external"><i class="bx bx-link-external"></i> Details</a>
+                  <a href="portfolio/mobile/velora/case-study.html" class="btn-action btn-action--ghost portfolio-details-lightbox" data-glightbox="type: external"><i class="bi bi-graph-up"></i> Case Study</a>
+                  <a href="https://drive.google.com/file/d/1zt4N9ZE8QJntwgVg5m4yga5LgKfoQ_E-/view?usp=sharing" target="_blank" class="btn-action btn-action--demo"><i class="bx bx-download"></i> APK</a>
                 </div>
               </div>
             </div>
@@ -656,7 +663,7 @@
             </div>
           </div>
 
-          <!-- 6. Burundi Language ID -->
+          <!-- 7. Burundi Language ID -->
           <div class="portfolio-item filter-web">
             <div class="project-card">
               <div class="project-card__image">
@@ -686,7 +693,38 @@
 
           <!-- ===== HIDDEN (View All Projects to reveal) ===== -->
 
-          <!-- 7. Dev Swarm Agency -->
+          <!-- NotifSpy -->
+          <div class="portfolio-item filter-mobile hidden-item">
+            <div class="project-card">
+              <div class="project-card__image">
+                <img src="assets/img/portfolio/mobile/notifspy/notifspy-icon.png" alt="NotifSpy">
+                <img src="assets/img/portfolio/mobile/notifspy/notifspy-icon.png" alt="NotifSpy Icon" class="project-card__app-icon">
+                <span class="project-badge project-badge--dev"><i class="bi bi-lock-fill"></i> In Development</span>
+                <div class="project-card__overlay">
+                  <a href="assets/img/portfolio/mobile/notifspy/notifspy-icon.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="NotifSpy - Notification Tracker"><i class="bx bx-fullscreen"></i></a>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <span class="project-card__category">Mobile Utility</span>
+                <h4 class="project-card__title">NotifSpy</h4>
+                <p class="project-card__desc"><strong>Problem:</strong> Deleted WhatsApp messages and dismissed notifications are lost forever.<br>
+                <strong>Architecture:</strong> Flutter + Kotlin NotificationListenerService with EventChannel bridge, Hive local storage, real-time stream processing.<br>
+                <strong>Status:</strong> In development. Captures all phone notifications, detects deleted messages, and lets you filter by app or contact.</p>
+                <div class="project-card__tags">
+                  <span class="tech-chip">Flutter</span>
+                  <span class="tech-chip">Kotlin</span>
+                  <span class="tech-chip">Android API</span>
+                  <span class="tech-chip">Hive</span>
+                </div>
+                <div class="project-card__actions">
+                  <a href="portfolio/mobile/notifspy/details.html" class="btn-action btn-action--primary portfolio-details-lightbox" data-glightbox="type: external"><i class="bx bx-link-external"></i> Details</a>
+                  <a href="https://github.com/Sama-ndari/NotifSpy" target="_blank" class="btn-action btn-action--ghost"><i class="bx bx-code-alt"></i> Code</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dev Swarm Agency -->
           <div class="portfolio-item filter-ai hidden-item">
             <div class="project-card">
               <div class="project-card__image">
@@ -714,7 +752,7 @@
             </div>
           </div>
 
-          <!-- 8. Enterprise RAG Chatbot -->
+          <!-- 9. Enterprise RAG Chatbot -->
           <div class="portfolio-item filter-ai hidden-item">
             <div class="project-card">
               <div class="project-card__image">
@@ -742,7 +780,7 @@
             </div>
           </div>
 
-          <!-- 9. Autonomous SDR Agent -->
+          <!-- 10. Autonomous SDR Agent -->
           <div class="portfolio-item filter-ai hidden-item">
             <div class="project-card">
               <div class="project-card__image">
@@ -770,7 +808,7 @@
             </div>
           </div>
 
-          <!-- 10. SentinelAI SOC Assistant -->
+          <!-- 11. SentinelAI SOC Assistant -->
           <div class="portfolio-item filter-ai hidden-item">
             <div class="project-card">
               <div class="project-card__image">
@@ -799,7 +837,7 @@
             </div>
           </div>
 
-          <!-- 11. LLM Semantic Drift Analysis -->
+          <!-- 12. LLM Semantic Drift Analysis -->
           <div class="portfolio-item filter-ai hidden-item">
             <div class="project-card">
               <div class="project-card__image">
@@ -827,7 +865,7 @@
             </div>
           </div>
 
-          <!-- 12. Personal AI Clone -->
+          <!-- 13. Personal AI Clone -->
           <div class="portfolio-item filter-web hidden-item">
             <div class="project-card">
               <div class="project-card__image">
@@ -855,7 +893,7 @@
             </div>
           </div>
 
-          <!-- 13. AI Interview Simulator -->
+          <!-- 14. AI Interview Simulator -->
           <div class="portfolio-item filter-web hidden-item">
             <div class="project-card">
               <div class="project-card__image">
@@ -949,8 +987,9 @@
                 </svg>
                 <i class="bi bi-phone"></i>
               </div>
-              <h4>Mobile Solutions</h4>
+              <h4><a href="https://sama-ndari.github.io/Sama-Apps" target="_blank" style="color: inherit; text-decoration: none;">Mobile Solutions</a></h4>
               <p>Developing cross-platform productivity hubs and AI-integrated mobile experiences with Flutter.</p>
+              <a href="https://sama-ndari.github.io/Sama-Apps" target="_blank" class="btn btn-sm btn-outline-primary mt-2"><i class="bi bi-box-arrow-up-right me-1"></i> Sama Apps Marketplace</a>
             </div>
           </div>
 
@@ -1276,6 +1315,22 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var items = document.querySelectorAll('.portfolio-item');
+      document.querySelectorAll('#portfolio-flters li').forEach(function(li) {
+        var f = li.getAttribute('data-filter');
+        var cls = f === '*' ? null : f.replace('.', '');
+        var n = 0;
+        items.forEach(function(item) {
+          if (!cls || item.classList.contains(cls)) n++;
+        });
+        var span = li.querySelector('.filter-count');
+        if (span) span.textContent = n;
+      });
+    });
+  </script>
 
   <!-- Chatbot --> 
    <!-- https://app.chatagents.io/chatbots -->
