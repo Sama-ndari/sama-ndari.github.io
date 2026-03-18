@@ -543,7 +543,7 @@
           </div>
 
           <!-- 2. E-Sama POS (Revenue) -->
-          <div class="portfolio-item filter-mobile">
+          <div class="portfolio-item filter-mobile" data-app="esama">
             <div class="project-card">
               <div class="project-card__image">
                 <img src="assets/img/portfolio/mobile/esama/esama-pos.png" alt="E-Sama POS">
@@ -559,7 +559,7 @@
                 <h4 class="project-card__title">E-Sama: Boutique & POS Management</h4>
                 <p class="project-card__desc"><strong>Problem:</strong> Local businesses in Burundi lack affordable digital inventory and sales tools.<br>
                 <strong>Architecture:</strong> Flutter cross-platform app with offline-first local storage, no server dependency, and real-time analytics.<br>
-                <strong>Outcome:</strong> In production with 16+ paying users and growing. Handles inventory, invoicing, and sales analytics for local businesses.</p>
+                <strong>Outcome:</strong> In production with <span id="esama-user-count">20+</span> paying users and growing. Handles inventory, invoicing, and sales analytics for local businesses.</p>
                 <div class="project-card__tags">
                   <span class="tech-chip">Flutter</span>
                   <span class="tech-chip">Offline-First</span>
@@ -602,7 +602,7 @@
           </div>
 
           <!-- 4. Velora (Revenue) -->
-          <div class="portfolio-item filter-mobile">
+          <div class="portfolio-item filter-mobile" data-app="velora">
             <div class="project-card">
               <div class="project-card__image">
                 <img src="assets/img/portfolio/mobile/velora/velora2.png" alt="Velora">
@@ -1411,6 +1411,39 @@
         }
 
       }).catch(function () {});
+    })();
+  </script>
+
+  <!-- Live user counts from GitHub Gists -->
+  <script>
+    (function () {
+      var gists = [
+        { app: "esama", gistId: "0250417d63c891faf03a52909d6010e4", file: "e_sama_admin_sync.json" },
+        { app: "velora", gistId: "b806e5a54d4cf1a24b23ce2bfc4c5116", file: "velora_admin_sync.json" }
+      ];
+
+      gists.forEach(function (src) {
+        fetch("https://api.github.com/gists/" + src.gistId)
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (gist) {
+            if (!gist || !gist.files || !gist.files[src.file]) return;
+            var data = JSON.parse(gist.files[src.file].content);
+            var count = Array.isArray(data) ? data.length : 0;
+            if (count <= 0) return;
+
+            var card = document.querySelector('.portfolio-item[data-app="' + src.app + '"] .project-card__image');
+            if (card) {
+              var badge = document.createElement("span");
+              badge.className = "project-badge project-badge--users";
+              badge.innerHTML = '<i class="bi bi-people-fill"></i> ' + count + " users";
+              card.appendChild(badge);
+            }
+
+            var inlineEl = document.getElementById(src.app + "-user-count");
+            if (inlineEl) inlineEl.textContent = count + "+";
+          })
+          .catch(function () {});
+      });
     })();
   </script>
 
