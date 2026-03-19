@@ -1470,3 +1470,154 @@ section {
   padding-bottom: 20px;
 }
 
+.thinking a.portfolio-details-lightbox {
+  text-decoration: none;
+  color: inherit;
+}
+
+.thinking .essay-card {
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+
+.thinking .essay-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/*--------------------------------------------------------------
+# Utility Classes (extracted from inline styles)
+--------------------------------------------------------------*/
+.text-accent {
+  color: #0563bb;
+}
+
+.text-link-accent {
+  color: rgb(92, 92, 219);
+}
+
+.fw-accent {
+  font-family: "Raleway", sans-serif;
+  color: #0563bb;
+  font-weight: 600;
+}
+
+.skills-category-title {
+  color: #0563bb;
+  font-weight: 700;
+  border-bottom: 2px solid #eef7ff;
+  padding-bottom: 10px;
+}
+
+/*--------------------------------------------------------------
+# Hero Mission Statement
+--------------------------------------------------------------*/
+#hero .hero-mission {
+  font-size: 1.6rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  color: #0563bb;
+  margin-top: 18px;
+  max-width: 700px;
+  line-height: 1.4;
+}
+
+#hero .hero-subtitle {
+  color: #45505b;
+  margin-top: 10px;
+  font-size: 1rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  #hero .hero-mission {
+    font-size: 1.2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #hero .hero-subtitle {
+    font-size: 0.9rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*--------------------------------------------------------------
+# About Origin Story
+--------------------------------------------------------------*/
+.about .origin-story {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #45505b;
+  margin-bottom: 20px;
+}
+
+.about .origin-story strong {
+  color: #272829;
+}
+
+.about .quick-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.about .quick-facts .fact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #eef7ff;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #45505b;
+}
+
+.about .quick-facts .fact-chip i {
+  color: #0563bb;
+  font-size: 0.9rem;
+}
+
+/*--------------------------------------------------------------
+# Vision Banner
+--------------------------------------------------------------*/
+.services .vision-banner {
+  background: linear-gradient(135deg, #0563bb 0%, #0d47a1 100%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 32px 36px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.services .vision-banner::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.services .vision-banner h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.services .vision-banner p {
+  font-size: 0.92rem;
+  margin: 0;
+  opacity: 0.92;
+  line-height: 1.6;
+}
+
