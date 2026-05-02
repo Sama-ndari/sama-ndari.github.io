@@ -1,11 +1,8 @@
 const I18N = {
   en: {
-    nav_about: "About",
-    nav_skills: "Skills",
     nav_resume: "Resume",
     nav_projects: "Projects",
     nav_services: "Services",
-    nav_thinking: "Thinking",
     nav_contact: "Contact",
 
     hero_label: "AI Engineer",
@@ -225,13 +222,37 @@ const I18N = {
 
     skip_to_content: "Skip to content",
 
-    page_title_overview: "Samandari | Overview",
-    page_title_about: "Samandari | About",
+    page_title_overview: "Samandari | AI Engineer & Founder",
     page_title_projects: "Samandari | Projects",
     page_title_resume: "Samandari | Resume",
     page_title_services: "Samandari | Services",
-    page_title_thinking: "Samandari | Thinking",
     page_title_contact: "Samandari | Contact",
+
+    meta_desc_overview:
+      "AI Engineer building production systems and open-source AI infrastructure. Founder of Ijwi ry'Ikirundi AI.",
+    meta_desc_projects: "Selected projects: AI, mobile, and web — filters, case studies, and links.",
+    meta_desc_resume: "Professional experience, education, and training — Jules Cesar Junior Ndayisenga.",
+    meta_desc_services: "Services and skills — agentic AI, RAG, backend architecture, and delivery.",
+    meta_desc_contact: "Get in touch — collaborations on agentic AI, RAG systems, and backend architecture.",
+
+    gh_sidebar_display_name: "Samandari",
+    gh_sidebar_username: "Sama-ndari",
+    gh_btn_github: "GitHub",
+    gh_link_site_label: "samandari.dev",
+    gh_link_linkedin: "LinkedIn",
+    gh_link_huggingface: "Hugging Face",
+    gh_blob_lang_label: "JSON",
+
+    nav_mobile_menu_aria: "Open navigation menu",
+
+    footer_aria_twitter: "Twitter",
+    footer_aria_instagram: "Instagram",
+    footer_aria_whatsapp: "WhatsApp",
+    footer_aria_linkedin: "LinkedIn",
+    footer_aria_huggingface: "Hugging Face",
+    footer_aria_github: "GitHub",
+
+    hero_langs_typed_items: "Ikirundi|Français|English|Kiswahili",
 
     gh_logo_home: "Home",
     project_detail_back: "Back to projects",
@@ -406,12 +427,9 @@ const I18N = {
   },
 
   fr: {
-    nav_about: "\u00c0 propos",
-    nav_skills: "Comp\u00e9tences",
     nav_resume: "Parcours",
     nav_projects: "Projets",
     nav_services: "Services",
-    nav_thinking: "R\u00e9flexions",
     nav_contact: "Contact",
 
     hero_label: "Ing\u00e9nieur IA",
@@ -631,13 +649,40 @@ const I18N = {
 
     skip_to_content: "Aller au contenu",
 
-    page_title_overview: "Samandari | Aper\u00e7u",
-    page_title_about: "Samandari | \u00c0 propos",
+    page_title_overview: "Samandari | Ing\u00e9nieur IA & Fondateur",
     page_title_projects: "Samandari | Projets",
     page_title_resume: "Samandari | Parcours",
     page_title_services: "Samandari | Services",
-    page_title_thinking: "Samandari | R\u00e9flexions",
     page_title_contact: "Samandari | Contact",
+
+    meta_desc_overview:
+      "Ing\u00e9nieur IA construisant des syst\u00e8mes de production et des infrastructures IA open-source. Fondateur de Ijwi ry'Ikirundi AI.",
+    meta_desc_projects:
+      "Projets s\u00e9lectionn\u00e9s : IA, mobile et web — filtres, \u00e9tudes de cas et liens.",
+    meta_desc_resume: "Exp\u00e9rience professionnelle, formation et parcours — Jules Cesar Junior Ndayisenga.",
+    meta_desc_services:
+      "Services et comp\u00e9tences \u2014 IA agentique, RAG, architecture backend et livraison.",
+    meta_desc_contact:
+      "Contact \u2014 collaborations sur l'IA agentique, les syst\u00e8mes RAG et l'architecture backend.",
+
+    gh_sidebar_display_name: "Samandari",
+    gh_sidebar_username: "Sama-ndari",
+    gh_btn_github: "GitHub",
+    gh_link_site_label: "samandari.dev",
+    gh_link_linkedin: "LinkedIn",
+    gh_link_huggingface: "Hugging Face",
+    gh_blob_lang_label: "JSON",
+
+    nav_mobile_menu_aria: "Ouvrir le menu de navigation",
+
+    footer_aria_twitter: "Twitter",
+    footer_aria_instagram: "Instagram",
+    footer_aria_whatsapp: "WhatsApp",
+    footer_aria_linkedin: "LinkedIn",
+    footer_aria_huggingface: "Hugging Face",
+    footer_aria_github: "GitHub",
+
+    hero_langs_typed_items: "Ikirundi|Fran\u00e7ais|English|Kiswahili",
 
     gh_logo_home: "Accueil",
     project_detail_back: "Retour aux projets",
@@ -865,6 +910,13 @@ function applyI18n() {
   document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
     var key = el.getAttribute("data-i18n-title");
     el.title = t(key);
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach(function (el) {
+    var key = el.getAttribute("data-i18n-aria-label");
+    var val = t(key);
+    if (!val) return;
+    el.setAttribute("aria-label", val);
   });
 
   document.documentElement.lang = getLang();

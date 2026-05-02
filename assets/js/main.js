@@ -274,28 +274,40 @@
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var status = document.getElementById("form-status");
-      var data = new FormData(event.target);
+      if (!status) return;
+      status.textContent = "";
+      var fd = new FormData(event.target);
       fetch(event.target.action, {
         method: form.method,
-        body: data,
+        body: fd,
         headers: { Accept: "application/json" }
       })
-        .then(response => {
+        .then(function (response) {
           if (response.ok) {
-            status.innerHTML = t("contact_success");
+            status.textContent = t("contact_success");
             form.reset();
-          } else {
-            response.json().then(data => {
-              if (Object.hasOwn(data, "errors")) {
-                status.innerHTML = data.errors.map(e => e.message).join(", ");
+            return null;
+          }
+          return response
+            .json()
+            .catch(function () {
+              return null;
+            })
+            .then(function (body) {
+              if (body && Array.isArray(body.errors)) {
+                var parts = body.errors
+                  .map(function (e) {
+                    return e && e.message != null ? String(e.message) : "";
+                  })
+                  .filter(Boolean);
+                status.textContent = parts.length ? parts.join(" — ") : t("contact_error");
               } else {
-                status.innerHTML = t("contact_error");
+                status.textContent = t("contact_error");
               }
             });
-          }
         })
-        .catch(() => {
-          status.innerHTML = t("contact_error");
+        .catch(function () {
+          status.textContent = t("contact_error");
         });
     });
   }
@@ -473,6 +485,36 @@
     ].join(" ").toLowerCase();
   }
 
+  function closeRepoFilterDropdowns(dropdowns) {
+    dropdowns.forEach((d) => d.classList.remove("is-open"));
+  }
+
+  function syncRepoFilterButtonLabels(state, typeBtn, languageBtn, sortBtn) {
+    typeBtn.textContent = `${t("repo_filter_type")}: ${state.type}`;
+    languageBtn.textContent = `${t("repo_filter_language")}: ${state.language}`;
+    sortBtn.textContent = `${t("repo_filter_sort")}: ${state.sort}`;
+  }
+
+  function applyRepoFiltersAndSort(container, state) {
+    const items = [...container.querySelectorAll(".portfolio-item")];
+    items.forEach((item) => {
+      const matchesQuery = (item.dataset.repoText || "").includes(state.query);
+      const matchesType = state.type === "All" || item.dataset.repoType === state.type;
+      const matchesLanguage = state.language === "All" || item.dataset.repoLanguage === state.language;
+      item.style.display = matchesQuery && matchesType && matchesLanguage ? "" : "none";
+    });
+    const visible = items.filter((item) => item.style.display !== "none");
+    visible.sort((a, b) => {
+      if (state.sort === "Name") {
+        const aName = a.querySelector(".project-card__title")?.textContent || "";
+        const bName = b.querySelector(".project-card__title")?.textContent || "";
+        return aName.localeCompare(bName);
+      }
+      return Number(a.dataset.repoOrder || "999") - Number(b.dataset.repoOrder || "999");
+    });
+    visible.forEach((item) => container.appendChild(item));
+  }
+
   function setupRepoFilters(container) {
     const searchInput = document.querySelector(".gh-repo-search");
     const typeDropdown = document.querySelector(".gh-repo-dropdown[data-filter-kind='type']");
@@ -484,48 +526,23 @@
     const languageBtn = languageDropdown.querySelector(".gh-repo-filter");
     const sortBtn = sortDropdown.querySelector(".gh-repo-filter");
     const allDropdowns = [typeDropdown, languageDropdown, sortDropdown];
-
     const state = { query: "", type: "All", language: "All", sort: "Updated" };
-    const setLabels = () => {
-      typeBtn.textContent = `${t("repo_filter_type")}: ${state.type}`;
-      languageBtn.textContent = `${t("repo_filter_language")}: ${state.language}`;
-      sortBtn.textContent = `${t("repo_filter_sort")}: ${state.sort}`;
-    };
 
-    const applyFilters = () => {
-      const items = [...container.querySelectorAll(".portfolio-item")];
-      items.forEach(item => {
-        const matchesQuery = (item.dataset.repoText || "").includes(state.query);
-        const matchesType = state.type === "All" || item.dataset.repoType === state.type;
-        const matchesLanguage = state.language === "All" || item.dataset.repoLanguage === state.language;
-        item.style.display = matchesQuery && matchesType && matchesLanguage ? "" : "none";
-      });
+    const runFilters = () => applyRepoFiltersAndSort(container, state);
 
-      const visible = items.filter(item => item.style.display !== "none");
-      visible.sort((a, b) => {
-        if (state.sort === "Name") {
-          const aName = a.querySelector(".project-card__title")?.textContent || "";
-          const bName = b.querySelector(".project-card__title")?.textContent || "";
-          return aName.localeCompare(bName);
-        }
-        return Number(a.dataset.repoOrder || "999") - Number(b.dataset.repoOrder || "999");
-      });
-      visible.forEach(item => container.appendChild(item));
-    };
-
-    searchInput.addEventListener("input", e => {
+    searchInput.addEventListener("input", (e) => {
       state.query = e.target.value.trim().toLowerCase();
-      applyFilters();
+      runFilters();
     });
 
-    allDropdowns.forEach(dropdown => {
+    allDropdowns.forEach((dropdown) => {
       const trigger = dropdown.querySelector(".gh-repo-filter");
       const menuButtons = dropdown.querySelectorAll(".gh-repo-menu button");
       trigger.addEventListener("click", () => {
-        allDropdowns.forEach(d => d.classList.remove("is-open"));
+        closeRepoFilterDropdowns(allDropdowns);
         dropdown.classList.toggle("is-open");
       });
-      menuButtons.forEach(btn => {
+      menuButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
           const value = btn.getAttribute("data-value") || "All";
           const kind = dropdown.getAttribute("data-filter-kind");
@@ -533,20 +550,18 @@
           if (kind === "language") state.language = value;
           if (kind === "sort") state.sort = value;
           dropdown.classList.remove("is-open");
-          setLabels();
-          applyFilters();
+          syncRepoFilterButtonLabels(state, typeBtn, languageBtn, sortBtn);
+          runFilters();
         });
       });
     });
 
     document.addEventListener("click", (e) => {
-      if (!e.target.closest(".gh-repo-dropdown")) {
-        allDropdowns.forEach(d => d.classList.remove("is-open"));
-      }
+      if (!e.target.closest(".gh-repo-dropdown")) closeRepoFilterDropdowns(allDropdowns);
     });
 
-    setLabels();
-    applyFilters();
+    syncRepoFilterButtonLabels(state, typeBtn, languageBtn, sortBtn);
+    runFilters();
   }
 
   function initGhServicesMoreHint() {
@@ -615,13 +630,19 @@
     // Languages typed in About section
     const langTyped = select(".lang-typed");
     if (langTyped && typeof Typed !== "undefined") {
-      new Typed(".lang-typed", {
-        strings: ["Ikirundi", "Français", "English", "Kiswahili"],
-        typeSpeed: 70,
-        backSpeed: 35,
-        backDelay: 1800,
-        loop: true
-      });
+      const langStrings = t("hero_langs_typed_items")
+        .split("|")
+        .map((s) => s.trim())
+        .filter(Boolean);
+      if (langStrings.length) {
+        new Typed(".lang-typed", {
+          strings: langStrings,
+          typeSpeed: 70,
+          backSpeed: 35,
+          backDelay: 1800,
+          loop: true
+        });
+      }
     }
 
     // Asyst tech typed
