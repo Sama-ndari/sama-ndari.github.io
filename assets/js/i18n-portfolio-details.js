@@ -403,4 +403,6 @@
     tasky_li4:
       '<strong>URL du projet</strong> : <a href="https://addons.mozilla.org/en-US/firefox/addon/samandari-tasky/" target="_blank" rel="noopener noreferrer">addons.mozilla.org/en-US/firefox/addon/samandari-tasky/</a>'
   });
+
+  if (typeof applyI18nHead === "function") applyI18nHead();
 })();

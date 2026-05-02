@@ -252,6 +252,62 @@ const I18N = {
     footer_aria_huggingface: "Hugging Face",
     footer_aria_github: "GitHub",
 
+    nav_primary_aria: "Primary navigation",
+    nav_secondary_aria: "Secondary navigation",
+    impact_year_nav_aria: "Contribution years",
+    nav_back_to_top_aria: "Back to top",
+    repo_star_btn: "Star",
+    repo_filter_value_all: "All",
+    repo_filter_type_ai: "AI",
+    repo_filter_type_mobile: "Mobile",
+    repo_filter_type_web: "Web",
+    code_lang_python: "Python",
+    code_lang_dart: "Dart",
+    code_lang_typescript: "TypeScript",
+    repo_sort_updated: "Updated",
+    repo_sort_name: "Name",
+
+    img_alt_site_logo: "Samandari — home",
+    img_alt_achievement_esama: "E-Sama app logo",
+    img_alt_achievement_yim: "YIMBurundi logo",
+    img_alt_org_kirundi: "Ijwi ry'Ikirundi AI",
+    img_alt_testimonial_1: "Testimonial — Vazkez",
+    img_alt_testimonial_2: "Testimonial — Lioba",
+    img_alt_testimonial_3: "Testimonial — Bruni",
+    img_alt_testimonial_4: "Testimonial — Fernet",
+    img_alt_testimonial_5: "Testimonial — Bazagod",
+    img_alt_portfolio_slide: "Project screenshot",
+
+    sentinel_page_title: "Samandari | SentinelAI SOC Assistant",
+    interview_page_title: "Samandari | AI Interview Simulator",
+    tasky_page_title: "Samandari | Tasky",
+    aiclone_page_title: "Samandari | Personal AI Clone",
+    burundi_lang_page_title: "Samandari | Burundi Language Identifier",
+    kirundi_det_page_title: "Samandari | Kirundi AI Ecosystem",
+    kirundi_cs_page_title: "Samandari | Kirundi AI — Case Study",
+    kirundi_arch_page_title: "Samandari | Kirundi AI — Architecture",
+    kirundi_fel_page_title: "Samandari | Ijwi ry'Ikirundi AI — Fellowship",
+    esama_cs_page_title: "Samandari | E-Sama — Case Study",
+    velora_cs_page_title: "Samandari | Velora — Case Study",
+    thinking_essay_offline_page_title: "Samandari | Why Africa Needs Offline-First AI",
+    thinking_essay_agentic_page_title: "Samandari | Agentic Systems in Low-Infrastructure Environments",
+    thinking_essay_llm_page_title: "Samandari | LLMs Are Infrastructure, Not Just APIs",
+
+    sentinel_meta_desc: "AI SOC assistant: FastAPI, OpenAI alert triage, MITRE ATT&CK mapping.",
+    interview_meta_desc: "Streamlit demo: adaptive AI-driven technical interview practice.",
+    tasky_meta_desc: "Browser extension for lightweight task management (Chrome & Firefox).",
+    aiclone_meta_desc: "Personal RAG assistant with Gradio, OpenAI tool calling, and project context.",
+    burundi_lang_meta_desc: "Live Hugging Face Space: classify Kirundi, French, and Swahili text.",
+    kirundi_det_meta_desc: "Open-source Kirundi speech dataset, tooling, and contribution platform.",
+    kirundi_cs_meta_desc: "Case study: zero-cost data infrastructure for a low-resource language.",
+    kirundi_arch_meta_desc: "Architecture: ETL, Hugging Face Hub, and serverless contribution flows.",
+    kirundi_fel_meta_desc: "Fellowship narrative: building linguistic inclusion infrastructure for Kirundi.",
+    esama_cs_meta_desc: "Case study: Flutter POS and boutique management for local retailers.",
+    velora_cs_meta_desc: "Case study: offline-first productivity and wellness app with subscriptions.",
+    thinking_essay_offline_meta_desc: "Essay: why offline-first AI matters across African markets.",
+    thinking_essay_agentic_meta_desc: "Essay: deploying agentic AI when bandwidth and uptime are constrained.",
+    thinking_essay_llm_meta_desc: "Essay: treating LLMs as production infrastructure, not only APIs.",
+
     hero_langs_typed_items: "Ikirundi|Français|English|Kiswahili",
 
     gh_logo_home: "Home",
@@ -682,6 +738,62 @@ const I18N = {
     footer_aria_huggingface: "Hugging Face",
     footer_aria_github: "GitHub",
 
+    nav_primary_aria: "Navigation principale",
+    nav_secondary_aria: "Navigation secondaire",
+    impact_year_nav_aria: "Ann\u00e9es de contributions",
+    nav_back_to_top_aria: "Retour en haut",
+    repo_star_btn: "\u00c9toile",
+    repo_filter_value_all: "Tous",
+    repo_filter_type_ai: "IA",
+    repo_filter_type_mobile: "Mobile",
+    repo_filter_type_web: "Web",
+    code_lang_python: "Python",
+    code_lang_dart: "Dart",
+    code_lang_typescript: "TypeScript",
+    repo_sort_updated: "Mis \u00e0 jour",
+    repo_sort_name: "Nom",
+
+    img_alt_site_logo: "Samandari — accueil",
+    img_alt_achievement_esama: "Logo de l'app E-Sama",
+    img_alt_achievement_yim: "Logo YIMBurundi",
+    img_alt_org_kirundi: "Ijwi ry'Ikirundi AI",
+    img_alt_testimonial_1: "T\u00e9moignage — Vazkez",
+    img_alt_testimonial_2: "T\u00e9moignage — Lioba",
+    img_alt_testimonial_3: "T\u00e9moignage — Bruni",
+    img_alt_testimonial_4: "T\u00e9moignage — Fernet",
+    img_alt_testimonial_5: "T\u00e9moignage — Bazagod",
+    img_alt_portfolio_slide: "Capture du projet",
+
+    sentinel_page_title: "Samandari | Assistant SOC SentinelAI",
+    interview_page_title: "Samandari | Simulateur d'entretien IA",
+    tasky_page_title: "Samandari | Tasky",
+    aiclone_page_title: "Samandari | Clone IA personnel",
+    burundi_lang_page_title: "Samandari | Identifiant de langues du Burundi",
+    kirundi_det_page_title: "Samandari | \u00c9cosyst\u00e8me IA Kirundi",
+    kirundi_cs_page_title: "Samandari | Kirundi IA — \u00c9tude de cas",
+    kirundi_arch_page_title: "Samandari | Kirundi IA — Architecture",
+    kirundi_fel_page_title: "Samandari | Ijwi ry'Ikirundi AI — Fellowship",
+    esama_cs_page_title: "Samandari | E-Sama — \u00c9tude de cas",
+    velora_cs_page_title: "Samandari | Velora — \u00c9tude de cas",
+    thinking_essay_offline_page_title: "Samandari | Pourquoi l'Afrique a besoin d'une IA offline-first",
+    thinking_essay_agentic_page_title: "Samandari | Syst\u00e8mes agentiques en environnements \u00e0 faible infrastructure",
+    thinking_essay_llm_page_title: "Samandari | Les LLM sont une infrastructure, pas seulement des API",
+
+    sentinel_meta_desc: "Assistant SOC IA : FastAPI, tri d'alertes OpenAI, cartographie MITRE ATT&CK.",
+    interview_meta_desc: "D\u00e9mo Streamlit : entretien technique adaptatif pilot\u00e9 par l'IA.",
+    tasky_meta_desc: "Extension navigateur pour la gestion l\u00e9g\u00e8re des t\u00e2ches (Chrome et Firefox).",
+    aiclone_meta_desc: "Assistant RAG personnel avec Gradio, appel d'outils OpenAI et contexte projets.",
+    burundi_lang_meta_desc: "Space Hugging Face : classification de texte kirundi, fran\u00e7ais et swahili.",
+    kirundi_det_meta_desc: "Dataset vocal kirundi open source, outillage et plateforme de contribution.",
+    kirundi_cs_meta_desc: "\u00c9tude de cas : infrastructure de donn\u00e9es \u00e0 co\u00fbt z\u00e9ro pour une langue peu dot\u00e9e.",
+    kirundi_arch_meta_desc: "Architecture : ETL, Hugging Face Hub et flux de contribution serverless.",
+    kirundi_fel_meta_desc: "R\u00e9cit de fellowship : infrastructure d'inclusion linguistique pour le kirundi.",
+    esama_cs_meta_desc: "\u00c9tude de cas : POS Flutter et gestion de boutique pour commerces locaux.",
+    velora_cs_meta_desc: "\u00c9tude de cas : app productivit\u00e9 et bien-\u00eatre offline-first avec abonnements.",
+    thinking_essay_offline_meta_desc: "Essai : pourquoi l'IA offline-first compte pour les march\u00e9s africains.",
+    thinking_essay_agentic_meta_desc: "Essai : d\u00e9ployer l'IA agentique quand bande passante et disponibilit\u00e9 sont limit\u00e9es.",
+    thinking_essay_llm_meta_desc: "Essai : traiter les LLM comme une infrastructure de prod, pas seulement des API.",
+
     hero_langs_typed_items: "Ikirundi|Fran\u00e7ais|English|Kiswahili",
 
     gh_logo_home: "Accueil",
@@ -887,7 +999,33 @@ function t(key) {
   return I18N[lang]?.[key] || I18N.en[key] || key;
 }
 
+function applyI18nHead() {
+  if (typeof document === "undefined") return;
+  var lang = getLang();
+  var doc = document.documentElement;
+  doc.setAttribute("lang", lang === "fr" ? "fr" : "en");
+
+  document.querySelectorAll("meta[data-i18n-content]").forEach(function (el) {
+    var metaKey = el.getAttribute("data-i18n-content");
+    if (!metaKey) return;
+    el.setAttribute("content", t(metaKey));
+  });
+
+  var docTitleKey = doc.getAttribute("data-page-title");
+  if (docTitleKey) document.title = t(docTitleKey);
+
+  document.querySelectorAll('meta[property="og:locale"]').forEach(function (el) {
+    el.setAttribute("content", lang === "fr" ? "fr_FR" : "en_US");
+  });
+}
+
+try {
+  if (typeof window !== "undefined") window.applyI18nHead = applyI18nHead;
+} catch (_e) {}
+
 function applyI18n() {
+  applyI18nHead();
+
   document.querySelectorAll("[data-i18n]").forEach(function (el) {
     var key = el.getAttribute("data-i18n");
     var val = t(key);
@@ -919,16 +1057,12 @@ function applyI18n() {
     el.setAttribute("aria-label", val);
   });
 
-  document.documentElement.lang = getLang();
-
-  document.querySelectorAll("meta[data-i18n-content]").forEach(function (el) {
-    var metaKey = el.getAttribute("data-i18n-content");
-    if (!metaKey) return;
-    el.setAttribute("content", t(metaKey));
+  document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+    var key = el.getAttribute("data-i18n-alt");
+    var val = t(key);
+    if (!val) return;
+    el.setAttribute("alt", val);
   });
-
-  var docTitleKey = document.documentElement.getAttribute("data-page-title");
-  if (docTitleKey) document.title = t(docTitleKey);
 
   var yr = new Date().getFullYear();
   document.querySelectorAll(".it_experience").forEach(function (el) {

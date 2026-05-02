@@ -245,6 +245,7 @@
       setLang(next);
       btn.textContent = next.toUpperCase();
       applyI18n();
+      refreshProjectsRepoI18n();
       if (typeof refreshImpactContributionLocale === "function") {
         refreshImpactContributionLocale();
       }
@@ -310,6 +311,38 @@
           status.textContent = t("contact_error");
         });
     });
+  }
+
+  function languageLabelKey(canonical) {
+    if (canonical === "Python") return "code_lang_python";
+    if (canonical === "Dart") return "code_lang_dart";
+    if (canonical === "TypeScript") return "code_lang_typescript";
+    return null;
+  }
+
+  function displayLanguageLabel(canonical) {
+    const k = languageLabelKey(canonical);
+    return k ? t(k) : canonical;
+  }
+
+  function filterTypeDisplay(v) {
+    if (v === "All") return t("repo_filter_value_all");
+    if (v === "AI") return t("repo_filter_type_ai");
+    if (v === "Mobile") return t("repo_filter_type_mobile");
+    if (v === "Web") return t("repo_filter_type_web");
+    return v;
+  }
+
+  function filterLanguageDisplay(v) {
+    if (v === "All") return t("repo_filter_value_all");
+    const k = languageLabelKey(v);
+    return k ? t(k) : v;
+  }
+
+  function filterSortDisplay(v) {
+    if (v === "Updated") return t("repo_sort_updated");
+    if (v === "Name") return t("repo_sort_name");
+    return v;
   }
 
   function getProjectMetaConfig() {
@@ -396,17 +429,51 @@
     });
   }
 
+  function clearRepoDecorationNodes(body) {
+    body.querySelector(".gh-repo-head")?.remove();
+    body.querySelector(".gh-repo-tags")?.remove();
+    body.querySelector(".gh-repo-meta")?.remove();
+    body.querySelector(".gh-repo-links")?.remove();
+  }
+
+  function wireRepoCardClick(card, primaryLink) {
+    if (!card || card.dataset.ghRepoClickBound === "1") return;
+    card.dataset.ghRepoClickBound = "1";
+    card.style.cursor = "pointer";
+    card.addEventListener("click", e => {
+      if (e.target.closest("a, button")) return;
+      window.open(primaryLink.href, primaryLink.target || "_self");
+    });
+  }
+
+  function buildRepoStarRow() {
+    const starRow = document.createElement("div");
+    starRow.className = "gh-star-row";
+    const starBtn = document.createElement("button");
+    starBtn.type = "button";
+    starBtn.className = "gh-star-btn";
+    const svgStar =
+      '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path></svg>';
+    starBtn.innerHTML = svgStar;
+    const starLbl = document.createElement("span");
+    starLbl.textContent = t("repo_star_btn");
+    starBtn.appendChild(starLbl);
+    const caretBtn = document.createElement("button");
+    caretBtn.type = "button";
+    caretBtn.className = "gh-star-caret";
+    caretBtn.innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg>';
+    starRow.append(starBtn, caretBtn);
+    return starRow;
+  }
+
   function renderRepoDecorations(item, meta) {
     const body = item.querySelector(".project-card__body");
     const titleEl = item.querySelector(".project-card__title");
     const catEl = item.querySelector(".project-card__category");
     if (!body || !titleEl || !catEl) return;
 
-    body.querySelector(".gh-repo-head")?.remove();
-    body.querySelector(".gh-repo-tags")?.remove();
-    body.querySelector(".gh-repo-meta")?.remove();
-    body.querySelector(".gh-repo-links")?.remove();
-
+    clearRepoDecorationNodes(body);
     catEl.style.display = "none";
 
     const head = document.createElement("div");
@@ -431,24 +498,17 @@
     const desc = body.querySelector(".project-card__desc");
     if (desc) desc.insertAdjacentElement("afterend", tagsWrap);
 
+    const langLabel = displayLanguageLabel(meta.language);
     const metaRow = document.createElement("div");
     metaRow.className = "gh-repo-meta";
-    metaRow.innerHTML = `<span class="gh-lang-dot" data-lang="${meta.language}"></span><span>${meta.language}</span>`;
+    metaRow.innerHTML = `<span class="gh-lang-dot" data-lang="${meta.language}"></span><span></span>`;
+    metaRow.lastElementChild.textContent = langLabel;
     tagsWrap.insertAdjacentElement("afterend", metaRow);
 
     const actionsEl = body.querySelector(".project-card__actions");
     if (actionsEl) {
       const primaryLink = actionsEl.querySelector("a[href]");
-      if (primaryLink) {
-        const card = item.querySelector(".project-card");
-        if (card) {
-          card.style.cursor = "pointer";
-          card.addEventListener("click", e => {
-            if (e.target.closest("a, button")) return;
-            window.open(primaryLink.href, primaryLink.target || "_self");
-          });
-        }
-      }
+      if (primaryLink) wireRepoCardClick(item.querySelector(".project-card"), primaryLink);
 
       const linksWrap = document.createElement("div");
       linksWrap.className = "gh-repo-links";
@@ -456,23 +516,10 @@
       metaRow.insertAdjacentElement("afterend", linksWrap);
 
       actionsEl.innerHTML = "";
-      const starRow = document.createElement("div");
-      starRow.className = "gh-star-row";
-      const starBtn = document.createElement("button");
-      starBtn.type = "button";
-      starBtn.className = "gh-star-btn";
-      starBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path></svg> Star`;
-      const caretBtn = document.createElement("button");
-      caretBtn.type = "button";
-      caretBtn.className = "gh-star-caret";
-      caretBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg>`;
-      starRow.append(starBtn, caretBtn);
-
       const graphSvg = document.createElement("span");
       graphSvg.className = "gh-repo-graph";
       graphSvg.innerHTML = `<svg width="155" height="28" viewBox="0 0 155 28"><path d="${buildGraphPath()}" fill="none" stroke="#2ea043" stroke-width="1.5" opacity="0.5"/></svg>`;
-
-      actionsEl.append(starRow, graphSvg);
+      actionsEl.append(buildRepoStarRow(), graphSvg);
     }
 
     item.dataset.repoLanguage = meta.language;
@@ -490,9 +537,9 @@
   }
 
   function syncRepoFilterButtonLabels(state, typeBtn, languageBtn, sortBtn) {
-    typeBtn.textContent = `${t("repo_filter_type")}: ${state.type}`;
-    languageBtn.textContent = `${t("repo_filter_language")}: ${state.language}`;
-    sortBtn.textContent = `${t("repo_filter_sort")}: ${state.sort}`;
+    typeBtn.textContent = `${t("repo_filter_type")}: ${filterTypeDisplay(state.type)}`;
+    languageBtn.textContent = `${t("repo_filter_language")}: ${filterLanguageDisplay(state.language)}`;
+    sortBtn.textContent = `${t("repo_filter_sort")}: ${filterSortDisplay(state.sort)}`;
   }
 
   function applyRepoFiltersAndSort(container, state) {
@@ -561,7 +608,24 @@
     });
 
     syncRepoFilterButtonLabels(state, typeBtn, languageBtn, sortBtn);
+    container._samaRepoFilters = { state, typeBtn, languageBtn, sortBtn };
     runFilters();
+  }
+
+  function refreshProjectsRepoI18n() {
+    const container = document.querySelector(
+      "html[data-page-title='page_title_projects'] #projects .portfolio-container"
+    );
+    if (!container || !container._samaRepoFilters) return;
+    const { state, typeBtn, languageBtn, sortBtn } = container._samaRepoFilters;
+    const config = getProjectMetaConfig();
+    syncRepoFilterButtonLabels(state, typeBtn, languageBtn, sortBtn);
+    container.querySelectorAll(".portfolio-item").forEach(item => {
+      const key = item.querySelector(".project-card__title")?.getAttribute("data-i18n");
+      if (!key || !config[key]) return;
+      renderRepoDecorations(item, config[key]);
+    });
+    applyRepoFiltersAndSort(container, state);
   }
 
   function initGhServicesMoreHint() {

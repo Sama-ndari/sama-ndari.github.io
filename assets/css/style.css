@@ -2597,6 +2597,17 @@ section {
   border-radius: var(--radius-sm);
 }
 
+@media (max-width: 991.98px) {
+  .gh-search {
+    display: none;
+  }
+
+  /* Keep logo + title left; language + menu grouped on the right (not centered). */
+  .gh-topbar-actions {
+    margin-left: auto;
+  }
+}
+
 .gh-topbar-actions {
   display: flex;
   align-items: center;

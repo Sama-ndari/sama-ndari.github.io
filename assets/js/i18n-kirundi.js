@@ -254,4 +254,6 @@
     kirundi_det_impact_p:
       "Cette initiative pr\u00e9serve le kirundi pour l'\u00e8re de l'IA : TAL, traduction automatique, reconnaissance vocale. En construisant un jeu de donn\u00e9es solide et une communaut\u00e9 de contributeurs, nous \u00e9vitons que des langues \u00e0 faibles ressources comme le kirundi restent en marge de la r\u00e9volution de l'IA."
   });
+
+  if (typeof applyI18nHead === "function") applyI18nHead();
 })();

@@ -11,13 +11,18 @@
   <meta property="og:title" content="" data-i18n-content="page_title_overview">
   <meta property="og:description" content="" data-i18n-content="meta_desc_overview">
   <meta property="og:image" content="https://www.samandari.dev/assets/img/og-preview.webp">
+  <meta property="og:site_name" content="Samandari">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="" data-i18n-content="page_title_overview">
   <meta name="twitter:description" content="" data-i18n-content="meta_desc_overview">
+  <meta name="twitter:image" content="https://www.samandari.dev/assets/img/og-preview.webp">
   <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
   <link rel="preload" href="assets/vendor/typed.js/typed.umd.js" as="script">
@@ -31,6 +36,15 @@
   <link href="assets/css/impact-github.css" rel="stylesheet">
   <link href="assets/css/featured.css" rel="stylesheet">
   <link rel="canonical" href="https://www.samandari.dev/">
+  <link rel="alternate" hreflang="en" href="https://www.samandari.dev/">
+  <link rel="alternate" hreflang="fr" href="https://www.samandari.dev/">
+  <link rel="alternate" hreflang="x-default" href="https://www.samandari.dev/">
+  <link rel="manifest" href="manifest.json">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Jules Cesar Junior Ndayisenga","url":"https://www.samandari.dev/","image":"https://www.samandari.dev/assets/img/profile-img.webp","jobTitle":"AI Engineer","sameAs":["https://github.com/Sama-ndari","https://www.linkedin.com/in/jules-cesar-junior-ndayisenga-8b79592a8","https://huggingface.co/samandari"]}
+  </script>
+  <script src="assets/js/i18n.js"></script>
+  <script>applyI18nHead();</script>
 </head>
 
 <body>
@@ -38,17 +52,17 @@
 
   <header class="gh-topbar">
     <div class="gh-topbar-inner">
-      <a href="index.html" class="gh-logo" data-i18n-title="gh_logo_home" title="Home"><img src="assets/img/icon.png" alt="" width="32" height="32" loading="eager"></a>
+      <a href="index.html" class="gh-logo" data-i18n-title="gh_logo_home"><img src="assets/img/icon.png" alt="" data-i18n-alt="img_alt_site_logo" width="32" height="32" loading="eager"></a>
       <div class="gh-breadcrumb"><span class="gh-crumb-user">Sama-ndari</span></div>
       <input type="search" class="gh-search" data-i18n-placeholder="gh_search_placeholder" placeholder="Type / to search" readonly tabindex="-1" aria-hidden="true">
       <div class="gh-topbar-actions">
         <button class="lang-toggle" id="langToggle" type="button" data-i18n-title="lang_toggle_title">EN</button>
       </div>
-      <i class="bi bi-list mobile-nav-toggle d-lg-none" role="button" tabindex="0" aria-label="Open navigation menu" data-i18n-aria-label="nav_mobile_menu_aria"></i>
+      <i class="bi bi-list mobile-nav-toggle d-lg-none" role="button" tabindex="0" data-i18n-aria-label="nav_mobile_menu_aria"></i>
     </div>
   </header>
 
-  <nav class="gh-tabs" id="navbar" aria-label="Primary">
+  <nav class="gh-tabs" id="navbar" data-i18n-aria-label="nav_primary_aria">
     <div class="gh-tabs-inner">
       <a href="index.html" class="gh-tab is-active">
         <i class="bi bi-book gh-tab-icon" aria-hidden="true"></i>
@@ -97,14 +111,14 @@
                 <div class="gh-achievement-list">
                   <a href="https://apps.samandari.dev/" class="gh-achievement-app" target="_blank" rel="noopener noreferrer" data-i18n-title="gh_achievement_sama_apps" title="SamaApps">
                     <div class="gh-achievement-icon-wrap">
-                      <img class="gh-achievement-badge" src="https://apps.samandari.dev/assets/img/logo.webp" alt="" loading="lazy" width="56" height="56">
+                      <img class="gh-achievement-badge" src="https://apps.samandari.dev/assets/img/logo.webp" alt="" data-i18n-alt="img_alt_achievement_esama" loading="lazy" width="56" height="56">
                       <span class="gh-achievement-count" data-i18n="gh_sama_apps_users">x<span class="sama-apps-user-badge">30</span>+</span>
             </div>
                     <span class="gh-achievement-label" data-i18n="gh_achievement_sama_apps">SamaApps</span>
                   </a>
                   <a href="https://yimburundi.com" class="gh-achievement-app" target="_blank" rel="noopener noreferrer" data-i18n-title="gh_achievement_yim" title="YIMBurundi">
                     <div class="gh-achievement-icon-wrap">
-                      <img class="gh-achievement-badge" src="assets/img/portfolio/web/yim/yim-icon.png" alt="" loading="lazy" width="56" height="56">
+                      <img class="gh-achievement-badge" src="assets/img/portfolio/web/yim/yim-icon.png" alt="" data-i18n-alt="img_alt_achievement_yim" loading="lazy" width="56" height="56">
             </div>
                     <span class="gh-achievement-label" data-i18n="gh_achievement_yim">YIMBurundi</span>
                   </a>
@@ -113,7 +127,7 @@
               <div class="gh-sidebar-section">
                 <h3 data-i18n="gh_orgs_title">Organizations</h3>
                 <a href="https://github.com/Ijwi-ry-Ikirundi-AI" target="_blank" rel="noopener noreferrer" class="gh-org-item">
-                  <img src="https://raw.githubusercontent.com/Sama-ndari/kirundi-contribution-app/main/static/icon.png" alt="" class="gh-org-icon" loading="lazy" width="32" height="32">
+                  <img src="https://raw.githubusercontent.com/Sama-ndari/kirundi-contribution-app/main/static/icon.png" alt="" data-i18n-alt="img_alt_org_kirundi" class="gh-org-icon" loading="lazy" width="32" height="32">
                   <span data-i18n="gh_org_ijwi">Ijwi ry'Ikirundi AI</span>
                 </a>
                 <a href="https://www.asyst-ict.com" target="_blank" rel="noopener noreferrer" class="gh-org-item">
@@ -174,7 +188,7 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="testimonial-item">
-                        <img src="assets/img/testimonials/vazkez.jpg" class="testimonial-img" alt="" loading="lazy" width="80" height="80">
+                        <img src="assets/img/testimonials/vazkez.jpg" class="testimonial-img" alt="" data-i18n-alt="img_alt_testimonial_1" loading="lazy" width="80" height="80">
                 <h3>Arsene IRUMVA</h3>
                         <h4 data-i18n="testimonial_role_1">Software Engineer</h4>
                         <p><i class="bi bi-quote quote-icon-left"></i><span data-i18n="testimonial_1"></span><i class="bi bi-quote quote-icon-right"></i></p>
@@ -182,7 +196,7 @@
             </div>
             <div class="swiper-slide">
               <div class="testimonial-item">
-                        <img src="assets/img/testimonials/lioba.jpg" class="testimonial-img" alt="" loading="lazy" width="80" height="80">
+                        <img src="assets/img/testimonials/lioba.jpg" class="testimonial-img" alt="" data-i18n-alt="img_alt_testimonial_2" loading="lazy" width="80" height="80">
                 <h3>Lioba</h3>
                         <h4 data-i18n="testimonial_role_2">Software Engineer</h4>
                         <p><i class="bi bi-quote quote-icon-left"></i><span data-i18n="testimonial_2"></span><i class="bi bi-quote quote-icon-right"></i></p>
@@ -190,7 +204,7 @@
             </div>
             <div class="swiper-slide">
               <div class="testimonial-item">
-                        <img src="assets/img/testimonials/bruni.jpg" class="testimonial-img" alt="" loading="lazy" width="80" height="80">
+                        <img src="assets/img/testimonials/bruni.jpg" class="testimonial-img" alt="" data-i18n-alt="img_alt_testimonial_3" loading="lazy" width="80" height="80">
                 <h3>Brunel Neree</h3>
                         <h4 data-i18n="testimonial_role_3">Graphic Designer</h4>
                         <p><i class="bi bi-quote quote-icon-left"></i><span data-i18n="testimonial_3"></span><i class="bi bi-quote quote-icon-right"></i></p>
@@ -198,7 +212,7 @@
             </div>
             <div class="swiper-slide">
               <div class="testimonial-item">
-                        <img src="assets/img/testimonials/fernet.jpg" class="testimonial-img" alt="" loading="lazy" width="80" height="80">
+                        <img src="assets/img/testimonials/fernet.jpg" class="testimonial-img" alt="" data-i18n-alt="img_alt_testimonial_4" loading="lazy" width="80" height="80">
                 <h3>Fernet</h3>
                         <h4 data-i18n="testimonial_role_4">Mobile Developer</h4>
                         <p><i class="bi bi-quote quote-icon-left"></i><span data-i18n="testimonial_4"></span><i class="bi bi-quote quote-icon-right"></i></p>
@@ -206,7 +220,7 @@
             </div>
             <div class="swiper-slide">
               <div class="testimonial-item">
-                        <img src="assets/img/testimonials/Bazagod.jpg" class="testimonial-img" alt="" loading="lazy" width="80" height="80">
+                        <img src="assets/img/testimonials/Bazagod.jpg" class="testimonial-img" alt="" data-i18n-alt="img_alt_testimonial_5" loading="lazy" width="80" height="80">
                 <h3>Bazagod</h3>
                         <h4 data-i18n="testimonial_role_5">Web Developer</h4>
                         <p><i class="bi bi-quote quote-icon-left"></i><span data-i18n="testimonial_5"></span><i class="bi bi-quote quote-icon-right"></i></p>
@@ -274,7 +288,7 @@
                         <span class="text-secondary small" data-i18n="impact_more">More</span>
               </div>
               </div>
-                    <nav class="impact-year-nav" id="impactYearNav" aria-label="Contribution years"></nav>
+                    <nav class="impact-year-nav" id="impactYearNav"></nav>
               </div>
                   <div class="impact-activity-block mt-4">
                     <h3 class="impact-activity-title mb-2" data-i18n="impact_activity_heading">Contribution activity</h3>
@@ -295,12 +309,12 @@
       <h3 data-i18n="footer_name">Jules Cesar Junior Ndayisenga</h3>
       <p data-i18n="footer_quote">"The best way to predict the future…"</p>
       <div class="social-links">
-        <a href="https://x.com/La_casse_?s=20" aria-label="Twitter" data-i18n-aria-label="footer_aria_twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
-        <a href="https://www.instagram.com/La_casse_?igsh=MWFic2todzA4aGZteg==" aria-label="Instagram" data-i18n-aria-label="footer_aria_instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
-        <a href="https://wa.me/+25777568903" aria-label="WhatsApp" data-i18n-aria-label="footer_aria_whatsapp" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a>
-        <a href="https://www.linkedin.com/in/jules-cesar-junior-ndayisenga-8b79592a8" aria-label="LinkedIn" data-i18n-aria-label="footer_aria_linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
-        <a href="https://huggingface.co/samandari" aria-label="Hugging Face" data-i18n-aria-label="footer_aria_huggingface" target="_blank" rel="noopener noreferrer"><i class="bi bi-robot"></i></a>
-        <a href="https://github.com/Sama-ndari" aria-label="GitHub" data-i18n-aria-label="footer_aria_github" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="https://x.com/La_casse_?s=20" data-i18n-aria-label="footer_aria_twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/La_casse_?igsh=MWFic2todzA4aGZteg==" data-i18n-aria-label="footer_aria_instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="https://wa.me/+25777568903" data-i18n-aria-label="footer_aria_whatsapp" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/jules-cesar-junior-ndayisenga-8b79592a8" data-i18n-aria-label="footer_aria_linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        <a href="https://huggingface.co/samandari" data-i18n-aria-label="footer_aria_huggingface" target="_blank" rel="noopener noreferrer"><i class="bi bi-robot"></i></a>
+        <a href="https://github.com/Sama-ndari" data-i18n-aria-label="footer_aria_github" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
       </div>
       <div class="copyright">&copy;<strong><span id="current_year"></span></strong></div>
       <div class="credits" data-i18n="footer_designed">Designed by Samandari</div>
@@ -308,20 +322,15 @@
   </footer>
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" data-i18n-aria-label="nav_back_to_top_aria"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <script defer src="assets/vendor/typed.js/typed.umd.js"></script>
   <script defer src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script defer src="assets/vendor/aos/aos.js"></script>
   <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script defer src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script defer src="assets/js/i18n.js"></script>
   <script defer src="assets/js/impact.js"></script>
   <script defer src="assets/js/main.js"></script>
-  <script>
-    window.xcbot = window.xcbot || {};
-    window.xcbot.config = { chatbotId: 'GGwFTvFrqI21YMNrObDGQ' };
-    (function(){ var s = document.createElement('script'); s.src = "https://app.chatagents.io/widget.js"; document.body.append(s); })();
-  </script>
+  <script defer src="assets/js/chat-widget.js"></script>
 </body>
 </html>

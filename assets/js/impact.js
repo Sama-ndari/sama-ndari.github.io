@@ -268,6 +268,9 @@
         nav.appendChild(btn);
       })(y);
     }
+    if (typeof t === "function") {
+      nav.setAttribute("aria-label", t("impact_year_nav_aria"));
+    }
   }
 
   function updateActivityMonthLabel() {
@@ -287,6 +290,9 @@
     var root = document.getElementById("impact-section");
     var nav = document.getElementById("impactYearNav");
     if (!root || !nav) return;
+    if (typeof t === "function") {
+      nav.setAttribute("aria-label", t("impact_year_nav_aria"));
+    }
     var active = nav.querySelector(".impact-year-btn.is-active");
     if (!active) return;
     loadHeatmapYear(root, Number(active.dataset.year), nav);
