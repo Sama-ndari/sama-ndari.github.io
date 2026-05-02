@@ -1,399 +1,652 @@
-/**
-* Template Name: MyResume
-* Updated: Jan 09 2024 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-(function() {
+(function () {
   "use strict";
 
-  /**
-   * Easy selector helper function
-   */
   const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
-    }
-  }
+    el = el.trim();
+    return all ? [...document.querySelectorAll(el)] : document.querySelector(el);
+  };
 
-  /**
-   * Easy event listener function
-   */
   const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
-      }
+    const s = select(el, all);
+    if (s) {
+      if (all) s.forEach(e => e.addEventListener(type, listener));
+      else s.addEventListener(type, listener);
     }
-  }
+  };
 
-  /**
-   * Easy on scroll event listener 
-   */
-  const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
+  const onscroll = (el, listener) => el.addEventListener("scroll", listener);
 
-  /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select('#navbar .scrollto', true)
+  // Navbar active state (in-page anchors only)
+  let navbarlinks = select("#navbar .scrollto[href^='#']", true);
   const navbarlinksActive = () => {
-    let position = window.scrollY + 200
+    let position = window.scrollY + 200;
     navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
+      if (!navbarlink.hash) return;
+      let section = select(navbarlink.hash);
+      if (!section) return;
+      if (position >= section.offsetTop && position <= section.offsetTop + section.offsetHeight) {
+        navbarlink.classList.add("active");
       } else {
-        navbarlink.classList.remove('active')
+        navbarlink.classList.remove("active");
       }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
+    });
+  };
+  window.addEventListener("load", () => {
+    if (navbarlinks.length) navbarlinksActive();
+  });
+  if (navbarlinks.length) onscroll(document, navbarlinksActive);
 
-  /**
-   * Scrolls to an element with header offset
-   */
   const scrollto = (el) => {
-    let elementPos = select(el).offsetTop
-    window.scrollTo({
-      top: elementPos,
-      behavior: 'smooth'
-    })
-  }
+    let elementPos = select(el).offsetTop;
+    window.scrollTo({ top: elementPos, behavior: "smooth" });
+  };
 
-  /**
-   * Back to top button
-   */
-  let backtotop = select('.back-to-top');
+  // Back to top
+  let backtotop = select(".back-to-top");
   if (backtotop) {
-    let scrollTimeout;
-
-    const showButton = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add('active');
-      } else {
-        backtotop.classList.remove('active');
-      }
+    const toggle = () => {
+      backtotop.classList.toggle("active", window.scrollY > 100);
     };
-
-    const handleScroll = () => {
-      showButton();
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        // On mobile, keep the button visible if at the top of the page
-        if (window.innerWidth <= 768 && window.scrollY <= 100) {
-          backtotop.classList.add('active');
-        } else {
-          backtotop.classList.remove('active');
-        }
-      }, 1500); // Hide after 1.5 seconds of inactivity
-    };
-
-    const toggleIcon = () => {
-      if (window.innerWidth <= 768) {
-        if (window.scrollY > 100) {
-          backtotop.href = '#hero';
-          backtotop.querySelector('i').classList.remove('bi-arrow-down-circle');
-          backtotop.querySelector('i').classList.add('bi-arrow-up-short');
-        } else {
-          backtotop.href = '#about';
-          backtotop.querySelector('i').classList.remove('bi-arrow-up-short');
-          backtotop.querySelector('i').classList.add('bi-arrow-down-circle');
-        }
-      }
-    };
-
-    window.addEventListener('load', () => {
-      handleScroll();
-      toggleIcon();
-    });
-    onscroll(document, () => {
-      handleScroll();
-      toggleIcon();
-    });
-    window.addEventListener('resize', toggleIcon);
+    window.addEventListener("load", toggle);
+    onscroll(document, toggle);
   }
 
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
+  // Mobile nav
+  on("click", ".mobile-nav-toggle", function (e) {
+    select("body").classList.toggle("mobile-nav-active");
+    this.classList.toggle("bi-list");
+    this.classList.toggle("bi-x");
+  });
 
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '.scrollto', function(e) {
-    if (select(this.hash)) {
-      e.preventDefault()
-
-      let body = select('body')
-      if (body.classList.contains('mobile-nav-active')) {
-        body.classList.remove('mobile-nav-active')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+  // Scrollto links
+  on("click", ".scrollto", function (e) {
+    if (!this.hash || this.hash.length < 2 || !select(this.hash)) return;
+      e.preventDefault();
+    let body = select("body");
+    if (body.classList.contains("mobile-nav-active")) {
+      body.classList.remove("mobile-nav-active");
+      let toggle = select(".mobile-nav-toggle");
+      toggle.classList.toggle("bi-list");
+      toggle.classList.toggle("bi-x");
       }
-      scrollto(this.hash)
-    }
-  }, true)
+      scrollto(this.hash);
+  }, true);
 
-  /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
+  // Hash on load
+  window.addEventListener("load", () => {
+    if (window.location.hash && select(window.location.hash)) {
+      scrollto(window.location.hash);
     }
   });
 
-  /**
-   * Preloader
-   */
-  let preloader = select('#preloader');
+  // After the first full load in this tab, skip the preloader on later navigations (MPA).
+  window.addEventListener(
+    "load",
+    () => {
+      try {
+        sessionStorage.setItem("sama_booted", "1");
+      } catch (_e) {
+        /* private mode or quota */
+      }
+    },
+    { once: true }
+  );
+
+  function shouldSkipPreloader() {
+    try {
+      const nav = performance.getEntriesByType("navigation")[0];
+      if (nav && nav.type === "reload") return false;
+      return sessionStorage.getItem("sama_booted") === "1";
+    } catch (_e) {
+      return false;
+    }
+  }
+
+  // Preloader with safety timeout
+  let preloader = select("#preloader");
   if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove()
-    });
+    const remove = () => {
+      if (preloader.parentNode) preloader.remove();
+    };
+    if (shouldSkipPreloader()) {
+      remove();
+    } else {
+      if (!preloader.querySelector(".loader")) {
+        const loader = document.createElement("span");
+        loader.className = "loader";
+        loader.setAttribute("aria-hidden", "true");
+        preloader.appendChild(loader);
+      }
+      // Hide when the full page load finishes; if that never fires, force-remove after 4s max.
+      window.addEventListener("load", remove);
+      setTimeout(remove, 4000);
+    }
   }
 
-  /**
-   * Hero type effect
-   */
-  const typed = select('.typed')
-  if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items')
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
+  // Typed.js hero: deferred to DOMContentLoaded via the init block below
+  function reinitHeroRoleTyped() {
+    if (typeof Typed === "undefined" || typeof t !== "function") return;
+    const el = select(".hero-role-typed");
+    if (!el) return;
+    const prev = el._typed;
+    if (prev && typeof prev.destroy === "function") prev.destroy();
+    const raw = t("hero_role_typed_items");
+    const strings = raw.split("|").map((s) => s.trim()).filter(Boolean);
+    if (!strings.length) return;
+    el._typed = new Typed(".hero-role-typed", {
+      strings,
       loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
+      typeSpeed: 75,
+      backSpeed: 40,
+      backDelay: 2200,
+      smartBackspace: true
     });
   }
 
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
+  // GLightbox
+  if (typeof GLightbox !== "undefined") {
+    GLightbox({ selector: ".portfolio-lightbox" });
+    GLightbox({ selector: ".portfolio-details-lightbox", width: "90%", height: "90vh" });
   }
 
-  /**
-   * Projects section - Isotope masonry layout with show-more
-   */
-  window.addEventListener('load', () => {
-    let projectsContainer = select('#projects .portfolio-container');
-    if (projectsContainer) {
-      let projectsIsotope = new Isotope(projectsContainer, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'masonry',
-        masonry: {
-          columnWidth: '.portfolio-sizer',
-          gutter: 0
-        },
-        percentPosition: true,
-        transitionDuration: '0.6s',
-        filter: function(itemElem) {
-          return !itemElem.classList.contains('hidden-item');
-        }
-      });
+  // Swiper testimonials
+  if (typeof Swiper !== "undefined" && select(".testimonials-slider")) {
+    new Swiper(".testimonials-slider", {
+      speed: 600,
+      loop: true,
+      autoplay: { delay: 5000, disableOnInteraction: false },
+      slidesPerView: "auto",
+      pagination: { el: ".swiper-pagination", type: "bullets", clickable: true }
+    });
+  }
 
-      let projectFilters = select('#projects #portfolio-flters li', true);
+  function initPortfolioDetailSwipers() {
+    if (typeof Swiper === "undefined") return;
+    document.querySelectorAll(".portfolio-details-slider.swiper").forEach(root => {
+      const wrapper = root.querySelector(".swiper-wrapper");
+      const pagination = root.querySelector(".swiper-pagination");
+      const slides = root.querySelectorAll(".swiper-slide");
+      if (!wrapper || !pagination || !slides.length) return;
 
-      on('click', '#projects #portfolio-flters li', function(e) {
-        e.preventDefault();
-        projectFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
+      const multi = slides.length > 1;
+      let navPrev = null;
+      let navNext = null;
+      let scrollbarEl = null;
+
+      if (multi) {
+        scrollbarEl = document.createElement("div");
+        scrollbarEl.className = "swiper-scrollbar portfolio-slider-scrollbar";
+        scrollbarEl.setAttribute("data-i18n-title", "project_slider_scroll_hint");
+        scrollbarEl.title = typeof t === "function" ? t("project_slider_scroll_hint") : "";
+
+        const navRow = document.createElement("div");
+        navRow.className = "portfolio-slider-nav";
+        navPrev = document.createElement("button");
+        navPrev.type = "button";
+        navPrev.className = "swiper-button-prev portfolio-slider-btn";
+        navPrev.setAttribute("aria-label", typeof t === "function" ? t("project_slider_prev") : "Previous");
+        navPrev.innerHTML = '<i class="bi bi-chevron-left" aria-hidden="true"></i>';
+        navNext = document.createElement("button");
+        navNext.type = "button";
+        navNext.className = "swiper-button-next portfolio-slider-btn";
+        navNext.setAttribute("aria-label", typeof t === "function" ? t("project_slider_next") : "Next");
+        navNext.innerHTML = '<i class="bi bi-chevron-right" aria-hidden="true"></i>';
+        navRow.append(navPrev, pagination, navNext);
+        root.insertBefore(scrollbarEl, wrapper);
+        root.insertBefore(navRow, scrollbarEl);
+      }
+
+      const config = {
+        speed: 500,
+        loop: multi,
+        slidesPerView: 1,
+        autoHeight: true,
+        grabCursor: multi,
+        pagination: { el: pagination, clickable: true }
+      };
+      if (multi && navPrev && navNext && scrollbarEl) {
+        config.navigation = { prevEl: navPrev, nextEl: navNext };
+        config.scrollbar = { el: scrollbarEl, draggable: true };
+      }
+      new Swiper(root, config);
+    });
+  }
+
+  initPortfolioDetailSwipers();
+
+  // AOS: init on DOM ready so scroll animations work before window "load" (images/fonts).
+  // Overview felt slow because init waited for full load; other pages benefited less visibly.
+  function initAOS() {
+    if (typeof AOS === "undefined") return;
+    AOS.init({ duration: 400, easing: "ease-out", once: true, mirror: false });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAOS);
+  } else {
+    initAOS();
+  }
+  window.addEventListener("load", () => {
+    if (typeof AOS !== "undefined") AOS.refresh();
+  });
+
+  // PureCounter
+  if (typeof PureCounter !== "undefined") {
+    new PureCounter();
+  }
+
+  // Language toggle
+  function initLangToggle() {
+    const btn = document.getElementById("langToggle");
+    if (!btn) return;
+    btn.textContent = getLang().toUpperCase();
+
+    btn.addEventListener("click", () => {
+      const next = getLang() === "en" ? "fr" : "en";
+      setLang(next);
+      btn.textContent = next.toUpperCase();
+      applyI18n();
+      if (typeof refreshImpactContributionLocale === "function") {
+        refreshImpactContributionLocale();
+      }
+      reinitHeroRoleTyped();
+      // Re-init typed with new language
+      const typedEl = select(".typed");
+      if (typedEl && typeof Typed !== "undefined") {
+        const instance = typedEl._typed;
+        if (instance) instance.destroy();
+        let items = t("hero_typed_items").split(",").map(s => s.trim());
+        const newTyped = new Typed(".typed", {
+          strings: items,
+          loop: true,
+          typeSpeed: 80,
+          backSpeed: 40,
+          backDelay: 2000
         });
-        this.classList.add('filter-active');
+        typedEl._typed = newTyped;
+      }
+    });
+  }
 
-        let filterValue = this.getAttribute('data-filter');
-
-        if (filterValue === '*') {
-          projectsIsotope.arrange({ filter: function(itemElem) {
-            if (itemElem.classList.contains('hidden-item') && !itemElem.classList.contains('show-item')) {
-              return false;
-            }
-            return true;
-          }});
-        } else {
-          projectsIsotope.arrange({ filter: function(itemElem) {
-            let matchesFilter = itemElem.classList.contains(filterValue.replace('.', ''));
-            if (itemElem.classList.contains('hidden-item') && !itemElem.classList.contains('show-item')) {
-              return false;
-            }
-            return matchesFilter;
-          }});
-        }
-
-        projectsIsotope.on('arrangeComplete', function() {
-          AOS.refresh();
-        });
-      }, true);
-
-      let btnShowMore = select('#btnShowMore');
-      if (btnShowMore) {
-        let expanded = false;
-        btnShowMore.addEventListener('click', function() {
-          expanded = !expanded;
-          let hiddenItems = select('#projects .hidden-item', true);
-
-          hiddenItems.forEach(function(item) {
-            if (expanded) {
-              item.classList.add('show-item');
-            } else {
-              item.classList.remove('show-item');
-            }
-          });
-
-          this.classList.toggle('expanded', expanded);
-          this.querySelector('span').textContent = expanded ? 'Show Less' : 'View All Projects';
-
-          let activeFilter = select('#projects #portfolio-flters li.filter-active');
-          let filterValue = activeFilter ? activeFilter.getAttribute('data-filter') : '*';
-
-          if (filterValue === '*') {
-            projectsIsotope.arrange({ filter: function(itemElem) {
-              if (itemElem.classList.contains('hidden-item') && !itemElem.classList.contains('show-item')) {
-                return false;
-              }
-              return true;
-            }});
+  // Contact form
+  function initContactForm() {
+    var form = document.getElementById("contactForm");
+    if (!form) return;
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var status = document.getElementById("form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: { Accept: "application/json" }
+      })
+        .then(response => {
+          if (response.ok) {
+            status.innerHTML = t("contact_success");
+            form.reset();
           } else {
-            projectsIsotope.arrange({ filter: function(itemElem) {
-              let matchesFilter = itemElem.classList.contains(filterValue.replace('.', ''));
-              if (itemElem.classList.contains('hidden-item') && !itemElem.classList.contains('show-item')) {
-                return false;
+            response.json().then(data => {
+              if (Object.hasOwn(data, "errors")) {
+                status.innerHTML = data.errors.map(e => e.message).join(", ");
+              } else {
+                status.innerHTML = t("contact_error");
               }
-              return matchesFilter;
-            }});
+            });
           }
+        })
+        .catch(() => {
+          status.innerHTML = t("contact_error");
+        });
+    });
+  }
 
-          AOS.refresh();
+  function getProjectMetaConfig() {
+    return {
+      proj_kirundi_title: { language: "Python", type: "AI", status: "repo_status_flagship", tags: ["tag_data_eng", "tag_open_source"], order: 1 },
+      proj_velora_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_dart", "tag_productivity", "tag_mobile", "tag_flutter"], order: 2 },
+      proj_esama_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_flutter", "tag_saas", "tag_paying_users"], order: 3 },
+      proj_fabwash_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_flutter", "tag_b2b", "tag_deployed"], order: 4 },
+      proj_notifspy_title: { language: "Dart", type: "Mobile", status: "repo_status_dev", tags: ["tag_mobile", "tag_flutter", "tag_utility"], order: 5 },
+      proj_contrib_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_ai", "tag_data_eng"], order: 6 },
+      proj_langid_title: { language: "Python", type: "AI", status: "repo_status_deployed", tags: ["tag_nlp", "tag_classification"], order: 7 },
+      proj_tasky_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_browser_ext"], order: 8 },
+      proj_interview_title: { language: "Python", type: "AI", status: "repo_status_deployed", tags: ["tag_ai", "tag_chatbot", "tag_hr_tech"], order: 9 },
+      proj_devswarm_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_multi_agent"], order: 10 },
+      proj_rag_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_enterprise_ai"], order: 11 },
+      proj_sdr_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_autonomous_agent"], order: 12 },
+      proj_sentinel_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_cybersecurity"], order: 13 },
+      proj_aiclone_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_ai", "tag_rag"], order: 14 },
+      proj_llmsem_title: { language: "Python", type: "AI", status: "repo_status_research", tags: ["tag_nlp", "tag_research"], order: 15 }
+    };
+  }
+
+  function getPortfolioProjectCount() {
+    return Object.keys(getProjectMetaConfig()).length;
+  }
+
+  function initNavProjectCountBadge() {
+    const n = getPortfolioProjectCount();
+    document.querySelectorAll('#navbar a.gh-tab[href$="projects.html"]').forEach(tab => {
+      let badge = tab.querySelector(".gh-tab-count");
+      if (!badge) {
+        badge = document.createElement("span");
+        badge.className = "gh-tab-count";
+        badge.setAttribute("aria-hidden", "true");
+        tab.appendChild(badge);
+      }
+      badge.textContent = String(n);
+    });
+  }
+
+  function buildGraphPath() {
+    const pts = [];
+    const steps = 20;
+    const w = 155;
+    const maxH = 28;
+    for (let i = 0; i <= steps; i++) {
+      const x = Math.round((i / steps) * w);
+      const y = Math.round(4 + Math.random() * (maxH - 4));
+      pts.push(`${x},${y}`);
+    }
+    return "M" + pts.join(" L");
+  }
+
+  function fetchLiveUserCounts() {
+    const gists = [
+      { gistId: "0250417d63c891faf03a52909d6010e4", file: "e_sama_admin_sync.json", cls: "esama-user-badge" },
+      { gistId: "b806e5a54d4cf1a24b23ce2bfc4c5116", file: "velora_admin_sync.json", cls: "velora-user-badge" }
+    ];
+    function gistUserCount(src) {
+      return fetch("https://api.github.com/gists/" + src.gistId)
+        .then(r => (r.ok ? r.json() : null))
+        .then(gist => {
+          if (!gist || !gist.files || !gist.files[src.file]) return 0;
+          const data = JSON.parse(gist.files[src.file].content);
+          return Array.isArray(data) ? data.length : 0;
+        })
+        .catch(() => 0);
+    }
+    Promise.all(gists.map(gistUserCount)).then(counts => {
+      let sum = 0;
+      counts.forEach((count, i) => {
+        sum += count;
+        if (count > 0) {
+          document.querySelectorAll("." + gists[i].cls).forEach(el => {
+            el.textContent = String(count);
+          });
+        }
+      });
+      if (sum > 0) {
+        document.querySelectorAll(".sama-apps-user-badge").forEach(el => {
+          el.textContent = String(sum);
         });
       }
-    }
-  });
+    });
+  }
 
-  /**
-   * CV section - basic Isotope (no masonry needed)
-   */
-  window.addEventListener('load', () => {
-    let cvContainer = select('#portfolio .portfolio-container');
-    if (cvContainer) {
-      new Isotope(cvContainer, {
-        itemSelector: '.portfolio-item'
+  function renderRepoDecorations(item, meta) {
+    const body = item.querySelector(".project-card__body");
+    const titleEl = item.querySelector(".project-card__title");
+    const catEl = item.querySelector(".project-card__category");
+    if (!body || !titleEl || !catEl) return;
+
+    body.querySelector(".gh-repo-head")?.remove();
+    body.querySelector(".gh-repo-tags")?.remove();
+    body.querySelector(".gh-repo-meta")?.remove();
+    body.querySelector(".gh-repo-links")?.remove();
+
+    catEl.style.display = "none";
+
+    const head = document.createElement("div");
+    head.className = "gh-repo-head";
+    const badge = document.createElement("span");
+    badge.className = "gh-repo-visibility";
+    badge.setAttribute("data-i18n", meta.status);
+    badge.textContent = t(meta.status);
+    head.append(titleEl, badge);
+    body.insertBefore(head, body.firstChild);
+
+    const tagsWrap = document.createElement("div");
+    tagsWrap.className = "gh-repo-tags";
+    (meta.tags || []).forEach(tagKey => {
+      const chip = document.createElement("span");
+      chip.className = "gh-repo-tag";
+      chip.setAttribute("data-i18n", tagKey);
+      chip.textContent = t(tagKey);
+      tagsWrap.appendChild(chip);
+    });
+
+    const desc = body.querySelector(".project-card__desc");
+    if (desc) desc.insertAdjacentElement("afterend", tagsWrap);
+
+    const metaRow = document.createElement("div");
+    metaRow.className = "gh-repo-meta";
+    metaRow.innerHTML = `<span class="gh-lang-dot" data-lang="${meta.language}"></span><span>${meta.language}</span>`;
+    tagsWrap.insertAdjacentElement("afterend", metaRow);
+
+    const actionsEl = body.querySelector(".project-card__actions");
+    if (actionsEl) {
+      const primaryLink = actionsEl.querySelector("a[href]");
+      if (primaryLink) {
+        const card = item.querySelector(".project-card");
+        if (card) {
+          card.style.cursor = "pointer";
+          card.addEventListener("click", e => {
+            if (e.target.closest("a, button")) return;
+            window.open(primaryLink.href, primaryLink.target || "_self");
+          });
+        }
+      }
+
+      const linksWrap = document.createElement("div");
+      linksWrap.className = "gh-repo-links";
+      Array.from(actionsEl.children).forEach(btn => linksWrap.appendChild(btn.cloneNode(true)));
+      metaRow.insertAdjacentElement("afterend", linksWrap);
+
+      actionsEl.innerHTML = "";
+      const starRow = document.createElement("div");
+      starRow.className = "gh-star-row";
+      const starBtn = document.createElement("button");
+      starBtn.type = "button";
+      starBtn.className = "gh-star-btn";
+      starBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path></svg> Star`;
+      const caretBtn = document.createElement("button");
+      caretBtn.type = "button";
+      caretBtn.className = "gh-star-caret";
+      caretBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg>`;
+      starRow.append(starBtn, caretBtn);
+
+      const graphSvg = document.createElement("span");
+      graphSvg.className = "gh-repo-graph";
+      graphSvg.innerHTML = `<svg width="155" height="28" viewBox="0 0 155 28"><path d="${buildGraphPath()}" fill="none" stroke="#2ea043" stroke-width="1.5" opacity="0.5"/></svg>`;
+
+      actionsEl.append(starRow, graphSvg);
+    }
+
+    item.dataset.repoLanguage = meta.language;
+    item.dataset.repoType = meta.type;
+    item.dataset.repoOrder = String(meta.order);
+    item.dataset.repoText = [
+      titleEl.textContent || "",
+      desc ? desc.textContent || "" : "",
+      (meta.tags || []).map(k => t(k)).join(" ")
+    ].join(" ").toLowerCase();
+  }
+
+  function setupRepoFilters(container) {
+    const searchInput = document.querySelector(".gh-repo-search");
+    const typeDropdown = document.querySelector(".gh-repo-dropdown[data-filter-kind='type']");
+    const languageDropdown = document.querySelector(".gh-repo-dropdown[data-filter-kind='language']");
+    const sortDropdown = document.querySelector(".gh-repo-dropdown[data-filter-kind='sort']");
+    if (!searchInput || !typeDropdown || !languageDropdown || !sortDropdown) return;
+
+    const typeBtn = typeDropdown.querySelector(".gh-repo-filter");
+    const languageBtn = languageDropdown.querySelector(".gh-repo-filter");
+    const sortBtn = sortDropdown.querySelector(".gh-repo-filter");
+    const allDropdowns = [typeDropdown, languageDropdown, sortDropdown];
+
+    const state = { query: "", type: "All", language: "All", sort: "Updated" };
+    const setLabels = () => {
+      typeBtn.textContent = `${t("repo_filter_type")}: ${state.type}`;
+      languageBtn.textContent = `${t("repo_filter_language")}: ${state.language}`;
+      sortBtn.textContent = `${t("repo_filter_sort")}: ${state.sort}`;
+    };
+
+    const applyFilters = () => {
+      const items = [...container.querySelectorAll(".portfolio-item")];
+      items.forEach(item => {
+        const matchesQuery = (item.dataset.repoText || "").includes(state.query);
+        const matchesType = state.type === "All" || item.dataset.repoType === state.type;
+        const matchesLanguage = state.language === "All" || item.dataset.repoLanguage === state.language;
+        item.style.display = matchesQuery && matchesType && matchesLanguage ? "" : "none";
+      });
+
+      const visible = items.filter(item => item.style.display !== "none");
+      visible.sort((a, b) => {
+        if (state.sort === "Name") {
+          const aName = a.querySelector(".project-card__title")?.textContent || "";
+          const bName = b.querySelector(".project-card__title")?.textContent || "";
+          return aName.localeCompare(bName);
+        }
+        return Number(a.dataset.repoOrder || "999") - Number(b.dataset.repoOrder || "999");
+      });
+      visible.forEach(item => container.appendChild(item));
+    };
+
+    searchInput.addEventListener("input", e => {
+      state.query = e.target.value.trim().toLowerCase();
+      applyFilters();
+    });
+
+    allDropdowns.forEach(dropdown => {
+      const trigger = dropdown.querySelector(".gh-repo-filter");
+      const menuButtons = dropdown.querySelectorAll(".gh-repo-menu button");
+      trigger.addEventListener("click", () => {
+        allDropdowns.forEach(d => d.classList.remove("is-open"));
+        dropdown.classList.toggle("is-open");
+      });
+      menuButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const value = btn.getAttribute("data-value") || "All";
+          const kind = dropdown.getAttribute("data-filter-kind");
+          if (kind === "type") state.type = value;
+          if (kind === "language") state.language = value;
+          if (kind === "sort") state.sort = value;
+          dropdown.classList.remove("is-open");
+          setLabels();
+          applyFilters();
+        });
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".gh-repo-dropdown")) {
+        allDropdowns.forEach(d => d.classList.remove("is-open"));
+      }
+    });
+
+    setLabels();
+    applyFilters();
+  }
+
+  function initGhServicesMoreHint() {
+    const wrap = document.querySelector(".gh-svc-more-wrap");
+    const thinking = document.getElementById("thinking");
+    if (!wrap || !thinking) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        const seen = entries.some((e) => e.isIntersecting);
+        wrap.classList.toggle("gh-svc-more-wrap--concealed", seen);
+      },
+      { threshold: 0.06, rootMargin: "0px 0px -32px 0px" }
+    );
+    io.observe(thinking);
+  }
+
+  function initProjectsRepositoryUI() {
+    const container = document.querySelector("html[data-page-title='page_title_projects'] #projects .portfolio-container");
+    if (!container) return;
+    const config = getProjectMetaConfig();
+    const items = Array.from(container.querySelectorAll(".portfolio-item"));
+    items.forEach(item => {
+      const key = item.querySelector(".project-card__title")?.getAttribute("data-i18n");
+      if (!key || !config[key]) return;
+      renderRepoDecorations(item, config[key]);
+    });
+    items.sort((a, b) => Number(a.dataset.repoOrder || "999") - Number(b.dataset.repoOrder || "999"));
+    items.forEach(item => container.appendChild(item));
+    setupRepoFilters(container);
+  }
+
+  // Init on DOMContentLoaded
+  document.addEventListener("DOMContentLoaded", function () {
+    applyI18n();
+    initNavProjectCountBadge();
+    initLangToggle();
+    initContactForm();
+    initGhServicesMoreHint();
+    initProjectsRepositoryUI();
+    fetchLiveUserCounts();
+
+    const impactRoot = document.getElementById("impact-section");
+    if (impactRoot) {
+      impactRoot.dataset.projectCount = String(getPortfolioProjectCount());
+    }
+    if (typeof initOverviewImpact === "function") {
+      initOverviewImpact();
+    }
+
+    // Typed.js hero (legacy `.typed` blocks)
+    const heroTyped = select(".typed");
+    if (heroTyped && typeof Typed !== "undefined") {
+      let items = t("hero_typed_items").split(",").map(s => s.trim());
+      var heroTypedInstance = new Typed(".typed", {
+        strings: items,
+        loop: true,
+        typeSpeed: 80,
+        backSpeed: 40,
+        backDelay: 2000
+      });
+      heroTyped._typed = heroTypedInstance;
+    }
+
+    reinitHeroRoleTyped();
+
+    // Languages typed in About section
+    const langTyped = select(".lang-typed");
+    if (langTyped && typeof Typed !== "undefined") {
+      new Typed(".lang-typed", {
+        strings: ["Ikirundi", "Français", "English", "Kiswahili"],
+        typeSpeed: 70,
+        backSpeed: 35,
+        backDelay: 1800,
+        loop: true
+      });
+    }
+
+    // Asyst tech typed
+    const asystTyped = select(".asyst-tech");
+    if (asystTyped && typeof Typed !== "undefined") {
+      new Typed(".asyst-tech", {
+        strings: ["Python", "NestJS", "FastAPI", "Vector Databases", "OpenAI", "Swagger"],
+        typeSpeed: 80,
+        backSpeed: 40,
+        backDelay: 2000,
+        loop: true
       });
     }
   });
+})();
 
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+// Dynamic year and experience
+const currentYear = new Date().getFullYear();
+const yearEl = document.getElementById("current_year");
+if (yearEl) yearEl.innerText = currentYear;
 
-  /**
-   * Initiate portfolio details lightbox 
-   */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
+document.querySelectorAll(".it_experience").forEach(el => {
+  el.innerText = currentYear - 2022;
+});
 
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Animation on scroll
-   */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
-  });
-
-  /**
-   * Initiate Pure Counter 
-   */
-  new PureCounter();
-
-})()
-
-let a = new Date().getFullYear();
-document.getElementById("current_year").innerText = a;
-document.getElementById("myAge").innerText = a - 2002; //my age
-var elements = document.querySelectorAll('.it_experience');
-    elements.forEach(function(element){
-        element.innerText = a - 2022;
-    }); //my it experience
-var elements = document.querySelectorAll('.currentYear');
-    elements.forEach(function(element){
-        element.innerText = a;
-    });
-
+document.querySelectorAll(".currentYear").forEach(el => {
+  el.innerText = currentYear;
+});
