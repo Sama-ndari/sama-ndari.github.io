@@ -343,7 +343,7 @@ const I18N = {
     contact_maps_title: "Google Maps: Bujumbura, Burundi",
 
     footer_name: "Jules Cesar Junior Ndayisenga",
-    gh_avatar_tag: "AI",
+    gh_avatar_flag_aria: "Burundi flag",
     gh_achievements_title: "Achievements",
     gh_achievement_sama_apps: "SamaApps",
     gh_sama_apps_users: "x<span class='sama-apps-user-badge'>30</span>+",
@@ -829,7 +829,7 @@ const I18N = {
     contact_maps_title: "Google Maps: Bujumbura, Burundi",
 
     footer_name: "Jules Cesar Junior Ndayisenga",
-    gh_avatar_tag: "IA",
+    gh_avatar_flag_aria: "Drapeau du Burundi",
     gh_achievements_title: "R\u00e9compenses",
     gh_achievement_sama_apps: "SamaApps",
     gh_sama_apps_users: "x<span class='sama-apps-user-badge'>30</span>+",

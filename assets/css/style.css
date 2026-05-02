@@ -2764,6 +2764,14 @@ section {
   box-shadow: 0 0 0 3px rgba(13, 17, 23, 0.95);
 }
 
+.gh-avatar-tag--flag {
+  font-size: 2.35rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  overflow: hidden;
+}
+
 .gh-sidebar-name {
   font-size: 1.5rem;
   font-weight: 700;
