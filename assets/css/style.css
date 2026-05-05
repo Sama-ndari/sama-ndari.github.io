@@ -2728,6 +2728,10 @@ section {
 .gh-avatar-wrap {
   position: relative;
   display: inline-block;
+  margin-bottom: 16px;
+  width: fit-content;
+  max-width: 280px;
+  overflow: visible;
 }
 
 .gh-avatar {
@@ -2738,19 +2742,22 @@ section {
   border-radius: 999px;
   border: 3px solid #30363d;
   box-shadow: 0 0 0 6px rgba(13, 17, 23, 0.85);
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .gh-avatar-tag {
+  --gh-avatar-tag-size: clamp(38px, 11vmin, 46px);
   position: absolute;
-  right: 6px;
-  bottom: 14px;
   z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: var(--gh-avatar-tag-size);
+  height: var(--gh-avatar-tag-size);
+  /* Chevauche fortement le bord bas-droite du portrait (réf. badge sur le trait du cercle) */
+  right: clamp(-10px, -2.2vw, -3px);
+  bottom: clamp(32px, 12.75%, 52px);
+  transform: translate(30%, -10%);
   padding: 0;
   border-radius: 50%;
   box-sizing: border-box;
@@ -2765,11 +2772,15 @@ section {
 }
 
 .gh-avatar-tag--flag {
-  font-size: 2.35rem;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1;
+  padding: 0;
   overflow: hidden;
+}
+
+.gh-avatar-tag__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .gh-sidebar-name {

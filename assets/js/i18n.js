@@ -222,19 +222,6 @@ const I18N = {
 
     skip_to_content: "Skip to content",
 
-    page_title_overview: "Samandari | AI Engineer & Founder",
-    page_title_projects: "Samandari | Projects",
-    page_title_resume: "Samandari | Resume",
-    page_title_services: "Samandari | Services",
-    page_title_contact: "Samandari | Contact",
-
-    meta_desc_overview:
-      "AI Engineer building production systems and open-source AI infrastructure. Founder of Ijwi ry'Ikirundi AI.",
-    meta_desc_projects: "Selected projects: AI, mobile, and web — filters, case studies, and links.",
-    meta_desc_resume: "Professional experience, education, and training — Jules Cesar Junior Ndayisenga.",
-    meta_desc_services: "Services and skills — agentic AI, RAG, backend architecture, and delivery.",
-    meta_desc_contact: "Get in touch — collaborations on agentic AI, RAG systems, and backend architecture.",
-
     gh_sidebar_display_name: "Samandari",
     gh_sidebar_username: "Sama-ndari",
     gh_btn_github: "GitHub",
@@ -278,36 +265,6 @@ const I18N = {
     img_alt_testimonial_5: "Testimonial — Bazagod",
     img_alt_portfolio_slide: "Project screenshot",
 
-    sentinel_page_title: "Samandari | SentinelAI SOC Assistant",
-    interview_page_title: "Samandari | AI Interview Simulator",
-    tasky_page_title: "Samandari | Tasky",
-    aiclone_page_title: "Samandari | Personal AI Clone",
-    burundi_lang_page_title: "Samandari | Burundi Language Identifier",
-    kirundi_det_page_title: "Samandari | Kirundi AI Ecosystem",
-    kirundi_cs_page_title: "Samandari | Kirundi AI — Case Study",
-    kirundi_arch_page_title: "Samandari | Kirundi AI — Architecture",
-    kirundi_fel_page_title: "Samandari | Ijwi ry'Ikirundi AI — Fellowship",
-    esama_cs_page_title: "Samandari | E-Sama — Case Study",
-    velora_cs_page_title: "Samandari | Velora — Case Study",
-    thinking_essay_offline_page_title: "Samandari | Why Africa Needs Offline-First AI",
-    thinking_essay_agentic_page_title: "Samandari | Agentic Systems in Low-Infrastructure Environments",
-    thinking_essay_llm_page_title: "Samandari | LLMs Are Infrastructure, Not Just APIs",
-
-    sentinel_meta_desc: "AI SOC assistant: FastAPI, OpenAI alert triage, MITRE ATT&CK mapping.",
-    interview_meta_desc: "Streamlit demo: adaptive AI-driven technical interview practice.",
-    tasky_meta_desc: "Browser extension for lightweight task management (Chrome & Firefox).",
-    aiclone_meta_desc: "Personal RAG assistant with Gradio, OpenAI tool calling, and project context.",
-    burundi_lang_meta_desc: "Live Hugging Face Space: classify Kirundi, French, and Swahili text.",
-    kirundi_det_meta_desc: "Open-source Kirundi speech dataset, tooling, and contribution platform.",
-    kirundi_cs_meta_desc: "Case study: zero-cost data infrastructure for a low-resource language.",
-    kirundi_arch_meta_desc: "Architecture: ETL, Hugging Face Hub, and serverless contribution flows.",
-    kirundi_fel_meta_desc: "Fellowship narrative: building linguistic inclusion infrastructure for Kirundi.",
-    esama_cs_meta_desc: "Case study: Flutter POS and boutique management for local retailers.",
-    velora_cs_meta_desc: "Case study: offline-first productivity and wellness app with subscriptions.",
-    thinking_essay_offline_meta_desc: "Essay: why offline-first AI matters across African markets.",
-    thinking_essay_agentic_meta_desc: "Essay: deploying agentic AI when bandwidth and uptime are constrained.",
-    thinking_essay_llm_meta_desc: "Essay: treating LLMs as production infrastructure, not only APIs.",
-
     hero_langs_typed_items: "Ikirundi|Français|English|Kiswahili",
 
     gh_logo_home: "Home",
@@ -324,15 +281,16 @@ const I18N = {
     gh_cta_projects: "View Projects",
     gh_cta_resume: "View experience",
 
-    hero_json_l1: '<span class="tok-k">const</span> <span class="tok-n">developer</span> <span class="tok-o">=</span> <span class="tok-o">{</span>',
-    hero_json_l2: '<span class="tok-p">&nbsp;&nbsp;&nbsp;&nbsp;name</span><span class="tok-o">:</span> <span class="tok-s">\'Jules C\u00e9sar Junior NDAYISENGA\'</span><span class="tok-o">,</span>',
-    hero_json_l3: '<span class="tok-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;role</span><span class="tok-o">:</span> <span class="tok-s">\'AI Engineer & Founder\'</span><span class="tok-o">,</span>',
-    hero_json_l4: '<span class="tok-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack</span><span class="tok-o">:</span> <span class="tok-o">[</span><span class="tok-s">\'Python\'</span><span class="tok-o">,</span> <span class="tok-s">\'Node.js\'</span><span class="tok-o">,</span> <span class="tok-s">\'Flutter\'</span><span class="tok-o">],</span>',
-    hero_json_l5: '<span class="tok-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passion</span><span class="tok-o">:</span> <span class="tok-s">\'Building AI for Africa\'</span><span class="tok-o">,</span>',
-    hero_json_l6: '<span class="tok-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;available</span><span class="tok-o">:</span> <span class="tok-b">true</span>',
-    hero_json_l7: '<span class="tok-o">};</span>',
-    hero_json_l9: '<span class="tok-c">// Let\'s build something great together</span>',
-
+    hero_json_id_variable: "developer",
+    hero_json_prop_name: "name",
+    hero_json_prop_role: "role",
+    hero_json_prop_stack: "stack",
+    hero_json_prop_passion: "passion",
+    hero_json_prop_available: "available",
+    hero_json_lit_true: "true",
+    hero_json_role_value: "AI Engineer & Founder",
+    hero_json_passion_value: "Building AI for Africa",
+    hero_json_footer_comment: "// Let's build something great together",
     resume_li_address: "Bujumbura, Burundi",
     resume_li_phone: "+257 77 568 903",
     resume_li_email: "cezaremardini10@gmail.com",
@@ -700,26 +658,10 @@ const I18N = {
     contact_success: "Merci pour votre message !",
     contact_error: "Oups ! Un probl\u00e8me est survenu lors de l'envoi.",
 
-    footer_quote: '"\u00abLa meilleure fa\u00e7on de pr\u00e9dire l\'avenir, c\'est de l\'inventer, un agent \u00e0 la fois.\u00bb"',
+    footer_quote: '"La meilleure fa\u00e7on de pr\u00e9dire l\'avenir, c\'est de l\'inventer, un agent \u00e0 la fois."',
     footer_designed: "Con\u00e7u par Samandari",
 
     skip_to_content: "Aller au contenu",
-
-    page_title_overview: "Samandari | Ing\u00e9nieur IA & Fondateur",
-    page_title_projects: "Samandari | Projets",
-    page_title_resume: "Samandari | Parcours",
-    page_title_services: "Samandari | Services",
-    page_title_contact: "Samandari | Contact",
-
-    meta_desc_overview:
-      "Ing\u00e9nieur IA construisant des syst\u00e8mes de production et des infrastructures IA open-source. Fondateur de Ijwi ry'Ikirundi AI.",
-    meta_desc_projects:
-      "Projets s\u00e9lectionn\u00e9s : IA, mobile et web — filtres, \u00e9tudes de cas et liens.",
-    meta_desc_resume: "Exp\u00e9rience professionnelle, formation et parcours — Jules Cesar Junior Ndayisenga.",
-    meta_desc_services:
-      "Services et comp\u00e9tences \u2014 IA agentique, RAG, architecture backend et livraison.",
-    meta_desc_contact:
-      "Contact \u2014 collaborations sur l'IA agentique, les syst\u00e8mes RAG et l'architecture backend.",
 
     gh_sidebar_display_name: "Samandari",
     gh_sidebar_username: "Sama-ndari",
@@ -764,36 +706,6 @@ const I18N = {
     img_alt_testimonial_5: "T\u00e9moignage — Bazagod",
     img_alt_portfolio_slide: "Capture du projet",
 
-    sentinel_page_title: "Samandari | Assistant SOC SentinelAI",
-    interview_page_title: "Samandari | Simulateur d'entretien IA",
-    tasky_page_title: "Samandari | Tasky",
-    aiclone_page_title: "Samandari | Clone IA personnel",
-    burundi_lang_page_title: "Samandari | Identifiant de langues du Burundi",
-    kirundi_det_page_title: "Samandari | \u00c9cosyst\u00e8me IA Kirundi",
-    kirundi_cs_page_title: "Samandari | Kirundi IA — \u00c9tude de cas",
-    kirundi_arch_page_title: "Samandari | Kirundi IA — Architecture",
-    kirundi_fel_page_title: "Samandari | Ijwi ry'Ikirundi AI — Fellowship",
-    esama_cs_page_title: "Samandari | E-Sama — \u00c9tude de cas",
-    velora_cs_page_title: "Samandari | Velora — \u00c9tude de cas",
-    thinking_essay_offline_page_title: "Samandari | Pourquoi l'Afrique a besoin d'une IA offline-first",
-    thinking_essay_agentic_page_title: "Samandari | Syst\u00e8mes agentiques en environnements \u00e0 faible infrastructure",
-    thinking_essay_llm_page_title: "Samandari | Les LLM sont une infrastructure, pas seulement des API",
-
-    sentinel_meta_desc: "Assistant SOC IA : FastAPI, tri d'alertes OpenAI, cartographie MITRE ATT&CK.",
-    interview_meta_desc: "D\u00e9mo Streamlit : entretien technique adaptatif pilot\u00e9 par l'IA.",
-    tasky_meta_desc: "Extension navigateur pour la gestion l\u00e9g\u00e8re des t\u00e2ches (Chrome et Firefox).",
-    aiclone_meta_desc: "Assistant RAG personnel avec Gradio, appel d'outils OpenAI et contexte projets.",
-    burundi_lang_meta_desc: "Space Hugging Face : classification de texte kirundi, fran\u00e7ais et swahili.",
-    kirundi_det_meta_desc: "Dataset vocal kirundi open source, outillage et plateforme de contribution.",
-    kirundi_cs_meta_desc: "\u00c9tude de cas : infrastructure de donn\u00e9es \u00e0 co\u00fbt z\u00e9ro pour une langue peu dot\u00e9e.",
-    kirundi_arch_meta_desc: "Architecture : ETL, Hugging Face Hub et flux de contribution serverless.",
-    kirundi_fel_meta_desc: "R\u00e9cit de fellowship : infrastructure d'inclusion linguistique pour le kirundi.",
-    esama_cs_meta_desc: "\u00c9tude de cas : POS Flutter et gestion de boutique pour commerces locaux.",
-    velora_cs_meta_desc: "\u00c9tude de cas : app productivit\u00e9 et bien-\u00eatre offline-first avec abonnements.",
-    thinking_essay_offline_meta_desc: "Essai : pourquoi l'IA offline-first compte pour les march\u00e9s africains.",
-    thinking_essay_agentic_meta_desc: "Essai : d\u00e9ployer l'IA agentique quand bande passante et disponibilit\u00e9 sont limit\u00e9es.",
-    thinking_essay_llm_meta_desc: "Essai : traiter les LLM comme une infrastructure de prod, pas seulement des API.",
-
     hero_langs_typed_items: "Ikirundi|Fran\u00e7ais|English|Kiswahili",
 
     gh_logo_home: "Accueil",
@@ -810,15 +722,16 @@ const I18N = {
     gh_cta_projects: "Voir les projets",
     gh_cta_resume: "Voir le parcours",
 
-    hero_json_l1: '<span class="tok-k">const</span> <span class="tok-n">developer</span> <span class="tok-o">=</span> <span class="tok-o">{</span>',
-    hero_json_l2: '<span class="tok-p">&nbsp;&nbsp;&nbsp;&nbsp;name</span><span class="tok-o">:</span> <span class="tok-s">\'Jules C\u00e9sar Junior NDAYISENGA\'</span><span class="tok-o">,</span>',
-    hero_json_l3: '<span class="tok-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;role</span><span class="tok-o">:</span> <span class="tok-s">\'Ing\u00e9nieur IA & Fondateur\'</span><span class="tok-o">,</span>',
-    hero_json_l4: '<span class="tok-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack</span><span class="tok-o">:</span> <span class="tok-o">[</span><span class="tok-s">\'Python\'</span><span class="tok-o">,</span> <span class="tok-s">\'Node.js\'</span><span class="tok-o">,</span> <span class="tok-s">\'Flutter\'</span><span class="tok-o">],</span>',
-    hero_json_l5: '<span class="tok-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passion</span><span class="tok-o">:</span> <span class="tok-s">\'Construire l\u2019IA pour l\u2019Afrique\'</span><span class="tok-o">,</span>',
-    hero_json_l6: '<span class="tok-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;available</span><span class="tok-o">:</span> <span class="tok-b">true</span>',
-    hero_json_l7: '<span class="tok-o">};</span>',
-    hero_json_l9: '<span class="tok-c">// Construisons quelque chose de grand ensemble</span>',
-
+    hero_json_id_variable: "d\u00e9veloppeur",
+    hero_json_prop_name: "nom",
+    hero_json_prop_role: "r\u00f4le",
+    hero_json_prop_stack: "techs",
+    hero_json_prop_passion: "passion",
+    hero_json_prop_available: "disponible",
+    hero_json_lit_true: "vrai",
+    hero_json_role_value: "Ing\u00e9nieur IA & Fondateur",
+    hero_json_passion_value: "Construire l\u2019IA pour l\u2019Afrique",
+    hero_json_footer_comment: "// Construisons quelque chose de grand ensemble",
     resume_li_address: "Bujumbura, Burundi",
     resume_li_phone: "+257 77 568 903",
     resume_li_email: "cezaremardini10@gmail.com",
@@ -1002,21 +915,7 @@ function t(key) {
 function applyI18nHead() {
   if (typeof document === "undefined") return;
   var lang = getLang();
-  var doc = document.documentElement;
-  doc.setAttribute("lang", lang === "fr" ? "fr" : "en");
-
-  document.querySelectorAll("meta[data-i18n-content]").forEach(function (el) {
-    var metaKey = el.getAttribute("data-i18n-content");
-    if (!metaKey) return;
-    el.setAttribute("content", t(metaKey));
-  });
-
-  var docTitleKey = doc.getAttribute("data-page-title");
-  if (docTitleKey) document.title = t(docTitleKey);
-
-  document.querySelectorAll('meta[property="og:locale"]').forEach(function (el) {
-    el.setAttribute("content", lang === "fr" ? "fr_FR" : "en_US");
-  });
+  document.documentElement.setAttribute("lang", lang === "fr" ? "fr" : "en");
 }
 
 try {

@@ -3,9 +3,6 @@
   if (!P) return;
 
   Object.assign(P.en, {
-    kirundi_arch_page_title: "Samandari | Kirundi AI | Pipeline architecture",
-    kirundi_arch_meta_desc:
-      "End-to-end architecture of the Ijwi ry'Ikirundi AI data pipeline from contributions to Hugging Face.",
     kirundi_arch_hero_title: "Ijwi ry'Ikirundi AI | Pipeline architecture",
     kirundi_arch_hero_lead:
       "End-to-end data flow: from community contributions to a production-ready dataset on Hugging Face.",
@@ -35,9 +32,6 @@
     kirundi_arch_principle_4: "<strong>Fully open source</strong>:  every component is public and documented.",
     kirundi_arch_stack_title: "Tech stack",
 
-    kirundi_cs_page_title: "Samandari | Kirundi AI | Case study",
-    kirundi_cs_meta_desc:
-      "KPI case study: building AI infrastructure and an open dataset for a low-resource African language.",
     kirundi_cs_hero_title: "Ijwi ry'Ikirundi AI | Case study",
     kirundi_cs_hero_meta: "Nov 2025 - Present | Founder & Technical Lead",
     kirundi_cs_problem_title: "The problem",
@@ -69,9 +63,6 @@
     kirundi_cs_matters_p:
       "This is not a side project. It's <strong>digital sovereignty infrastructure</strong>. Every sentence in this dataset moves Kirundi closer to having working speech recognition, machine translation, and AI assistants. The architecture is designed to be replicated for other low-resource African languages. The entire stack is open-source and documented.",
 
-    kirundi_fel_page_title: "Samandari | Kirundi AI | Fellowship narrative",
-    kirundi_fel_meta_desc:
-      "Fellowship narrative: building open AI infrastructure for Kirundi and low-resource languages.",
     kirundi_fel_hero_title: "Giving Kirundi a voice in the AI era",
     kirundi_fel_hero_meta: "A fellowship narrative by Jules Cesar Junior Ndayisenga",
     kirundi_fel_p1:
@@ -94,9 +85,6 @@
     kirundi_fel_stat_speakers: "Speakers",
     kirundi_fel_stat_cost: "Infra cost",
 
-    kirundi_det_page_title: "Samandari | Kirundi AI ecosystem",
-    kirundi_det_meta_desc:
-      "A complete infrastructure to digitize the Kirundi language for AI applications.",
     kirundi_det_info_h: "Project information",
     kirundi_det_li1: "<strong>Category</strong>: AI / Data engineering",
     kirundi_det_li2: "<strong>Project date</strong>: Nov 2025 - Present",
@@ -126,9 +114,6 @@
   });
 
   Object.assign(P.fr, {
-    kirundi_arch_page_title: "Samandari | IA Kirundi | Architecture du pipeline",
-    kirundi_arch_meta_desc:
-      "Architecture de bout en bout du pipeline de donn\u00e9es Ijwi ry'Ikirundi AI, des contributions \u00e0 Hugging Face.",
     kirundi_arch_hero_title: "Ijwi ry'Ikirundi AI | Architecture du pipeline",
     kirundi_arch_hero_lead:
       "Flux de donn\u00e9es de bout en bout : des contributions communautaires \u00e0 un jeu de donn\u00e9es pr\u00eat pour la production sur Hugging Face.",
@@ -164,9 +149,6 @@
       "<strong>Enti\u00e8rement open source</strong>: chaque composant est public et document\u00e9.",
     kirundi_arch_stack_title: "Stack technique",
 
-    kirundi_cs_page_title: "Samandari | IA Kirundi | \u00c9tude de cas",
-    kirundi_cs_meta_desc:
-      "\u00c9tude de cas : infrastructure IA et jeu de donn\u00e9es ouvert pour une langue africaine \u00e0 faibles ressources.",
     kirundi_cs_hero_title: "Ijwi ry'Ikirundi AI | \u00c9tude de cas",
     kirundi_cs_hero_meta: "Nov. 2025 - Pr\u00e9sent | Fondateur & lead technique",
     kirundi_cs_problem_title: "Le probl\u00e8me",
@@ -199,9 +181,6 @@
     kirundi_cs_matters_p:
       "Ce n'est pas un projet annexe. C'est une <strong>infrastructure de souverainet\u00e9 num\u00e9rique</strong>. Chaque phrase rapproche le kirundi d'une RAP, d'une traduction et d'assistants IA cr\u00e9dibles. L'architecture est pens\u00e9e pour \u00eatre r\u00e9pliqu\u00e9e vers d'autres langues africaines \u00e0 faibles ressources. Toute la stack est open source et document\u00e9e.",
 
-    kirundi_fel_page_title: "Samandari | IA Kirundi | R\u00e9cit de bourse",
-    kirundi_fel_meta_desc:
-      "R\u00e9cit : construire une infrastructure IA ouverte pour le kirundi et les langues \u00e0 faibles ressources.",
     kirundi_fel_hero_title: "Donner une voix au kirundi \u00e0 l'\u00e8re de l'IA",
     kirundi_fel_hero_meta: "R\u00e9cit par Jules Cesar Junior Ndayisenga",
     kirundi_fel_p1:
@@ -224,9 +203,6 @@
     kirundi_fel_stat_speakers: "Locuteurs",
     kirundi_fel_stat_cost: "Co\u00fbt infra",
 
-    kirundi_det_page_title: "Samandari | \u00c9cosyst\u00e8me IA Kirundi",
-    kirundi_det_meta_desc:
-      "Infrastructure compl\u00e8te pour num\u00e9riser le kirundi et alimenter des applications d'IA.",
     kirundi_det_info_h: "Informations projet",
     kirundi_det_li1: "<strong>Cat\u00e9gorie</strong> : IA / Ing\u00e9nierie des donn\u00e9es",
     kirundi_det_li2: "<strong>Date du projet</strong> : nov. 2025 - Pr\u00e9sent",

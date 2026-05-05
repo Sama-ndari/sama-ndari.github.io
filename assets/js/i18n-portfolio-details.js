@@ -3,9 +3,6 @@
   if (!P) return;
 
   Object.assign(P.en, {
-    velora_cs_page_title: "Samandari | Velora | Case study",
-    velora_cs_meta_desc:
-      "Case study: offline-first productivity app with custom licensing and zero server cost.",
     velora_cs_hero_title: "Velora | Case study",
     velora_cs_hero_meta: "2025 - Present | Solo developer & product owner",
     velora_cs_problem_p:
@@ -47,9 +44,6 @@
     velora_cs_matters_p:
       "Velora proves that a solo developer can build, monetize, and manage a paid mobile app with <strong>zero infrastructure cost</strong>. No backend server, no Play Store billing, no third-party payment processor. The entire licensing and admin system runs on a free GitHub Gist. The app generates revenue through direct mobile money payments and device-tied activation codes, a model that works especially well in markets where Google Play billing adoption is low.",
 
-    esama_cs_page_title: "Samandari | E-Sama POS | Case study",
-    esama_cs_meta_desc:
-      "Case study: offline-first POS and business management for Burundian merchants, zero server cost.",
     esama_cs_hero_title: "E-Sama POS | Case study",
     esama_cs_hero_meta: "2024 - Present | Solo developer & product owner",
     esama_cs_problem_p:
@@ -91,9 +85,6 @@
     esama_cs_matters_p:
       "E-Sama is not a prototype. It's a <strong>revenue-generating product with real paying users</strong>. It proves that production software can be built for emerging markets with zero infrastructure cost, using creative engineering to overcome connectivity and hardware constraints. The subscription model (Standard / Business / Premium) validates the business viability, and the multi-language support (English, French, Kiswahili) positions it for expansion across East Africa.",
 
-    burundi_lang_page_title: "Samandari | Burundian language identifier",
-    burundi_lang_meta_desc:
-      "A custom-trained NLP model that classifies text as Kirundi, French, Swahili, or English.",
     burundi_lang_h2: "Burundian language identifier 🇧🇮",
     burundi_lang_intro:
       "A custom-trained NLP model that classifies text as Kirundi, French, Swahili, or English. Built using Hugging Face transformers, fine-tuned on a custom dataset, and deployed with Gradio.",
@@ -104,9 +95,6 @@
     burundi_lang_li4:
       '<strong>Model URL</strong>: <a href="https://huggingface.co/samandari/burundi-lang-id" target="_blank" rel="noopener noreferrer">huggingface.co/samandari/burundi-lang-id</a>',
 
-    sentinel_page_title: "Samandari | SentinelAI SOC assistant",
-    sentinel_meta_desc:
-      "AI-powered SOC assistant for security log analysis, hybrid detection, and incident reporting with MITRE ATT&CK mapping.",
     sentinel_h2: "SentinelAI SOC assistant",
     sentinel_intro_p:
       "An AI-powered Security Operations Center assistant that analyzes security logs, detects anomalies using a hybrid approach (rule-based + LLM reasoning), and generates explainable incident reports with MITRE ATT&CK technique mapping.",
@@ -134,9 +122,6 @@
     sentinel_r2: "<strong>Suspicious IP behavior</strong>: Multi-user targeting, scanner detection",
     sentinel_r3: "<strong>Frequency anomaly</strong>: Request rate spikes, off-hours activity",
 
-    aiclone_page_title: "Samandari | Personal AI clone",
-    aiclone_meta_desc:
-      "A RAG-powered personal AI representative with automated tool-calling and lead capture.",
     aiclone_h2: "Personal AI clone (agentic RAG)",
     aiclone_intro_p:
       "This project goes beyond a simple chatbot. I built a <strong>personal AI clone</strong> designed to represent me professionally 24/7. It integrates retrieval-augmented generation (RAG) with a sophisticated <strong>tool-calling loop</strong>, allowing the AI to not only answer questions but also interact with external services.",
@@ -160,9 +145,6 @@
     aiclone_arch_p:
       "The system follows a <strong>Recon-Reason-Act</strong> cycle. It ingests semi-structured data, reasons about user intent via a system prompt that defines my \"persona,\" and acts by selecting the appropriate internal tool or external API.",
 
-    interview_page_title: "Samandari | AI interview simulator",
-    interview_meta_desc:
-      "Streamlit + OpenAI interview simulator with adaptive questions, streaming, and automated evaluation.",
     interview_h2: "AI interview simulator",
     interview_intro_p:
       "An interactive AI-powered interview chatbot built with Streamlit and OpenAI. This application simulates real interview experiences by generating dynamic, tailored questions based on user profiles, tracking conversations in real-time, and providing automated performance evaluations with structured feedback.",
@@ -190,9 +172,6 @@
     interview_use_p:
       "Perfect for job seekers preparing for interviews, HR teams building screening tools, and recruitment platforms looking to automate initial candidate assessments.",
 
-    tasky_page_title: "Samandari | Tasky",
-    tasky_meta_desc:
-      "Firefox/Chrome extension for tasks and to-do reminders by Samandari.",
     tasky_h2: "Task reminder",
     tasky_intro_p:
       "Task Reminder is a Firefox/Chrome add-on that helps you manage your tasks and to-do list.",
@@ -204,9 +183,6 @@
   });
 
   Object.assign(P.fr, {
-    velora_cs_page_title: "Samandari | Velora | \u00c9tude de cas",
-    velora_cs_meta_desc:
-      "\u00c9tude de cas : application de productivit\u00e9 offline-first avec licences sur mesure et co\u00fbt serveur nul.",
     velora_cs_hero_title: "Velora | \u00c9tude de cas",
     velora_cs_hero_meta: "2025 \u2013 Pr\u00e9sent | D\u00e9veloppeur solo & product owner",
     velora_cs_problem_p:
@@ -248,9 +224,6 @@
     velora_cs_matters_p:
       "Velora montre qu\u2019un solo peut livrer une app payante avec <strong>z\u00e9ro co\u00fbt d\u2019infrastructure</strong> : pas de serveur, pas de billing Play, pas de PSP. Licences et admin sur un Gist gratuit. Revenus via mobile money et codes li\u00e9s \u00e0 l\u2019appareil, pertinent l\u00e0 o\u00f9 le billing Play est peu adopt\u00e9.",
 
-    esama_cs_page_title: "Samandari | E-Sama POS | \u00c9tude de cas",
-    esama_cs_meta_desc:
-      "\u00c9tude de cas : caisse et gestion offline-first pour commer\u00e7ants burundais, sans serveur.",
     esama_cs_hero_title: "E-Sama POS | \u00c9tude de cas",
     esama_cs_hero_meta: "2024 \u2013 Pr\u00e9sent | D\u00e9veloppeur solo & product owner",
     esama_cs_problem_p:
@@ -292,9 +265,6 @@
     esama_cs_matters_p:
       "E-Sama n\u2019est pas un prototype : <strong>produit en production avec utilisateurs payants</strong>. Cela montre qu\u2019on peut livrer pour les march\u00e9s \u00e9mergents sans infrastructure, en contournant connectivit\u00e9 et mat\u00e9riel. L\u2019abonnement Standard / Business / Premium valide le mod\u00e8le ; EN / FR / Kiswahili ouvre l\u2019Afrique de l\u2019Est.",
 
-    burundi_lang_page_title: "Samandari | Identifiant de langue burundais",
-    burundi_lang_meta_desc:
-      "Mod\u00e8le NLP entra\u00een\u00e9 pour classer du texte en kirundi, fran\u00e7ais, swahili ou anglais.",
     burundi_lang_h2: "Identifiant de langue burundais \ud83c\udde7\ud83c\uddee",
     burundi_lang_intro:
       "Un mod\u00e8le NLP entra\u00een\u00e9 sur mesure qui classe le texte en kirundi, fran\u00e7ais, swahili ou anglais. Transformers Hugging Face, fine-tuning sur jeu de donn\u00e9es d\u00e9di\u00e9, d\u00e9ploiement Gradio.",
@@ -305,9 +275,6 @@
     burundi_lang_li4:
       '<strong>URL du mod\u00e8le</strong> : <a href="https://huggingface.co/samandari/burundi-lang-id" target="_blank" rel="noopener noreferrer">huggingface.co/samandari/burundi-lang-id</a>',
 
-    sentinel_page_title: "Samandari | Assistant SOC SentinelAI",
-    sentinel_meta_desc:
-      "Assistant SOC pilot\u00e9 par l\u2019IA : analyse de journaux, d\u00e9tection hybride et rapports d\u2019incident avec MITRE ATT&CK.",
     sentinel_h2: "Assistant SOC SentinelAI",
     sentinel_intro_p:
       "Assistant SOC qui analyse les journaux de s\u00e9curit\u00e9, d\u00e9tecte les anomalies en approche hybride (r\u00e8gles + raisonnement LLM) et produit des rapports d\u2019incident explicables avec cartographie MITRE ATT&CK.",
@@ -335,9 +302,6 @@
     sentinel_r2: "<strong>IP suspecte</strong>: Multi-utilisateurs, scanners",
     sentinel_r3: "<strong>Anomalie de fr\u00e9quence</strong>: pics de requ\u00eates, activit\u00e9 hors heures",
 
-    aiclone_page_title: "Samandari | Clone IA personnel",
-    aiclone_meta_desc:
-      "Repr\u00e9sentant IA personnel avec RAG, appels d\u2019outils et capture de leads.",
     aiclone_h2: "Clone IA personnel (RAG agentique)",
     aiclone_intro_p:
       "Au-del\u00e0 d\u2019un chatbot : un <strong>clone IA</strong> qui me repr\u00e9sente 24/7. RAG combin\u00e9 \u00e0 une <strong>boucle d\u2019appels d\u2019outils</strong> pour r\u00e9pondre et d\u00e9clencher des actions externes.",
@@ -361,9 +325,6 @@
     aiclone_arch_p:
       "Cycle <strong>Recon-Reason-Act</strong> : ingestion semi-structur\u00e9e, intention via prompt « persona », action par outil interne ou API.",
 
-    interview_page_title: "Samandari | Simulateur d\u2019entretien IA",
-    interview_meta_desc:
-      "Simulateur d\u2019entretien Streamlit + OpenAI : questions adaptatives, streaming, \u00e9valuation automatique.",
     interview_h2: "Simulateur d\u2019entretien IA",
     interview_intro_p:
       "Chatbot d\u2019entretien interactif (Streamlit + OpenAI) : questions dynamiques selon le profil, suivi de session en temps r\u00e9el, \u00e9valuation structur\u00e9e avec feedback.",
@@ -391,9 +352,6 @@
     interview_use_p:
       "Candidats en pr\u00e9paration, \u00e9quipes RH pour pr\u00e9-tri, plateformes de recrutement pour automatiser les premiers \u00e9crans.",
 
-    tasky_page_title: "Samandari | Tasky",
-    tasky_meta_desc:
-      "Extension Firefox/Chrome pour t\u00e2ches et rappels to-do.",
     tasky_h2: "Rappel de t\u00e2ches",
     tasky_intro_p:
       "Task Reminder est une extension Firefox/Chrome pour g\u00e9rer t\u00e2ches et to-do.",

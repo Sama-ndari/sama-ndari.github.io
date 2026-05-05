@@ -61,7 +61,7 @@
 }
 
 @media (max-width: 991px) {
-  html[data-page-title="page_title_projects"] #projects {
+  html[data-app-page="projects"] #projects {
     padding-top: 28px;
   }
 }
@@ -422,15 +422,15 @@
 /* --------------------------------------------------------------
 # Projects Page - GitHub Repositories List Override
 -------------------------------------------------------------- */
-html[data-page-title="page_title_projects"] #projects {
+html[data-app-page="projects"] #projects {
   padding-top: 0;
 }
 
-html[data-page-title="page_title_projects"] #projects .section-title {
+html[data-app-page="projects"] #projects .section-title {
   display: none;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-toolbar {
+html[data-app-page="projects"] .gh-repo-toolbar {
   display: grid;
   grid-template-columns: 1fr auto auto auto auto;
   gap: 8px;
@@ -439,7 +439,7 @@ html[data-page-title="page_title_projects"] .gh-repo-toolbar {
   margin: 0 0 8px;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-search {
+html[data-app-page="projects"] .gh-repo-search {
   height: 34px;
   background: #0d1117;
   border: 1px solid #30363d;
@@ -449,8 +449,8 @@ html[data-page-title="page_title_projects"] .gh-repo-search {
   font-size: 13px;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-filter,
-html[data-page-title="page_title_projects"] .gh-repo-new {
+html[data-app-page="projects"] .gh-repo-filter,
+html[data-app-page="projects"] .gh-repo-new {
   height: 34px;
   padding: 0 12px;
   border-radius: 6px;
@@ -465,23 +465,23 @@ html[data-page-title="page_title_projects"] .gh-repo-new {
   justify-content: center;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-dropdown {
+html[data-app-page="projects"] .gh-repo-dropdown {
   position: relative;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-new {
+html[data-app-page="projects"] .gh-repo-new {
   background: #238636;
   border-color: rgba(240, 246, 252, 0.1);
   color: #fff;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-filter::after {
+html[data-app-page="projects"] .gh-repo-filter::after {
   content: " \25BE";
   font-size: 10px;
   margin-left: 5px;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-menu {
+html[data-app-page="projects"] .gh-repo-menu {
   position: absolute;
   top: calc(100% + 6px);
   right: 0;
@@ -495,11 +495,11 @@ html[data-page-title="page_title_projects"] .gh-repo-menu {
   z-index: 30;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-dropdown.is-open .gh-repo-menu {
+html[data-app-page="projects"] .gh-repo-dropdown.is-open .gh-repo-menu {
   display: block;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-menu button {
+html[data-app-page="projects"] .gh-repo-menu button {
   width: 100%;
   text-align: left;
   border: 0;
@@ -510,40 +510,40 @@ html[data-page-title="page_title_projects"] .gh-repo-menu button {
   font-size: 12px;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-menu button:hover {
+html[data-app-page="projects"] .gh-repo-menu button:hover {
   background: #21262d;
 }
 
-html[data-page-title="page_title_projects"] #projects .portfolio-container {
+html[data-app-page="projects"] #projects .portfolio-container {
   margin: 0;
   display: flex;
   flex-direction: column;
 }
 
-html[data-page-title="page_title_projects"] #projects .portfolio-item,
-html[data-page-title="page_title_projects"] #projects .portfolio-item.item-wide {
+html[data-app-page="projects"] #projects .portfolio-item,
+html[data-app-page="projects"] #projects .portfolio-item.item-wide {
   width: 100%;
   padding: 0;
   margin: 0;
 }
 
-html[data-page-title="page_title_projects"] #projects .project-card {
+html[data-app-page="projects"] #projects .project-card {
   border: 0;
   border-top: 1px solid var(--border);
   border-radius: 0;
   background: transparent;
 }
 
-html[data-page-title="page_title_projects"] #projects .project-card:hover {
+html[data-app-page="projects"] #projects .project-card:hover {
   transform: none;
   background: rgba(177, 186, 196, 0.06);
 }
 
-html[data-page-title="page_title_projects"] #projects .project-card:hover .project-card__title {
+html[data-app-page="projects"] #projects .project-card:hover .project-card__title {
   color: #79c0ff;
 }
 
-html[data-page-title="page_title_projects"] #projects .project-card__body {
+html[data-app-page="projects"] #projects .project-card__body {
   padding: 20px 6px;
   display: flex;
   flex-direction: column;
@@ -551,18 +551,18 @@ html[data-page-title="page_title_projects"] #projects .project-card__body {
   position: relative;
 }
 
-html[data-page-title="page_title_projects"] #projects .project-card__category {
+html[data-app-page="projects"] #projects .project-card__category {
   display: none;
 }
 
-html[data-page-title="page_title_projects"] #projects .project-card__title {
+html[data-app-page="projects"] #projects .project-card__title {
   color: #58a6ff;
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.3;
 }
 
-html[data-page-title="page_title_projects"] #projects .project-card__desc {
+html[data-app-page="projects"] #projects .project-card__desc {
   margin: 6px 0 10px;
   color: #8b949e;
   max-width: 640px;
@@ -571,7 +571,7 @@ html[data-page-title="page_title_projects"] #projects .project-card__desc {
   line-height: 1.5;
 }
 
-html[data-page-title="page_title_projects"] #projects .project-card__actions {
+html[data-app-page="projects"] #projects .project-card__actions {
   position: absolute;
   top: 18px;
   right: 6px;
@@ -581,12 +581,12 @@ html[data-page-title="page_title_projects"] #projects .project-card__actions {
   gap: 8px;
 }
 
-html[data-page-title="page_title_projects"] .gh-star-row {
+html[data-app-page="projects"] .gh-star-row {
   display: flex;
   gap: 0;
 }
 
-html[data-page-title="page_title_projects"] #projects .btn-action {
+html[data-app-page="projects"] #projects .btn-action {
   padding: 5px 14px;
   min-height: 30px;
   font-size: 12px;
@@ -598,34 +598,34 @@ html[data-page-title="page_title_projects"] #projects .btn-action {
   color: #c9d1d9;
 }
 
-html[data-page-title="page_title_projects"] #projects .btn-action + .btn-action {
+html[data-app-page="projects"] #projects .btn-action + .btn-action {
   border-radius: 0 6px 6px 0;
   border-left: 0;
 }
 
-html[data-page-title="page_title_projects"] #projects .btn-action:only-child {
+html[data-app-page="projects"] #projects .btn-action:only-child {
   border-radius: 6px;
 }
 
-html[data-page-title="page_title_projects"] #projects .btn-action--primary {
+html[data-app-page="projects"] #projects .btn-action--primary {
   background: #21262d;
   border-color: #30363d;
   color: #c9d1d9;
 }
 
-html[data-page-title="page_title_projects"] #projects .btn-action--primary::before {
+html[data-app-page="projects"] #projects .btn-action--primary::before {
   content: "\2606";
   margin-right: 6px;
 }
 
-html[data-page-title="page_title_projects"] #projects .btn-action--demo,
-html[data-page-title="page_title_projects"] #projects .btn-action--ghost {
+html[data-app-page="projects"] #projects .btn-action--demo,
+html[data-app-page="projects"] #projects .btn-action--ghost {
   background: #21262d;
   border-color: #30363d;
   color: #c9d1d9;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-head {
+html[data-app-page="projects"] .gh-repo-head {
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -633,7 +633,7 @@ html[data-page-title="page_title_projects"] .gh-repo-head {
   margin-bottom: 0;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-visibility {
+html[data-app-page="projects"] .gh-repo-visibility {
   font-size: 11px;
   font-weight: 500;
   color: #8b949e;
@@ -644,44 +644,44 @@ html[data-page-title="page_title_projects"] .gh-repo-visibility {
   vertical-align: middle;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-visibility[data-i18n="repo_status_revenue"] {
+html[data-app-page="projects"] .gh-repo-visibility[data-i18n="repo_status_revenue"] {
   color: #3fb950;
   border-color: rgba(63, 185, 80, 0.4);
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-visibility[data-i18n="repo_status_flagship"] {
+html[data-app-page="projects"] .gh-repo-visibility[data-i18n="repo_status_flagship"] {
   color: #d2a8ff;
   border-color: rgba(210, 168, 255, 0.4);
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-visibility[data-i18n="repo_status_deployed"] {
+html[data-app-page="projects"] .gh-repo-visibility[data-i18n="repo_status_deployed"] {
   color: #58a6ff;
   border-color: rgba(88, 166, 255, 0.4);
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-visibility[data-i18n="repo_status_dev"] {
+html[data-app-page="projects"] .gh-repo-visibility[data-i18n="repo_status_dev"] {
   color: #d29922;
   border-color: rgba(210, 153, 34, 0.4);
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-visibility[data-i18n="repo_status_learning"] {
+html[data-app-page="projects"] .gh-repo-visibility[data-i18n="repo_status_learning"] {
   color: #8b949e;
   border-color: #30363d;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-visibility[data-i18n="repo_status_research"] {
+html[data-app-page="projects"] .gh-repo-visibility[data-i18n="repo_status_research"] {
   color: #f0883e;
   border-color: rgba(240, 136, 62, 0.4);
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-tags {
+html[data-app-page="projects"] .gh-repo-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin: 0 0 8px;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-tag {
+html[data-app-page="projects"] .gh-repo-tag {
   font-size: 11px;
   font-weight: 500;
   color: #58a6ff;
@@ -691,7 +691,7 @@ html[data-page-title="page_title_projects"] .gh-repo-tag {
   border: 0;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-meta {
+html[data-app-page="projects"] .gh-repo-meta {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -700,19 +700,19 @@ html[data-page-title="page_title_projects"] .gh-repo-meta {
   margin-top: 4px;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-status {
+html[data-app-page="projects"] .gh-repo-status {
   color: #8b949e;
   font-size: 12px;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-links {
+html[data-app-page="projects"] .gh-repo-links {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 10px;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-links .btn-action {
+html[data-app-page="projects"] .gh-repo-links .btn-action {
   display: inline-flex !important;
   align-items: center;
   gap: 5px;
@@ -731,29 +731,29 @@ html[data-page-title="page_title_projects"] .gh-repo-links .btn-action {
   transition: background 0.15s, border-color 0.15s;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-links .btn-action:hover {
+html[data-app-page="projects"] .gh-repo-links .btn-action:hover {
   background: rgba(56, 139, 253, 0.1);
   border-color: #58a6ff;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-links .btn-action--primary::before {
+html[data-app-page="projects"] .gh-repo-links .btn-action--primary::before {
   display: none;
 }
 
-html[data-page-title="page_title_projects"] .gh-lang-dot {
+html[data-app-page="projects"] .gh-lang-dot {
   width: 12px;
   height: 12px;
   border-radius: 999px;
   display: inline-block;
 }
 
-html[data-page-title="page_title_projects"] .gh-lang-dot[data-lang="Python"] { background: #3572A5; }
-html[data-page-title="page_title_projects"] .gh-lang-dot[data-lang="Dart"] { background: #00B4AB; }
-html[data-page-title="page_title_projects"] .gh-lang-dot[data-lang="TypeScript"] { background: #3178c6; }
-html[data-page-title="page_title_projects"] .gh-lang-dot[data-lang="JavaScript"] { background: #f1e05a; }
+html[data-app-page="projects"] .gh-lang-dot[data-lang="Python"] { background: #3572A5; }
+html[data-app-page="projects"] .gh-lang-dot[data-lang="Dart"] { background: #00B4AB; }
+html[data-app-page="projects"] .gh-lang-dot[data-lang="TypeScript"] { background: #3178c6; }
+html[data-app-page="projects"] .gh-lang-dot[data-lang="JavaScript"] { background: #f1e05a; }
 
-html[data-page-title="page_title_projects"] .gh-star-btn,
-html[data-page-title="page_title_projects"] .gh-star-caret {
+html[data-app-page="projects"] .gh-star-btn,
+html[data-app-page="projects"] .gh-star-caret {
   height: 28px;
   background: #21262d;
   border: 1px solid #30363d;
@@ -766,68 +766,68 @@ html[data-page-title="page_title_projects"] .gh-star-caret {
   cursor: pointer;
 }
 
-html[data-page-title="page_title_projects"] .gh-star-btn {
+html[data-app-page="projects"] .gh-star-btn {
   padding: 0 12px;
   border-radius: 6px 0 0 6px;
   border-right: 0;
 }
 
-html[data-page-title="page_title_projects"] .gh-star-btn svg {
+html[data-app-page="projects"] .gh-star-btn svg {
   width: 16px;
   height: 16px;
   fill: #8b949e;
 }
 
-html[data-page-title="page_title_projects"] .gh-star-caret {
+html[data-app-page="projects"] .gh-star-caret {
   padding: 0 8px;
   border-radius: 0 6px 6px 0;
 }
 
-html[data-page-title="page_title_projects"] .gh-star-caret svg {
+html[data-app-page="projects"] .gh-star-caret svg {
   width: 16px;
   height: 16px;
   fill: #8b949e;
 }
 
-html[data-page-title="page_title_projects"] .gh-star-btn:hover,
-html[data-page-title="page_title_projects"] .gh-star-caret:hover {
+html[data-app-page="projects"] .gh-star-btn:hover,
+html[data-app-page="projects"] .gh-star-caret:hover {
   background: #30363d;
   border-color: #6e7681;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-graph {
+html[data-app-page="projects"] .gh-repo-graph {
   display: flex;
   align-items: flex-end;
 }
 
-html[data-page-title="page_title_projects"] .gh-repo-graph svg {
+html[data-app-page="projects"] .gh-repo-graph svg {
   width: 155px;
   height: 28px;
 }
 
-html[data-page-title="page_title_projects"] #projects .btn-action {
+html[data-app-page="projects"] #projects .btn-action {
   display: none;
 }
 
 @media (max-width: 991px) {
-  html[data-page-title="page_title_projects"] .gh-repo-toolbar {
+  html[data-app-page="projects"] .gh-repo-toolbar {
     grid-template-columns: 1fr 1fr;
   }
 
-  html[data-page-title="page_title_projects"] .gh-repo-search {
+  html[data-app-page="projects"] .gh-repo-search {
     grid-column: 1 / -1;
   }
 
-  html[data-page-title="page_title_projects"] #projects .project-card__actions {
+  html[data-app-page="projects"] #projects .project-card__actions {
     position: static;
     margin-top: 12px;
   }
 
-  html[data-page-title="page_title_projects"] .gh-repo-graph {
+  html[data-app-page="projects"] .gh-repo-graph {
     display: none;
   }
 
-  html[data-page-title="page_title_projects"] #projects .project-card__body {
+  html[data-app-page="projects"] #projects .project-card__body {
     padding: 14px 4px;
   }
 }

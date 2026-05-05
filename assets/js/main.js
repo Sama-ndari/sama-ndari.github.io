@@ -614,7 +614,7 @@
 
   function refreshProjectsRepoI18n() {
     const container = document.querySelector(
-      "html[data-page-title='page_title_projects'] #projects .portfolio-container"
+      "html[data-app-page='projects'] #projects .portfolio-container"
     );
     if (!container || !container._samaRepoFilters) return;
     const { state, typeBtn, languageBtn, sortBtn } = container._samaRepoFilters;
@@ -643,7 +643,7 @@
   }
 
   function initProjectsRepositoryUI() {
-    const container = document.querySelector("html[data-page-title='page_title_projects'] #projects .portfolio-container");
+    const container = document.querySelector("html[data-app-page='projects'] #projects .portfolio-container");
     if (!container) return;
     const config = getProjectMetaConfig();
     const items = Array.from(container.querySelectorAll(".portfolio-item"));
