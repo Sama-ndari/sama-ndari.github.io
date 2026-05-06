@@ -270,14 +270,14 @@
 
   // Contact form
   function initContactForm() {
-    var form = document.getElementById("contactForm");
+    const form = document.getElementById("contactForm");
     if (!form) return;
     form.addEventListener("submit", function (event) {
       event.preventDefault();
-      var status = document.getElementById("form-status");
+      const status = document.getElementById("form-status");
       if (!status) return;
       status.textContent = "";
-      var fd = new FormData(event.target);
+      const fd = new FormData(event.target);
       fetch(event.target.action, {
         method: form.method,
         body: fd,
@@ -296,7 +296,7 @@
             })
             .then(function (body) {
               if (body && Array.isArray(body.errors)) {
-                var parts = body.errors
+                const parts = body.errors
                   .map(function (e) {
                     return e && e.message != null ? String(e.message) : "";
                   })
@@ -467,6 +467,35 @@
     return starRow;
   }
 
+  function buildRepoTagsRow(tags) {
+    const wrap = document.createElement("div");
+    wrap.className = "gh-repo-tags";
+    (tags || []).forEach(tagKey => {
+      const chip = document.createElement("span");
+      chip.className = "gh-repo-tag";
+      chip.setAttribute("data-i18n", tagKey);
+      chip.textContent = t(tagKey);
+      wrap.appendChild(chip);
+    });
+    return wrap;
+  }
+
+  function buildRepoActionsRow(actionsEl, item, metaRow) {
+    const primaryLink = actionsEl.querySelector("a[href]");
+    if (primaryLink) wireRepoCardClick(item.querySelector(".project-card"), primaryLink);
+
+    const linksWrap = document.createElement("div");
+    linksWrap.className = "gh-repo-links";
+    Array.from(actionsEl.children).forEach(btn => linksWrap.appendChild(btn.cloneNode(true)));
+    metaRow.insertAdjacentElement("afterend", linksWrap);
+
+    actionsEl.innerHTML = "";
+    const graphSvg = document.createElement("span");
+    graphSvg.className = "gh-repo-graph";
+    graphSvg.innerHTML = `<svg width="155" height="28" viewBox="0 0 155 28"><path d="${buildGraphPath()}" fill="none" stroke="#2ea043" stroke-width="1.5" opacity="0.5"/></svg>`;
+    actionsEl.append(buildRepoStarRow(), graphSvg);
+  }
+
   function renderRepoDecorations(item, meta) {
     const body = item.querySelector(".project-card__body");
     const titleEl = item.querySelector(".project-card__title");
@@ -485,16 +514,7 @@
     head.append(titleEl, badge);
     body.insertBefore(head, body.firstChild);
 
-    const tagsWrap = document.createElement("div");
-    tagsWrap.className = "gh-repo-tags";
-    (meta.tags || []).forEach(tagKey => {
-      const chip = document.createElement("span");
-      chip.className = "gh-repo-tag";
-      chip.setAttribute("data-i18n", tagKey);
-      chip.textContent = t(tagKey);
-      tagsWrap.appendChild(chip);
-    });
-
+    const tagsWrap = buildRepoTagsRow(meta.tags);
     const desc = body.querySelector(".project-card__desc");
     if (desc) desc.insertAdjacentElement("afterend", tagsWrap);
 
@@ -506,21 +526,7 @@
     tagsWrap.insertAdjacentElement("afterend", metaRow);
 
     const actionsEl = body.querySelector(".project-card__actions");
-    if (actionsEl) {
-      const primaryLink = actionsEl.querySelector("a[href]");
-      if (primaryLink) wireRepoCardClick(item.querySelector(".project-card"), primaryLink);
-
-      const linksWrap = document.createElement("div");
-      linksWrap.className = "gh-repo-links";
-      Array.from(actionsEl.children).forEach(btn => linksWrap.appendChild(btn.cloneNode(true)));
-      metaRow.insertAdjacentElement("afterend", linksWrap);
-
-      actionsEl.innerHTML = "";
-      const graphSvg = document.createElement("span");
-      graphSvg.className = "gh-repo-graph";
-      graphSvg.innerHTML = `<svg width="155" height="28" viewBox="0 0 155 28"><path d="${buildGraphPath()}" fill="none" stroke="#2ea043" stroke-width="1.5" opacity="0.5"/></svg>`;
-      actionsEl.append(buildRepoStarRow(), graphSvg);
-    }
+    if (actionsEl) buildRepoActionsRow(actionsEl, item, metaRow);
 
     item.dataset.repoLanguage = meta.language;
     item.dataset.repoType = meta.type;
@@ -679,7 +685,7 @@
     const heroTyped = select(".typed");
     if (heroTyped && typeof Typed !== "undefined") {
       let items = t("hero_typed_items").split(",").map(s => s.trim());
-      var heroTypedInstance = new Typed(".typed", {
+      let heroTypedInstance = new Typed(".typed", {
         strings: items,
         loop: true,
         typeSpeed: 80,
@@ -732,6 +738,3 @@ document.querySelectorAll(".it_experience").forEach(el => {
   el.innerText = currentYear - 2022;
 });
 
-document.querySelectorAll(".currentYear").forEach(el => {
-  el.innerText = currentYear;
-});

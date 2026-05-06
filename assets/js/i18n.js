@@ -11,31 +11,8 @@ const I18N = {
     hero_desc_body: "Before tech, I spent 20+ months in Emergency Medicine rotations across Burundi. Triaging patients with limited resources taught me to think in systems and make decisions under pressure. It shaped how I build software today: reliability first, always plan for failure, and never assume perfect conditions.",
     hero_role_prefix: "I am ",
     hero_role_typed_items: "AI Engineer|Software Architect|Founder, Ijwi ry'Ikirundi AI",
-    hero_cta_projects: "View my projects",
-    hero_cta_about: "About me",
     hero_typed_items: "AI Engineer, Software Architect, Founder of Ijwi ry'Ikirundi AI",
-    hero_code_comment: "// Let's build something great together",
     nav_get_in_touch: "Get in touch",
-
-    about_title: "About",
-    about_subtitle: "From emergency medicine to AI infrastructure for Africa's invisible languages.",
-    about_role: "AI Engineer | Software Architect | Founder, Ijwi ry'Ikirundi AI",
-    about_origin_1: 'Before tech, I spent 20+ months in Emergency Medicine rotations across Burundi. Triaging patients with limited resources taught me to think in systems and make decisions under pressure. It shaped how I build software today: <strong>reliability first, always plan for failure, and never assume perfect conditions</strong>.',
-    about_origin_2_start: 'My mission is advancing <span class="fw-accent">digital sovereignty</span> for Africa\'s underserved languages, starting with Kirundi, spoken by 12M+ people yet invisible to AI. That\'s why I founded <strong><a href="https://github.com/Ijwi-ry-Ikirundi-AI" target="_blank" class="text-link-accent">Ijwi ry\'Ikirundi AI</a></strong> and built the first open-source AI data infrastructure for Kirundi: <span class="live-sentences">4,500</span>+ sentences and growing, designed for <span class="fw-accent">linguistic inclusion in the AI era</span>.',
-    about_origin_2_end: 'years of experience, I design production systems that work within Africa\'s realities: <span class="fw-accent">offline-first, zero-cost, community-driven</span>. By day, as an <strong>AI Developer &amp; Software Engineer at <a href="https://asyst.io" target="_blank" class="text-link-accent">Asyst</a></strong>, I bridge cutting-edge AI with scalable production backends and multi-agent workflows.',
-    about_website: "Website:",
-    about_my_website: "My Website",
-    about_city: "City:",
-    about_city_value: "Bujumbura, BURUNDI",
-    about_languages: "Languages:",
-    about_languages_value: "Kirundi, French, English",
-    about_degree: "Degree:",
-    about_degree_value: "Bachelor",
-    about_email: "Email:",
-    about_freelance: "Freelance:",
-    about_freelance_value: "Available",
-    about_github_btn: "View GitHub Activity",
-    about_hf_btn: "Hugging Face Profile",
 
     impact_github: "GitHub Activity",
     impact_contributions_intro: "{{n}} contributions in {{year}}",
@@ -68,12 +45,7 @@ const I18N = {
     skills_ai: "AI & Intelligence",
     skills_backend: "Systems & Backend",
     skills_ops: "Ops & Leadership",
-    skills_graph_intro: "How AI, systems, and delivery connect in production work.",
     skills_graph_aria: "Skill graph linking AI, backend systems, and operations to a production core.",
-    skills_graph_core: "Production core",
-    skills_ai_graph_hint: "LLM · RAG · agents",
-    skills_backend_graph_hint: "APIs · data · NestJS",
-    skills_ops_graph_hint: "CI/CD · cost · leadership",
     skills_gh_lang_heading: "Languages",
     skills_gh_bar_caption: "Indicative focus in recent shipping work (not LOC).",
 
@@ -123,26 +95,19 @@ const I18N = {
     repo_filter_language: "Language",
     repo_filter_sort: "Sort",
     repo_new: "New",
-    projects_all: "All",
     projects_ai: "AI Ops",
     projects_web: "Engineering",
     projects_mobile: "Mobile",
-    projects_view_all: "View All Projects",
-    projects_show_less: "Show Less",
     projects_details: "Details",
     projects_architecture: "Architecture",
     projects_case_study: "Case Study",
     projects_fellowship: "Fellowship",
-    projects_contribute: "Contribute",
     projects_dataset: "Dataset",
     projects_code: "Code",
     projects_demo: "Demo",
     projects_try_app: "Try App",
-    projects_website: "Website",
     projects_research: "Research",
 
-    repo_private: "Private",
-    repo_public: "Public",
     repo_status_flagship: "Flagship Project",
     repo_status_revenue: "Revenue",
     repo_status_deployed: "Deployed",
@@ -263,7 +228,6 @@ const I18N = {
     img_alt_testimonial_3: "Testimonial — Bruni",
     img_alt_testimonial_4: "Testimonial — Fernet",
     img_alt_testimonial_5: "Testimonial — Bazagod",
-    img_alt_portfolio_slide: "Project screenshot",
 
     hero_langs_typed_items: "Ikirundi|Français|English|Kiswahili",
 
@@ -452,31 +416,8 @@ const I18N = {
     hero_desc_body: "Avant la tech, j'ai pass\u00e9 plus de 20 mois en rotations de m\u00e9decine d'urgence au Burundi. Le tri des patients avec des ressources limit\u00e9es m'a appris \u00e0 penser en syst\u00e8mes et \u00e0 prendre des d\u00e9cisions sous pression. Cela a fa\u00e7onn\u00e9 ma mani\u00e8re de construire des logiciels aujourd'hui : fiabilit\u00e9 d'abord, toujours pr\u00e9voir les pannes, et ne jamais supposer des conditions parfaites.",
     hero_role_prefix: "Je suis ",
     hero_role_typed_items: "Ing\u00e9nieur IA|Architecte logiciel|Fondateur, Ijwi ry'Ikirundi AI",
-    hero_cta_projects: "Voir mes projets",
-    hero_cta_about: "\u00c0 propos",
     hero_typed_items: "Ing\u00e9nieur IA, Architecte Logiciel, Fondateur d'Ijwi ry'Ikirundi AI",
-    hero_code_comment: "// Construisons quelque chose de grand ensemble",
     nav_get_in_touch: "Me contacter",
-
-    about_title: "\u00c0 propos",
-    about_subtitle: "De la m\u00e9decine d'urgence \u00e0 l'infrastructure IA pour les langues invisibles d'Afrique.",
-    about_role: "Ing\u00e9nieur IA | Architecte logiciel | Fondateur, Ijwi ry'Ikirundi AI",
-    about_origin_1: 'Avant la tech, j\'ai pass\u00e9 plus de 20 mois en rotations de M\u00e9decine d\'Urgence au Burundi. Trier les patients avec des ressources limit\u00e9es m\'a appris \u00e0 penser en syst\u00e8mes et \u00e0 prendre des d\u00e9cisions sous pression. Cela a fa\u00e7onn\u00e9 ma mani\u00e8re de construire des logiciels : <strong>fiabilit\u00e9 d\'abord, toujours pr\u00e9voir les pannes, ne jamais supposer des conditions parfaites</strong>.',
-    about_origin_2_start: 'Ma mission est de faire avancer la <span class="fw-accent">souverainet\u00e9 num\u00e9rique</span> pour les langues sous-repr\u00e9sent\u00e9es d\'Afrique, en commen\u00e7ant par le Kirundi, parl\u00e9 par 12M+ personnes mais invisible pour l\'IA. C\'est pourquoi j\'ai fond\u00e9 <strong><a href="https://github.com/Ijwi-ry-Ikirundi-AI" target="_blank" class="text-link-accent">Ijwi ry\'Ikirundi AI</a></strong> et construit la premi\u00e8re infrastructure de donn\u00e9es IA open-source pour le Kirundi : <span class="live-sentences">4 500</span>+ phrases et en croissance, con\u00e7ue pour l\'<span class="fw-accent">inclusion linguistique \u00e0 l\'\u00e8re de l\'IA</span>.',
-    about_origin_2_end: 'ans d\'exp\u00e9rience, je con\u00e7ois des syst\u00e8mes de production qui fonctionnent dans les r\u00e9alit\u00e9s africaines : <span class="fw-accent">offline-first, z\u00e9ro co\u00fbt, pilot\u00e9 par la communaut\u00e9</span>. En journ\u00e9e, en tant qu\'<strong>AI Developer & Software Engineer chez <a href="https://asyst.io" target="_blank" class="text-link-accent">Asyst</a></strong>, je fais le pont entre l\'IA de pointe et les backends de production scalables.',
-    about_website: "Site web :",
-    about_my_website: "Mon site",
-    about_city: "Ville :",
-    about_city_value: "Bujumbura, BURUNDI",
-    about_languages: "Langues :",
-    about_languages_value: "Kirundi, Fran\u00e7ais, Anglais",
-    about_degree: "Dipl\u00f4me :",
-    about_degree_value: "Licence",
-    about_email: "Email :",
-    about_freelance: "Freelance :",
-    about_freelance_value: "Disponible",
-    about_github_btn: "Activit\u00e9 GitHub",
-    about_hf_btn: "Profil Hugging Face",
 
     impact_github: "Activit\u00e9 GitHub",
     impact_contributions_intro: "{{n}} contributions en {{year}}",
@@ -509,12 +450,7 @@ const I18N = {
     skills_ai: "IA & Intelligence",
     skills_backend: "Syst\u00e8mes & Backend",
     skills_ops: "Ops & Leadership",
-    skills_graph_intro: "Comment l\u2019IA, les syst\u00e8mes et la livraison se connectent en production.",
     skills_graph_aria: "Graphe des comp\u00e9tences : IA, syst\u00e8mes et op\u00e9rations reli\u00e9s au noyau de production.",
-    skills_graph_core: "Noyau production",
-    skills_ai_graph_hint: "LLM \u00b7 RAG \u00b7 agents",
-    skills_backend_graph_hint: "APIs \u00b7 donn\u00e9es \u00b7 NestJS",
-    skills_ops_graph_hint: "CI/CD \u00b7 co\u00fbts \u00b7 leadership",
     skills_gh_lang_heading: "Langages",
     skills_gh_bar_caption: "R\u00e9partition indicative de l'emphase sur mes travaux r\u00e9cents (pas un d\u00e9compte de lignes de code).",
 
@@ -564,26 +500,19 @@ const I18N = {
     repo_filter_language: "Langue",
     repo_filter_sort: "Trier",
     repo_new: "Nouveau",
-    projects_all: "Tous",
     projects_ai: "IA Ops",
     projects_web: "Ing\u00e9nierie",
     projects_mobile: "Mobile",
-    projects_view_all: "Voir Tous les Projets",
-    projects_show_less: "Voir Moins",
     projects_details: "D\u00e9tails",
     projects_architecture: "Architecture",
     projects_case_study: "\u00c9tude de cas",
     projects_fellowship: "Bourse",
-    projects_contribute: "Contribuer",
     projects_dataset: "Dataset",
     projects_code: "Code",
     projects_demo: "D\u00e9mo",
     projects_try_app: "Essayer",
-    projects_website: "Site web",
     projects_research: "Recherche",
 
-    repo_private: "Priv\u00e9",
-    repo_public: "Public",
     repo_status_flagship: "Projet Phare",
     repo_status_revenue: "Revenus",
     repo_status_deployed: "D\u00e9ploy\u00e9",
@@ -704,7 +633,6 @@ const I18N = {
     img_alt_testimonial_3: "T\u00e9moignage — Bruni",
     img_alt_testimonial_4: "T\u00e9moignage — Fernet",
     img_alt_testimonial_5: "T\u00e9moignage — Bazagod",
-    img_alt_portfolio_slide: "Capture du projet",
 
     hero_langs_typed_items: "Ikirundi|Fran\u00e7ais|English|Kiswahili",
 
@@ -914,7 +842,7 @@ function t(key) {
 
 function applyI18nHead() {
   if (typeof document === "undefined") return;
-  var lang = getLang();
+  const lang = getLang();
   document.documentElement.setAttribute("lang", lang === "fr" ? "fr" : "en");
 }
 
@@ -926,45 +854,41 @@ function applyI18n() {
   applyI18nHead();
 
   document.querySelectorAll("[data-i18n]").forEach(function (el) {
-    var key = el.getAttribute("data-i18n");
-    var val = t(key);
+    const key = el.getAttribute("data-i18n");
+    const val = t(key);
     if (!val) return;
     el.innerHTML = val;
   });
 
   document.querySelectorAll("[data-i18n-text]").forEach(function (el) {
-    var key = el.getAttribute("data-i18n-text");
-    var val = t(key);
+    const key = el.getAttribute("data-i18n-text");
+    const val = t(key);
     if (!val) return;
     el.textContent = val;
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
-    var key = el.getAttribute("data-i18n-placeholder");
+    const key = el.getAttribute("data-i18n-placeholder");
     el.placeholder = t(key);
   });
 
   document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
-    var key = el.getAttribute("data-i18n-title");
+    const key = el.getAttribute("data-i18n-title");
     el.title = t(key);
   });
 
   document.querySelectorAll("[data-i18n-aria-label]").forEach(function (el) {
-    var key = el.getAttribute("data-i18n-aria-label");
-    var val = t(key);
+    const key = el.getAttribute("data-i18n-aria-label");
+    const val = t(key);
     if (!val) return;
     el.setAttribute("aria-label", val);
   });
 
   document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
-    var key = el.getAttribute("data-i18n-alt");
-    var val = t(key);
+    const key = el.getAttribute("data-i18n-alt");
+    const val = t(key);
     if (!val) return;
     el.setAttribute("alt", val);
   });
 
-  var yr = new Date().getFullYear();
-  document.querySelectorAll(".it_experience").forEach(function (el) {
-    el.innerText = yr - 2022;
-  });
 }

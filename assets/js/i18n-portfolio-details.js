@@ -179,7 +179,13 @@
     tasky_li2: "<strong>Client</strong>: Public",
     tasky_li3: "<strong>Project date</strong>: 01 June, 2025",
     tasky_li4:
-      '<strong>Project URL</strong>: <a href="https://addons.mozilla.org/en-US/firefox/addon/samandari-tasky/" target="_blank" rel="noopener noreferrer">addons.mozilla.org/en-US/firefox/addon/samandari-tasky/</a>'
+      '<strong>Project URL</strong>: <a href="https://addons.mozilla.org/en-US/firefox/addon/samandari-tasky/" target="_blank" rel="noopener noreferrer">addons.mozilla.org/en-US/firefox/addon/samandari-tasky/</a>',
+
+    img_alt_sentinel_slide: "SentinelAI SOC assistant screenshot",
+    img_alt_burundi_lang_slide: "Burundi language identifier screenshot",
+    img_alt_aiclone_slide: "Personal AI clone screenshot",
+    img_alt_interview_slide: "AI interview simulator screenshot",
+    img_alt_tasky_slide: "Tasky extension screenshot"
   });
 
   Object.assign(P.fr, {
@@ -359,7 +365,13 @@
     tasky_li2: "<strong>Client</strong> : Public",
     tasky_li3: "<strong>Date du projet</strong> : 01 juin 2025",
     tasky_li4:
-      '<strong>URL du projet</strong> : <a href="https://addons.mozilla.org/en-US/firefox/addon/samandari-tasky/" target="_blank" rel="noopener noreferrer">addons.mozilla.org/en-US/firefox/addon/samandari-tasky/</a>'
+      '<strong>URL du projet</strong> : <a href="https://addons.mozilla.org/en-US/firefox/addon/samandari-tasky/" target="_blank" rel="noopener noreferrer">addons.mozilla.org/en-US/firefox/addon/samandari-tasky/</a>',
+
+    img_alt_sentinel_slide: "Capture d'écran SentinelAI",
+    img_alt_burundi_lang_slide: "Capture d'écran identifiant de langues",
+    img_alt_aiclone_slide: "Capture d'écran clone IA personnel",
+    img_alt_interview_slide: "Capture d'écran simulateur d'entretien IA",
+    img_alt_tasky_slide: "Capture d'écran extension Tasky"
   });
 
   if (typeof applyI18nHead === "function") applyI18nHead();
