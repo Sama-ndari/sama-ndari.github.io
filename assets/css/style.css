@@ -2939,7 +2939,8 @@ section {
 
 .gh-achievement-count .esama-user-badge,
 .gh-achievement-count .velora-user-badge,
-.gh-achievement-count .sama-apps-user-badge {
+.gh-achievement-count .sama-apps-user-badge,
+.gh-achievement-count .sama-web-site-badge {
   color: inherit;
   font-weight: inherit;
 }

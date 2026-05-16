@@ -301,7 +301,7 @@
                     return e && e.message != null ? String(e.message) : "";
                   })
                   .filter(Boolean);
-                status.textContent = parts.length ? parts.join(" — ") : t("contact_error");
+                status.textContent = parts.length ? parts.join(" - ") : t("contact_error");
               } else {
                 status.textContent = t("contact_error");
               }
@@ -361,7 +361,9 @@
       proj_sdr_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_autonomous_agent"], order: 12 },
       proj_sentinel_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_cybersecurity"], order: 13 },
       proj_aiclone_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_ai", "tag_rag"], order: 14 },
-      proj_llmsem_title: { language: "Python", type: "AI", status: "repo_status_research", tags: ["tag_nlp", "tag_research"], order: 15 }
+      proj_llmsem_title: { language: "Python", type: "AI", status: "repo_status_research", tags: ["tag_nlp", "tag_research"], order: 15 },
+      proj_samaapps_title: { language: "Dart", type: "Mobile", status: "repo_status_deployed", tags: ["tag_flutter", "tag_saas", "tag_deployed"], order: 98 },
+      proj_samaweb_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_saas", "tag_deployed"], order: 99 }
     };
   }
 
@@ -429,6 +431,53 @@
     });
   }
 
+  const SAMA_MOBILE_APPS_URL = "https://apps.samandari.dev/assets/js/apps.js";
+  const SAMA_WEB_APPS_URL = "https://web.samandari.dev/assets/js/apps.js";
+
+  function countSamaAppsFromCatalog(text) {
+    if (!text) return 0;
+    const metaMatch = text.match(/SAMA_APPS_CATALOG\s*=\s*\{[^}]*appCount:\s*(\d+)/);
+    if (metaMatch) return Number(metaMatch[1]) || 0;
+    const appsBlock = text.match(/const\s+APPS\s*=\s*\[([\s\S]*?)\];/);
+    if (!appsBlock) return 0;
+    return (appsBlock[1].match(/^\s+id:\s*"/gm) || []).length;
+  }
+
+  function countSamaWebSitesFromCatalog(text) {
+    if (!text) return 0;
+    const metaMatch = text.match(/SAMA_WEB_CATALOG\s*=\s*\{[^}]*websiteCount:\s*(\d+)/);
+    if (metaMatch) return Number(metaMatch[1]) || 0;
+    return (text.match(/productType:\s*"website"/g) || []).length;
+  }
+
+  function fetchSamaAppsCatalogCount() {
+    fetch(SAMA_MOBILE_APPS_URL)
+      .then(r => (r.ok ? r.text() : ""))
+      .then(text => {
+        const count = countSamaAppsFromCatalog(text);
+        if (count > 0) {
+          document.querySelectorAll(".sama-apps-catalog-badge").forEach(el => {
+            el.textContent = String(count);
+          });
+        }
+      })
+      .catch(() => {});
+  }
+
+  function fetchSamaWebSiteCount() {
+    fetch(SAMA_WEB_APPS_URL)
+      .then(r => (r.ok ? r.text() : ""))
+      .then(text => {
+        const count = countSamaWebSitesFromCatalog(text);
+        if (count > 0) {
+          document.querySelectorAll(".sama-web-site-badge").forEach(el => {
+            el.textContent = String(count);
+          });
+        }
+      })
+      .catch(() => {});
+  }
+
   function clearRepoDecorationNodes(body) {
     body.querySelector(".gh-repo-head")?.remove();
     body.querySelector(".gh-repo-tags")?.remove();
@@ -480,13 +529,25 @@
     return wrap;
   }
 
-  function buildRepoActionsRow(actionsEl, item, metaRow) {
-    const primaryLink = actionsEl.querySelector("a[href]");
+  function collectProjectActionLinks(body, actionsEl) {
+    const existingLinks = body.querySelector(".gh-repo-links");
+    if (existingLinks) {
+      return Array.from(existingLinks.querySelectorAll("a[href]"));
+    }
+    if (!actionsEl) return [];
+    return Array.from(actionsEl.querySelectorAll("a[href]"));
+  }
+
+  function buildRepoActionsRow(actionsEl, item, metaRow, actionAnchors) {
+    const anchors = actionAnchors?.length
+      ? actionAnchors
+      : Array.from(actionsEl.querySelectorAll("a[href]"));
+    const primaryLink = anchors[0];
     if (primaryLink) wireRepoCardClick(item.querySelector(".project-card"), primaryLink);
 
     const linksWrap = document.createElement("div");
     linksWrap.className = "gh-repo-links";
-    Array.from(actionsEl.children).forEach(btn => linksWrap.appendChild(btn.cloneNode(true)));
+    anchors.forEach(anchor => linksWrap.appendChild(anchor.cloneNode(true)));
     metaRow.insertAdjacentElement("afterend", linksWrap);
 
     actionsEl.innerHTML = "";
@@ -501,6 +562,9 @@
     const titleEl = item.querySelector(".project-card__title");
     const catEl = item.querySelector(".project-card__category");
     if (!body || !titleEl || !catEl) return;
+
+    const actionsEl = body.querySelector(".project-card__actions");
+    const actionAnchors = collectProjectActionLinks(body, actionsEl);
 
     clearRepoDecorationNodes(body);
     catEl.style.display = "none";
@@ -525,8 +589,7 @@
     metaRow.lastElementChild.textContent = langLabel;
     tagsWrap.insertAdjacentElement("afterend", metaRow);
 
-    const actionsEl = body.querySelector(".project-card__actions");
-    if (actionsEl) buildRepoActionsRow(actionsEl, item, metaRow);
+    if (actionsEl) buildRepoActionsRow(actionsEl, item, metaRow, actionAnchors);
 
     item.dataset.repoLanguage = meta.language;
     item.dataset.repoType = meta.type;
@@ -672,6 +735,8 @@
     initGhServicesMoreHint();
     initProjectsRepositoryUI();
     fetchLiveUserCounts();
+    fetchSamaAppsCatalogCount();
+    fetchSamaWebSiteCount();
 
     const impactRoot = document.getElementById("impact-section");
     if (impactRoot) {
