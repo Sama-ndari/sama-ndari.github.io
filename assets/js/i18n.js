@@ -357,6 +357,10 @@ const I18N = {
     proj_tasky_title: "Samandari Tasky",
     proj_tasky_desc: '<strong>Problem:</strong> Developers need lightweight task management inside the browser.<br><strong>Architecture:</strong> Chrome/Firefox extension using browser storage APIs and custom UI.<br><strong>Outcome:</strong> Published on Chrome Web Store and Firefox Add-ons with 4+ installs.',
 
+    proj_samakod_cat: "Web / Utility / Zero Backend",
+    proj_samakod_title: "SAMAKOD: URL → QR Generator",
+    proj_samakod_desc: '<strong>Problem:</strong> Quick QR codes need a tool with no signup, no backend, and offline use.<br><strong>Architecture:</strong> Static HTML/CSS/JS with vendored QR library — paste URL, preview on canvas, download PNG.<br><strong>Outcome:</strong> Live at <a href="https://sama-ndari.github.io/samakod/" target="_blank" rel="noopener noreferrer">sama-ndari.github.io/samakod</a>, works offline.',
+
     proj_velora_cat: "Flutter / Paid App / Subscription",
     proj_velora_title: "Velora: Productivity & Wellness",
     proj_velora_desc: '<strong>Problem:</strong> Existing productivity apps are either too complex, require internet, or lack monetization for indie developers.<br><strong>Architecture:</strong> Flutter offline-first app with Hive, custom device-tied license activation, GitHub Gist remote admin, and Google Drive backup.<br><strong>Outcome:</strong> Paid app with active subscribers.',
@@ -775,6 +779,10 @@ const I18N = {
     proj_tasky_cat: "Extension Navigateur",
     proj_tasky_title: "Samandari Tasky",
     proj_tasky_desc: '<strong>Probl\u00e8me :</strong> Les d\u00e9veloppeurs ont besoin d\'une gestion de t\u00e2ches l\u00e9g\u00e8re dans le navigateur.<br><strong>Architecture :</strong> Extension Chrome/Firefox utilisant les APIs de stockage navigateur et une interface personnalis\u00e9e.<br><strong>R\u00e9sultat :</strong> Publi\u00e9e sur Chrome Web Store et Firefox Add-ons avec 4+ installations.',
+
+    proj_samakod_cat: "Web / Utilitaire / Sans Backend",
+    proj_samakod_title: "SAMAKOD : G\u00e9n\u00e9rateur URL \u2192 QR",
+    proj_samakod_desc: '<strong>Probl\u00e8me :</strong> Les QR codes rapides n\u00e9cessitent un outil sans inscription, sans backend et utilisable hors ligne.<br><strong>Architecture :</strong> HTML/CSS/JS statique avec librairie QR int\u00e9gr\u00e9e \u2014 coller l\u2019URL, pr\u00e9visualiser sur canvas, t\u00e9l\u00e9charger en PNG.<br><strong>R\u00e9sultat :</strong> En ligne sur <a href="https://sama-ndari.github.io/samakod/" target="_blank" rel="noopener noreferrer">sama-ndari.github.io/samakod</a>, fonctionne hors ligne.',
 
     proj_velora_cat: "Flutter / App Payante / Abonnement",
     proj_velora_title: "Velora : Productivit\u00e9 & Bien-\u00eatre",
