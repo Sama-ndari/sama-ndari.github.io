@@ -359,7 +359,7 @@ const I18N = {
 
     proj_samakod_cat: "Web / Utility / Zero Backend",
     proj_samakod_title: "SAMAKOD: URL → QR Generator",
-    proj_samakod_desc: '<strong>Problem:</strong> Quick QR codes need a tool with no signup, no backend, and offline use.<br><strong>Architecture:</strong> Static HTML/CSS/JS with vendored QR library — paste URL, preview on canvas, download PNG.<br><strong>Outcome:</strong> Live at <a href="https://sama-ndari.github.io/samakod/" target="_blank" rel="noopener noreferrer">sama-ndari.github.io/samakod</a>, works offline.',
+    proj_samakod_desc: '<strong>Problem:</strong> Quick QR codes need a tool with no signup, no backend, and offline use.<br><strong>Architecture:</strong> Static HTML/CSS/JS with vendored QR library , paste URL, preview on canvas, download PNG.<br><strong>Outcome:</strong> Live at <a href="https://sama-ndari.github.io/samakod/" target="_blank" rel="noopener noreferrer">sama-ndari.github.io/samakod</a>, works offline.',
 
     proj_velora_cat: "Flutter / Paid App / Subscription",
     proj_velora_title: "Velora: Productivity & Wellness",
