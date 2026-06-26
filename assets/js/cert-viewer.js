@@ -11,18 +11,37 @@
       src: "assets/img/dossiers/leadership.jpg",
       titleKey: "resume_cert_leadership_title",
       gallery: "resume-cert"
+    },
+    "diplome-etat": {
+      src: "assets/img/dossiers/diplome-etat.jpg",
+      titleKey: "resume_diploma_etat_title",
+      gallery: "resume-diploma"
+    },
+    "diplome-humanites": {
+      src: "assets/img/dossiers/diplome-humanites-a2.jpg",
+      titleKey: "resume_diploma_humanites_title",
+      gallery: "resume-diploma"
+    },
+    "asyst-attestation": {
+      src: "assets/docs/attestation-asyst.pdf",
+      titleKey: "resume_exp_asyst_attestation_title",
+      type: "pdf"
     }
   };
 
   const GALLERIES = {
     "resume-cv": ["cv-en", "cv-fr"],
-    "resume-cert": ["embedded-systems", "leadership"]
+    "resume-cert": ["embedded-systems", "leadership"],
+    "resume-diploma": ["diplome-etat", "diplome-humanites"]
   };
 
   let currentId = null;
   let scale = 1;
   let dialogEl = null;
   let imgEl = null;
+  let pdfEl = null;
+  let canvasEl = null;
+  let toolbarEl = null;
   let titleEl = null;
   let toastEl = null;
   let lastFocus = null;
@@ -34,6 +53,10 @@
 
   function absoluteAssetUrl(path) {
     return new URL(path, window.location.href).href;
+  }
+
+  function isPdfItem(item) {
+    return item && (item.type === "pdf" || /\.pdf$/i.test(item.src));
   }
 
   function galleryIdsFor(id) {
@@ -55,19 +78,45 @@
     nextBtn.hidden = !showNav || idx >= ids.length - 1;
   }
 
+  function setPdfMode(active) {
+    if (toolbarEl) toolbarEl.hidden = active;
+    if (canvasEl) canvasEl.classList.toggle("media-viewer__canvas--pdf", active);
+    if (!imgEl || !pdfEl) return;
+    if (active) {
+      imgEl.hidden = true;
+      pdfEl.hidden = false;
+      return;
+    }
+    imgEl.hidden = false;
+    pdfEl.hidden = true;
+    pdfEl.removeAttribute("src");
+  }
+
   function renderSlide(id) {
     const item = MEDIA[id];
     if (!item || !dialogEl) return;
     currentId = id;
-    titleEl.textContent = translate(item.titleKey);
-    imgEl.src = item.src;
-    imgEl.alt = translate(item.titleKey);
+    const label = translate(item.titleKey);
+    titleEl.textContent = label;
     setScale(1);
+
     const downloadEl = dialogEl.querySelector("[data-media-download]");
     if (downloadEl) {
       downloadEl.href = item.src;
-      downloadEl.setAttribute("download", item.src.split("/").pop() || "image");
+      downloadEl.setAttribute("download", item.src.split("/").pop() || "document");
     }
+
+    if (isPdfItem(item)) {
+      setPdfMode(true);
+      pdfEl.src = item.src;
+      pdfEl.title = label;
+      location.hash = "cert/" + id;
+      return;
+    }
+
+    setPdfMode(false);
+    imgEl.src = item.src;
+    imgEl.alt = label;
     updateNavButtons(
       dialogEl.querySelector("[data-media-prev]"),
       dialogEl.querySelector("[data-media-next]")
@@ -152,6 +201,7 @@
     });
     dialogEl.addEventListener("close", function () {
       currentId = null;
+      setPdfMode(false);
     });
     window.addEventListener("hashchange", openFromHash);
   }
@@ -176,6 +226,9 @@
     dialogEl = document.getElementById("mediaViewer");
     if (!dialogEl) return;
     imgEl = dialogEl.querySelector("[data-media-image]");
+    pdfEl = dialogEl.querySelector("[data-media-pdf]");
+    canvasEl = dialogEl.querySelector("[data-media-canvas]");
+    toolbarEl = dialogEl.querySelector("[data-media-toolbar]");
     titleEl = dialogEl.querySelector("[data-media-title]");
     toastEl = dialogEl.querySelector("[data-media-toast]");
     bindControls();

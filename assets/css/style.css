@@ -1137,8 +1137,14 @@ section {
 }
 
 .resume .resume-item ul {
+  margin-bottom: 0;
   padding-left: 20px;
   list-style: none;
+}
+
+.resume .resume-item ul + p {
+  margin-top: 12px;
+  margin-bottom: 0;
 }
 
 .resume .resume-item ul li {
@@ -3922,6 +3928,19 @@ section {
   height: auto;
   transform-origin: center center;
   transition: transform 0.15s ease;
+}
+
+.media-viewer__pdf {
+  display: block;
+  width: 100%;
+  min-height: 70vh;
+  border: none;
+  background: #fff;
+}
+
+.media-viewer__canvas--pdf {
+  padding: 0;
+  max-height: calc(92vh - 120px);
 }
 
 .media-viewer__nav {

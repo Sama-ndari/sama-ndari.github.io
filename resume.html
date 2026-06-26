@@ -186,6 +186,7 @@
                 <li data-i18n="resume_exp_2_li3"></li>
                 <li data-i18n="resume_exp_2_li4"></li>
               </ul>
+              <p data-i18n="resume_exp_2_proof"></p>
             </div>
             <div class="resume-item">
               <h4 data-i18n="resume_exp_3_title"></h4>
@@ -238,7 +239,7 @@
           <i class="bi bi-x-lg" aria-hidden="true"></i>
         </button>
       </header>
-      <div class="media-viewer__toolbar">
+      <div class="media-viewer__toolbar" data-media-toolbar>
         <button type="button" class="media-viewer__tool-btn" data-media-zoom-out data-i18n-aria-label="media_viewer_zoom_out">
           <i class="bi bi-zoom-out" aria-hidden="true"></i>
         </button>
@@ -255,8 +256,9 @@
         <button type="button" class="media-viewer__nav media-viewer__nav--prev" data-media-prev data-i18n-aria-label="media_viewer_prev" hidden>
           <i class="bi bi-chevron-left" aria-hidden="true"></i>
         </button>
-        <div class="media-viewer__canvas">
+        <div class="media-viewer__canvas" data-media-canvas>
           <img class="media-viewer__image" data-media-image src="" alt="" width="1200" height="1600" decoding="async">
+          <iframe class="media-viewer__pdf" data-media-pdf title="" hidden></iframe>
         </div>
         <button type="button" class="media-viewer__nav media-viewer__nav--next" data-media-next data-i18n-aria-label="media_viewer_next" hidden>
           <i class="bi bi-chevron-right" aria-hidden="true"></i>
