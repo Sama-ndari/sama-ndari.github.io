@@ -31,7 +31,6 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="assets/css/style.css" rel="stylesheet">
   <link rel="canonical" href="https://www.samandari.dev/resume.html">
@@ -95,12 +94,12 @@
             <strong data-i18n="resume_subtitle_org"></strong><span data-i18n="resume_subtitle_3"></span>
           </p>
           <div class="cv-downloads">
-            <a href="assets/img/portfolio/cv_en.png" class="cv-badge cv-badge--primary portfolio-lightbox" data-gallery="portfolioGallery" data-i18n-title="resume_cv_en" title="CV English">
-              <i class="bi bi-file-earmark-text"></i> <span data-i18n="resume_cv_en">View CV (EN)</span>
-            </a>
-            <a href="assets/img/portfolio/cv_fr.png" class="cv-badge cv-badge--outline portfolio-lightbox" data-gallery="portfolioGallery" data-i18n-title="resume_cv_fr" title="CV French">
-              <i class="bi bi-translate"></i> <span data-i18n="resume_cv_fr">CV (FR)</span>
-            </a>
+            <button type="button" class="cv-badge cv-badge--primary" data-media-open data-media-id="cv-en">
+              <i class="bi bi-file-earmark-text" aria-hidden="true"></i> <span data-i18n="resume_cv_en">View CV (EN)</span>
+            </button>
+            <button type="button" class="cv-badge cv-badge--outline" data-media-open data-media-id="cv-fr">
+              <i class="bi bi-translate" aria-hidden="true"></i> <span data-i18n="resume_cv_fr">CV (FR)</span>
+            </button>
           </div>
         </div>
 
@@ -220,7 +219,7 @@
       <p data-i18n="footer_quote">"The best way to predict the future…"</p>
       <div class="social-links">
         <a href="https://x.com/La_casse_?s=20" data-i18n-aria-label="footer_aria_twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
-        <a href="https://www.instagram.com/La_casse_?igsh=MWFic2todzA4aGZteg==" data-i18n-aria-label="footer_aria_instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.reddit.com/user/Samandari_/" data-i18n-aria-label="footer_aria_reddit" target="_blank" rel="noopener noreferrer"><i class="bi bi-reddit"></i></a>
         <a href="https://wa.me/+25777568903" data-i18n-aria-label="footer_aria_whatsapp" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a>
         <a href="https://www.linkedin.com/in/jules-cesar-junior-ndayisenga-8b79592a8" data-i18n-aria-label="footer_aria_linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
         <a href="https://huggingface.co/samandari" data-i18n-aria-label="footer_aria_huggingface" target="_blank" rel="noopener noreferrer"><i class="bi bi-robot"></i></a>
@@ -231,13 +230,48 @@
     </div>
   </footer>
 
+  <dialog id="mediaViewer" class="media-viewer" aria-labelledby="mediaViewerTitle" data-i18n-aria-label="media_viewer_dialog_label">
+    <div class="media-viewer__panel" role="document">
+      <header class="media-viewer__header">
+        <h2 id="mediaViewerTitle" class="media-viewer__title" data-media-title></h2>
+        <button type="button" class="media-viewer__icon-btn" data-media-close data-i18n-aria-label="media_viewer_close">
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </header>
+      <div class="media-viewer__toolbar">
+        <button type="button" class="media-viewer__tool-btn" data-media-zoom-out data-i18n-aria-label="media_viewer_zoom_out">
+          <i class="bi bi-zoom-out" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="media-viewer__tool-btn" data-media-zoom-reset data-i18n-aria-label="media_viewer_zoom_reset">
+          <i class="bi bi-aspect-ratio" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="media-viewer__tool-btn" data-media-zoom-in data-i18n-aria-label="media_viewer_zoom_in">
+          <i class="bi bi-zoom-in" aria-hidden="true"></i>
+        </button>
+        <a class="media-viewer__tool-btn media-viewer__tool-btn--text" data-media-download href="#" download data-i18n="media_viewer_download">Download</a>
+        <button type="button" class="media-viewer__tool-btn media-viewer__tool-btn--text" data-media-copy data-i18n="media_viewer_copy_link">Copy image link</button>
+      </div>
+      <div class="media-viewer__stage">
+        <button type="button" class="media-viewer__nav media-viewer__nav--prev" data-media-prev data-i18n-aria-label="media_viewer_prev" hidden>
+          <i class="bi bi-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="media-viewer__canvas">
+          <img class="media-viewer__image" data-media-image src="" alt="" width="1200" height="1600" decoding="async">
+        </div>
+        <button type="button" class="media-viewer__nav media-viewer__nav--next" data-media-next data-i18n-aria-label="media_viewer_next" hidden>
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+      <p class="media-viewer__toast" data-media-toast hidden role="status" aria-live="polite"></p>
+    </div>
+  </dialog>
+
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center" data-i18n-aria-label="nav_back_to_top_aria"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <script defer src="assets/vendor/aos/aos.js"></script>
-  <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script defer src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script defer src="assets/js/cert-viewer.js"></script>
   <script defer src="assets/js/main.js"></script>
-  <script>GLightbox({ selector: ".portfolio-lightbox" });</script>
 </body>
 </html>
