@@ -924,7 +924,7 @@ function applyI18n() {
   document.querySelectorAll("[data-i18n]").forEach(function (el) {
     const key = el.getAttribute("data-i18n");
     const val = t(key);
-    if (!val) return;
+    if (!val || val === key) return;
     el.innerHTML = val;
   });
 
