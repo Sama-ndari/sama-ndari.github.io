@@ -259,6 +259,23 @@
         <div class="media-viewer__canvas" data-media-canvas>
           <img class="media-viewer__image" data-media-image src="" alt="" width="1200" height="1600" decoding="async">
           <iframe class="media-viewer__pdf" data-media-pdf title="" hidden></iframe>
+          <div class="media-viewer__pdf-fallback" data-media-pdf-fallback hidden>
+            <div class="media-viewer__pdf-card">
+              <i class="bi bi-file-earmark-pdf media-viewer__pdf-icon" aria-hidden="true"></i>
+              <p class="media-viewer__pdf-label" data-media-pdf-label></p>
+              <p class="media-viewer__pdf-hint" data-i18n="media_viewer_pdf_hint"></p>
+              <div class="media-viewer__pdf-actions">
+                <button type="button" class="media-viewer__pdf-btn media-viewer__pdf-btn--primary" data-media-pdf-open>
+                  <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                  <span data-i18n="media_viewer_pdf_open">Open PDF</span>
+                </button>
+                <a class="media-viewer__pdf-btn media-viewer__pdf-btn--outline" data-media-pdf-download href="#" download>
+                  <i class="bi bi-download" aria-hidden="true"></i>
+                  <span data-i18n="media_viewer_download">Download</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         <button type="button" class="media-viewer__nav media-viewer__nav--next" data-media-next data-i18n-aria-label="media_viewer_next" hidden>
           <i class="bi bi-chevron-right" aria-hidden="true"></i>

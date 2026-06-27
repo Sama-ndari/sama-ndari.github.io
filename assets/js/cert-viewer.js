@@ -1,24 +1,24 @@
 (function () {
   const MEDIA = {
-    "cv-en": { src: "assets/img/portfolio/cv_en.png", titleKey: "resume_cv_en", gallery: "resume-cv" },
-    "cv-fr": { src: "assets/img/portfolio/cv_fr.png", titleKey: "resume_cv_fr", gallery: "resume-cv" },
+    "cv-en": { src: "assets/img/portfolio/cv_en.webp", titleKey: "resume_cv_en", gallery: "resume-cv" },
+    "cv-fr": { src: "assets/img/portfolio/cv_fr.webp", titleKey: "resume_cv_fr", gallery: "resume-cv" },
     "embedded-systems": {
-      src: "assets/img/dossiers/es.jpg",
+      src: "assets/img/dossiers/es.webp",
       titleKey: "resume_cert_es_title",
       gallery: "resume-cert"
     },
     leadership: {
-      src: "assets/img/dossiers/leadership.jpg",
+      src: "assets/img/dossiers/leadership.webp",
       titleKey: "resume_cert_leadership_title",
       gallery: "resume-cert"
     },
     "diplome-etat": {
-      src: "assets/img/dossiers/diplome-etat.jpg",
+      src: "assets/img/dossiers/diplome-etat.webp",
       titleKey: "resume_diploma_etat_title",
       gallery: "resume-diploma"
     },
     "diplome-humanites": {
-      src: "assets/img/dossiers/diplome-humanites-a2.jpg",
+      src: "assets/img/dossiers/diplome-humanites-a2.webp",
       titleKey: "resume_diploma_humanites_title",
       gallery: "resume-diploma"
     },
@@ -40,11 +40,13 @@
   let dialogEl = null;
   let imgEl = null;
   let pdfEl = null;
+  let pdfFallbackEl = null;
   let canvasEl = null;
   let toolbarEl = null;
   let titleEl = null;
   let toastEl = null;
   let lastFocus = null;
+  let imageRequestId = 0;
 
   function translate(key) {
     if (typeof t === "function") return t(key);
@@ -57,6 +59,10 @@
 
   function isPdfItem(item) {
     return item && (item.type === "pdf" || /\.pdf$/i.test(item.src));
+  }
+
+  function isMobilePdfFallback() {
+    return window.matchMedia("(max-width: 767px)").matches;
   }
 
   function galleryIdsFor(id) {
@@ -78,18 +84,83 @@
     nextBtn.hidden = !showNav || idx >= ids.length - 1;
   }
 
-  function setPdfMode(active) {
+  function setCanvasLoading(loading) {
+    if (canvasEl) canvasEl.classList.toggle("media-viewer__canvas--loading", loading);
+  }
+
+  function clearImageMedia() {
+    if (!imgEl) return;
+    imageRequestId += 1;
+    imgEl.onload = null;
+    imgEl.onerror = null;
+    imgEl.removeAttribute("src");
+    imgEl.alt = "";
+    imgEl.hidden = true;
+    imgEl.style.transform = "";
+  }
+
+  function loadImageMedia(src, label) {
+    const requestId = imageRequestId + 1;
+    imageRequestId = requestId;
+    imgEl.alt = label;
+    imgEl.hidden = true;
+    setCanvasLoading(true);
+    imgEl.onload = function () {
+      if (requestId !== imageRequestId) return;
+      imgEl.hidden = false;
+      setCanvasLoading(false);
+      setScale(1);
+      imgEl.onload = null;
+      imgEl.onerror = null;
+    };
+    imgEl.onerror = function () {
+      if (requestId !== imageRequestId) return;
+      imgEl.hidden = false;
+      setCanvasLoading(false);
+      imgEl.onload = null;
+      imgEl.onerror = null;
+    };
+    imgEl.src = src;
+  }
+
+  function setPdfMode(active, label, src) {
     if (toolbarEl) toolbarEl.hidden = active;
-    if (canvasEl) canvasEl.classList.toggle("media-viewer__canvas--pdf", active);
+    const mobilePdf = active && isMobilePdfFallback();
+    if (canvasEl) {
+      canvasEl.classList.toggle("media-viewer__canvas--pdf", active && !mobilePdf);
+      canvasEl.classList.toggle("media-viewer__canvas--pdf-fallback", mobilePdf);
+    }
     if (!imgEl || !pdfEl) return;
     if (active) {
-      imgEl.hidden = true;
-      pdfEl.hidden = false;
+      clearImageMedia();
+      if (mobilePdf && pdfFallbackEl) {
+        pdfEl.hidden = true;
+        pdfEl.removeAttribute("src");
+        pdfFallbackEl.hidden = false;
+        const labelEl = pdfFallbackEl.querySelector("[data-media-pdf-label]");
+        if (labelEl) labelEl.textContent = label || "";
+        const downloadBtn = pdfFallbackEl.querySelector("[data-media-pdf-download]");
+        if (downloadBtn && src) {
+          downloadBtn.href = src;
+          downloadBtn.setAttribute("download", src.split("/").pop() || "document");
+        }
+      } else {
+        if (pdfFallbackEl) pdfFallbackEl.hidden = true;
+        pdfEl.hidden = false;
+        if (src) {
+          pdfEl.src = src;
+          pdfEl.title = label || "";
+        }
+      }
       return;
     }
-    imgEl.hidden = false;
     pdfEl.hidden = true;
     pdfEl.removeAttribute("src");
+    if (pdfFallbackEl) pdfFallbackEl.hidden = true;
+    if (canvasEl) {
+      canvasEl.classList.remove("media-viewer__canvas--pdf-fallback");
+    }
+    setCanvasLoading(false);
   }
 
   function renderSlide(id) {
@@ -107,16 +178,13 @@
     }
 
     if (isPdfItem(item)) {
-      setPdfMode(true);
-      pdfEl.src = item.src;
-      pdfEl.title = label;
+      setPdfMode(true, label, item.src);
       location.hash = "cert/" + id;
       return;
     }
 
     setPdfMode(false);
-    imgEl.src = item.src;
-    imgEl.alt = label;
+    loadImageMedia(item.src, label);
     updateNavButtons(
       dialogEl.querySelector("[data-media-prev]"),
       dialogEl.querySelector("[data-media-next]")
@@ -190,6 +258,11 @@
       setScale(1);
     });
     dialogEl.querySelector("[data-media-copy]").addEventListener("click", copyImageLink);
+    dialogEl.querySelector("[data-media-pdf-open]")?.addEventListener("click", function () {
+      const item = MEDIA[currentId];
+      if (!item) return;
+      window.open(absoluteAssetUrl(item.src), "_blank", "noopener,noreferrer");
+    });
     dialogEl.querySelector("[data-media-prev]").addEventListener("click", function () {
       stepGallery(-1);
     });
@@ -202,6 +275,7 @@
     dialogEl.addEventListener("close", function () {
       currentId = null;
       setPdfMode(false);
+      clearImageMedia();
     });
     window.addEventListener("hashchange", openFromHash);
   }
@@ -219,7 +293,13 @@
   function refreshTitle() {
     if (!currentId || !titleEl) return;
     const item = MEDIA[currentId];
-    if (item) titleEl.textContent = translate(item.titleKey);
+    if (!item) return;
+    const label = translate(item.titleKey);
+    titleEl.textContent = label;
+    if (isPdfItem(item) && isMobilePdfFallback() && pdfFallbackEl) {
+      const labelEl = pdfFallbackEl.querySelector("[data-media-pdf-label]");
+      if (labelEl) labelEl.textContent = label;
+    }
   }
 
   function init() {
@@ -227,10 +307,12 @@
     if (!dialogEl) return;
     imgEl = dialogEl.querySelector("[data-media-image]");
     pdfEl = dialogEl.querySelector("[data-media-pdf]");
+    pdfFallbackEl = dialogEl.querySelector("[data-media-pdf-fallback]");
     canvasEl = dialogEl.querySelector("[data-media-canvas]");
     toolbarEl = dialogEl.querySelector("[data-media-toolbar]");
     titleEl = dialogEl.querySelector("[data-media-title]");
     toastEl = dialogEl.querySelector("[data-media-toast]");
+    clearImageMedia();
     bindControls();
     bindTriggers();
     openFromHash();
