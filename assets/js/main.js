@@ -426,7 +426,9 @@
       });
       if (sum > 0) {
         document.querySelectorAll(".sama-apps-user-badge").forEach(el => {
-          el.textContent = String(sum);
+          if (!el.closest(".gh-achievement-count")) {
+            el.textContent = String(sum);
+          }
         });
       }
     });
