@@ -245,6 +245,7 @@
       setLang(next);
       btn.textContent = next.toUpperCase();
       applyI18n();
+      applyLiveCatalogBadges();
       refreshProjectsRepoI18n();
       if (typeof refreshImpactContributionLocale === "function") {
         refreshImpactContributionLocale();
@@ -436,6 +437,21 @@
 
   const SAMA_MOBILE_APPS_URL = "https://apps.samandari.dev/assets/js/apps.js";
   const SAMA_WEB_APPS_URL = "https://web.samandari.dev/assets/js/apps.js";
+  let cachedSamaAppsCatalogCount = 0;
+  let cachedSamaWebSiteCount = 0;
+
+  function applyLiveCatalogBadges() {
+    if (cachedSamaAppsCatalogCount > 0) {
+      document.querySelectorAll(".sama-apps-catalog-badge").forEach(el => {
+        el.textContent = String(cachedSamaAppsCatalogCount);
+      });
+    }
+    if (cachedSamaWebSiteCount > 0) {
+      document.querySelectorAll(".sama-web-site-badge").forEach(el => {
+        el.textContent = String(cachedSamaWebSiteCount);
+      });
+    }
+  }
 
   function countSamaAppsFromCatalog(text) {
     if (!text) return 0;
@@ -459,9 +475,8 @@
       .then(text => {
         const count = countSamaAppsFromCatalog(text);
         if (count > 0) {
-          document.querySelectorAll(".sama-apps-catalog-badge").forEach(el => {
-            el.textContent = String(count);
-          });
+          cachedSamaAppsCatalogCount = count;
+          applyLiveCatalogBadges();
         }
       })
       .catch(() => {});
@@ -473,9 +488,8 @@
       .then(text => {
         const count = countSamaWebSitesFromCatalog(text);
         if (count > 0) {
-          document.querySelectorAll(".sama-web-site-badge").forEach(el => {
-            el.textContent = String(count);
-          });
+          cachedSamaWebSiteCount = count;
+          applyLiveCatalogBadges();
         }
       })
       .catch(() => {});
