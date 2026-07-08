@@ -1,0 +1,388 @@
+/* --------------------------------------------------------------------------
+   Resume
+   -------------------------------------------------------------------------- */
+.resume .resume-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.resume .resume-title i {
+  font-size: 22px;
+  margin-right: 12px;
+  color: var(--accent);
+}
+
+.resume .resume-item {
+  padding: 16px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-surface);
+  position: relative;
+  transition: background var(--transition-base);
+}
+
+.resume .resume-item:last-child {
+  margin-bottom: 0;
+}
+
+.resume .resume-item:hover {
+  background: var(--bg-surface-hover);
+}
+
+.resume .resume-item::before {
+  display: none;
+  left: -8px;
+  top: 0;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+  transition: all var(--transition-base);
+}
+
+.resume .resume-item:hover::before {
+  display: none;
+}
+
+.resume .resume-item h4 {
+  line-height: 1.3;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: none;
+  font-family: var(--font-sans);
+  color: var(--gh-link);
+  color: var(--accent);
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
+.resume .resume-item h5 {
+  font-size: 12px;
+  background: transparent;
+  padding: 0;
+  display: inline-block;
+  font-weight: 500;
+  color: #8b949e;
+  margin-bottom: 6px;
+  margin-bottom: 14px;
+  color: var(--accent);
+  border-radius: 4px;
+  border: 1px solid var(--accent-muted);
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+
+.resume .resume-item ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.resume .resume-item ul + p {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.resume .resume-item ul li {
+  padding-bottom: 10px;
+  position: relative;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.resume .resume-item ul li::before {
+  content: "\25B9";
+  position: absolute;
+  left: -20px;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.resume .resume-item a {
+  color: var(--accent);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.resume .resume-item a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+.cert-inline-link {
+  white-space: nowrap;
+}
+
+.cert-inline-link .bi-patch-check {
+  margin-left: 2px;
+  font-size: 0.95em;
+  vertical-align: -1px;
+}
+
+.resume .badge {
+  background-color: var(--accent) !important;
+  color: var(--bg) !important;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.asyst-tech {
+  color: var(--accent);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  border-bottom: 2px solid var(--accent-muted);
+}
+
+/* --------------------------------------------------------------------------
+   CV Downloads
+   -------------------------------------------------------------------------- */
+.cv-downloads {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: 2px solid transparent;
+}
+
+.cv-badge i {
+  font-size: 16px;
+}
+
+.cv-badge--primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.cv-badge--primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(232, 151, 108, 0.3);
+}
+
+.cv-badge--outline {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.cv-badge--outline:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(232, 151, 108, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   Services
+   -------------------------------------------------------------------------- */
+.services .icon-box {
+  text-align: center;
+  padding: 48px var(--card-padding) 48px;
+  transition: all var(--transition-base);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.services .icon-box .icon {
+  margin: 0 auto 16px;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  border-radius: 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.services .icon-box .icon i {
+  font-size: 32px;
+  transition: color var(--transition-base);
+}
+
+.services .icon-box h4 {
+  font-weight: 600;
+  margin: 12px 0 12px;
+  font-size: 20px;
+}
+
+.services .icon-box h4 a {
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.services .icon-box h4 a:hover {
+  color: var(--accent);
+}
+
+.services .icon-box p {
+  line-height: 1.6;
+  font-size: 14px;
+  margin-bottom: 0;
+  color: var(--text-secondary);
+}
+
+.services .icon-box:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-muted);
+  box-shadow: 0 4px 20px rgba(232, 151, 108, 0.08);
+}
+
+.services .iconbox-blue .icon i { color: var(--gh-link); }
+.services .iconbox-blue:hover .icon { border-color: var(--gh-link); background: rgba(88, 166, 255, 0.08); }
+
+.services .iconbox-orange .icon i { color: var(--accent); }
+.services .iconbox-orange:hover .icon { border-color: var(--accent); background: var(--accent-subtle); }
+
+.services .iconbox-pink .icon i { color: #f778ba; }
+.services .iconbox-pink:hover .icon { border-color: #f778ba; background: rgba(247, 120, 186, 0.08); }
+
+/* --------------------------------------------------------------------------
+   Vision Banner
+   -------------------------------------------------------------------------- */
+.services .vision-banner {
+  background: linear-gradient(135deg, var(--accent) 0%, #d4764f 100%);
+  color: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 32px 36px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.services .vision-banner::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.services .vision-banner h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+  color: var(--bg);
+}
+
+.services .vision-banner p {
+  font-size: 0.92rem;
+  margin: 0;
+  opacity: 0.92;
+  line-height: 1.6;
+  color: var(--bg);
+}
+
+/* --------------------------------------------------------------------------
+   Thinking / Essays
+   -------------------------------------------------------------------------- */
+.thinking .essay-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.thinking .essay-card h5,
+.thinking .essay-card__title {
+  color: var(--text-primary);
+  font-size: 1.02rem;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.thinking .essay-card .essay-card-desc,
+.thinking .essay-card .text-muted,
+.thinking .essay-card p.small {
+  color: var(--text-secondary) !important;
+  line-height: 1.55;
+}
+
+.thinking .essay-card:hover h5,
+.thinking .essay-card:hover .essay-card__title {
+  color: var(--text-primary);
+}
+
+.thinking .essay-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-muted);
+}
+
+.thinking .essay-card .badge,
+.essay-badge {
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+}
+
+.essay-badge--green {
+  background: rgba(46, 160, 67, 0.15);
+  color: #3fb950;
+}
+
+.essay-badge--blue {
+  background: rgba(88, 166, 255, 0.15);
+  color: var(--gh-link);
+}
+
+.essay-badge--orange {
+  background: var(--accent-muted);
+  color: var(--accent);
+}
+
+.thinking a.portfolio-details-lightbox {
+  text-decoration: none;
+  color: inherit;
+}
+
+.thinking .section-title p {
+  color: var(--text-secondary);
+}
+
+.gh-services-page #thinking.thinking-gh {
+  border-top: 1px solid var(--border-muted);
+  margin-top: 2.5rem;
+  padding-top: 2.75rem;
+  padding-bottom: 3rem;
+}

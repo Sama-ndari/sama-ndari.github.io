@@ -752,6 +752,42 @@ html[data-app-page="projects"] .gh-lang-dot[data-lang="Dart"] { background: #00B
 html[data-app-page="projects"] .gh-lang-dot[data-lang="TypeScript"] { background: #3178c6; }
 html[data-app-page="projects"] .gh-lang-dot[data-lang="JavaScript"] { background: #f1e05a; }
 
+html[data-app-page="projects"] .gh-repo-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid #30363d;
+  color: #8b949e;
+}
+
+html[data-app-page="projects"] .gh-repo-type::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+html[data-app-page="projects"] .gh-repo-type[data-type="AI"] {
+  color: #d2a8ff;
+  border-color: rgba(210, 168, 255, 0.4);
+}
+
+html[data-app-page="projects"] .gh-repo-type[data-type="Mobile"] {
+  color: #3fb950;
+  border-color: rgba(63, 185, 80, 0.4);
+}
+
+html[data-app-page="projects"] .gh-repo-type[data-type="Web"] {
+  color: #58a6ff;
+  border-color: rgba(88, 166, 255, 0.4);
+}
+
 html[data-app-page="projects"] .gh-star-btn,
 html[data-app-page="projects"] .gh-star-caret {
   height: 28px;

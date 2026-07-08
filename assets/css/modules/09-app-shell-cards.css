@@ -1,0 +1,382 @@
+.gh-sidebar-section {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-muted);
+}
+
+.gh-sidebar-section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 12px;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+}
+
+.gh-sidebar-section:has(.gh-org-item) {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gh-sidebar-section:has(.gh-org-item) h3 {
+  margin-bottom: 0;
+}
+
+.gh-achievement-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.gh-achievement-app {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 76px;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  text-decoration: none;
+  gap: 8px;
+}
+
+.gh-achievement-app:hover {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+}
+
+.gh-achievement-icon-wrap {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.gh-achievement-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(1, 4, 9, 0.35);
+}
+
+.gh-achievement-count {
+  position: absolute;
+  right: -6px;
+  bottom: -4px;
+  min-width: 1.25rem;
+  padding: 1px 6px 2px;
+  border-radius: 10px;
+  background: #e8d4c4;
+  color: #24292f;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  line-height: 1.35;
+  text-align: center;
+  border: 1px solid rgba(1, 4, 9, 0.12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+}
+
+.gh-achievement-count .esama-user-badge,
+.gh-achievement-count .velora-user-badge,
+.gh-achievement-count .sama-apps-catalog-badge,
+.gh-achievement-count .sama-apps-user-badge,
+.gh-achievement-count .sama-web-site-badge {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.gh-achievement-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  max-width: 76px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gh-org-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.gh-org-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.gh-org-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+}
+
+.gh-readme-panel {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.gh-readme-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.gh-readme-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.gh-readme-title span {
+  color: var(--gh-link);
+}
+
+.overview-hero-text {
+  padding: 24px 16px 8px;
+}
+
+.overview-hero-text h1 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  margin-bottom: 12px;
+}
+
+.overview-hero-text .text-secondary strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.overview-hero-sub {
+  line-height: 1.65;
+}
+
+.overview-hero-text .hero-role-line {
+  min-height: 1.35em;
+}
+
+.overview-hero-text .hero-role-prefix {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.overview-hero-text .hero-role-typed {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.overview-hero-text .hero-role-typed .typed-cursor {
+  color: var(--gh-link);
+}
+
+.thinking-essay-lang-banner {
+  border-bottom: 1px solid var(--border-muted, #30363d);
+  background: var(--bg-surface, #161b22);
+}
+
+.gh-blob {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin: 0 16px 24px;
+  overflow: hidden;
+  background: var(--bg-inset);
+}
+
+.gh-blob-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.gh-blob-path-row {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+
+.gh-blob-path-row strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.gh-blob-lang {
+  font-size: 11px;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-tertiary);
+}
+
+.gh-blob-viewer {
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.65;
+  overflow-x: auto;
+}
+
+.gh-line-gutter {
+  flex-shrink: 0;
+  width: 52px;
+  padding: 16px 0 16px 12px;
+  text-align: right;
+  color: var(--text-tertiary);
+  background: var(--bg);
+  border-right: 1px solid var(--border-muted);
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.gh-line-num {
+  display: block;
+  padding: 0 10px 0 0;
+  min-height: 1.65em;
+}
+
+.gh-code-canvas {
+  flex: 1;
+  padding: 16px 20px;
+  color: var(--text-primary);
+}
+
+.tok-k {
+  color: #ff7b72;
+}
+
+.tok-n {
+  color: #79c0ff;
+}
+
+.tok-p {
+  color: #79c0ff;
+}
+
+.tok-s {
+  color: #a5d6ff;
+}
+
+.tok-o {
+  color: #e6edf3;
+}
+
+.tok-b {
+  color: #79c0ff;
+}
+
+.tok-c {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.gh-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0 16px 24px;
+}
+
+.gh-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+}
+
+.gh-cta-btn--primary {
+  color: #fff;
+  background: #238636;
+  border: 1px solid #2ea043;
+}
+
+.gh-cta-btn--primary:hover {
+  color: #fff;
+  background: #2ea043;
+}
+
+.gh-cta-btn--outline {
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+}
+
+.gh-page-content .section-title {
+  margin-bottom: 32px;
+}
+
+@media (max-width: 991px) {
+  .gh-tabs-inner {
+    display: none;
+    flex-direction: column;
+    padding-bottom: 12px;
+  }
+
+  .mobile-nav-active .gh-tabs-inner {
+    display: flex;
+  }
+
+  .gh-app {
+    padding-top: 96px;
+  }
+
+  .gh-sidebar {
+    position: static;
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .gh-avatar {
+    max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gh-line-gutter {
+    width: 44px;
+    padding-left: 8px;
+  }
+}

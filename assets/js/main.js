@@ -346,6 +346,13 @@
     return v;
   }
 
+  function repoTypeLabelKey(type) {
+    if (type === "AI") return "repo_filter_type_ai";
+    if (type === "Mobile") return "repo_filter_type_mobile";
+    if (type === "Web") return "repo_filter_type_web";
+    return "repo_filter_value_all";
+  }
+
   function getProjectMetaConfig() {
     return {
       proj_kirundi_title: { language: "Python", type: "AI", status: "repo_status_flagship", tags: ["tag_data_eng", "tag_open_source"], order: 1 },
@@ -602,8 +609,15 @@
     const langLabel = displayLanguageLabel(meta.language);
     const metaRow = document.createElement("div");
     metaRow.className = "gh-repo-meta";
-    metaRow.innerHTML = `<span class="gh-lang-dot" data-lang="${meta.language}"></span><span></span>`;
-    metaRow.lastElementChild.textContent = langLabel;
+    metaRow.innerHTML = `<span class="gh-lang-dot" data-lang="${meta.language}"></span><span class="gh-repo-lang-label"></span>`;
+    metaRow.querySelector(".gh-repo-lang-label").textContent = langLabel;
+    const typeKey = repoTypeLabelKey(meta.type);
+    const typeBadge = document.createElement("span");
+    typeBadge.className = "gh-repo-type";
+    typeBadge.dataset.type = meta.type;
+    typeBadge.setAttribute("data-i18n", typeKey);
+    typeBadge.textContent = t(typeKey);
+    metaRow.appendChild(typeBadge);
     tagsWrap.insertAdjacentElement("afterend", metaRow);
 
     if (actionsEl) buildRepoActionsRow(actionsEl, item, metaRow, actionAnchors);

@@ -1,0 +1,295 @@
+/* --------------------------------------------------------------------------
+   Project Detail Pages
+   -------------------------------------------------------------------------- */
+.portfolio-detail-nav {
+  padding: 12px 12px 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+  background: var(--bg);
+}
+
+.portfolio-detail-nav .container {
+  max-width: 1140px;
+}
+
+.portfolio-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gh-link);
+  text-decoration: none;
+}
+
+.portfolio-detail-back:hover {
+  color: #79c0ff;
+  text-decoration: underline;
+}
+
+.portfolio-details {
+  background: var(--bg);
+  color: var(--text-secondary);
+  padding: 40px 0 80px;
+}
+
+.portfolio-details .row {
+  align-items: flex-start;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-wrapper {
+  align-items: flex-start !important;
+}
+
+.portfolio-details .col-lg-8 {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .portfolio-details .col-lg-8 {
+    margin-bottom: 0;
+  }
+}
+
+.portfolio-details .portfolio-details-slider {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+
+.portfolio-details .portfolio-details-slider img {
+  width: 100%;
+  display: block;
+}
+
+.portfolio-details .swiper-pagination {
+  margin-top: 12px;
+  position: relative;
+}
+
+.portfolio-details .swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: var(--border);
+  opacity: 1;
+  border: none;
+}
+
+.portfolio-details .swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--gh-link);
+}
+
+.portfolio-details .portfolio-slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 8px 8px 10px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.portfolio-details .portfolio-slider-nav .swiper-pagination {
+  margin-top: 0;
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 120px;
+}
+
+.portfolio-details .portfolio-slider-btn {
+  position: static !important;
+  margin: 0 !important;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #21262d;
+  color: #c9d1d9;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.portfolio-details .portfolio-slider-btn::after {
+  display: none !important;
+}
+
+.portfolio-details .portfolio-slider-btn:hover {
+  background: #30363d;
+  border-color: #6e7681;
+  color: #f0f6fc;
+}
+
+.portfolio-details .portfolio-slider-btn.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.portfolio-details .portfolio-slider-scrollbar.swiper-scrollbar-horizontal {
+  position: relative !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 100% !important;
+  height: 6px;
+  margin: 0 12px 10px;
+  max-width: calc(100% - 24px);
+  border-radius: 3px;
+  background: var(--border);
+}
+
+.portfolio-details .portfolio-slider-scrollbar .swiper-scrollbar-drag {
+  background: var(--gh-link);
+  border-radius: 3px;
+}
+
+.portfolio-details .portfolio-info {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-info h3 {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.portfolio-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio-details .portfolio-info ul li {
+  color: var(--text-secondary);
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.portfolio-details .portfolio-info ul li:last-child {
+  border-bottom: none;
+}
+
+.portfolio-details .portfolio-info ul li strong {
+  color: var(--text-tertiary);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.portfolio-details .portfolio-info ul li a {
+  color: var(--gh-link);
+}
+
+.portfolio-details .portfolio-info ul li a:hover {
+  text-decoration: underline;
+}
+
+.portfolio-details .portfolio-description {
+  padding-top: 8px;
+}
+
+.portfolio-details .portfolio-description h2 {
+  color: var(--text-primary);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.portfolio-details .portfolio-description h3 {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.portfolio-details .portfolio-description h4 {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.portfolio-details .portfolio-description p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.portfolio-details .portfolio-description ul {
+  padding-left: 20px;
+}
+
+.portfolio-details .portfolio-description ul li {
+  color: var(--text-secondary);
+  padding-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.portfolio-details .portfolio-description ul li strong {
+  color: var(--text-primary);
+}
+
+.portfolio-details .portfolio-description a {
+  color: var(--gh-link);
+}
+
+.portfolio-details .portfolio-description a:hover {
+  text-decoration: underline;
+}
+
+.portfolio-details .portfolio-description code {
+  background: var(--bg-inset);
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  border: 1px solid var(--border-muted);
+}
+
+/* Case study stat cards */
+.portfolio-details .portfolio-description .bg-light {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border);
+}
+
+.portfolio-details .portfolio-description .text-muted {
+  color: var(--text-tertiary) !important;
+}
+
+.portfolio-details .portfolio-description .badge.bg-primary {
+  background: var(--accent-muted) !important;
+}
+
+.portfolio-details .portfolio-description .text-primary {
+  color: var(--gh-link) !important;
+}
+
+.portfolio-details .portfolio-description .text-danger {
+  color: #f85149 !important;
+}
+
+.portfolio-details .portfolio-description .text-success {
+  color: #3fb950 !important;
+}
+
+@media (max-width: 767.98px) {
+  .portfolio-details {
+    padding: 24px 0 48px;
+  }
+}

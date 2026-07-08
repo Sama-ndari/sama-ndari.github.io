@@ -1,0 +1,277 @@
+/* --------------------------------------------------------------------------
+   Kirundi architecture subpage
+   -------------------------------------------------------------------------- */
+.architecture-page .arch-hero {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.architecture-page .arch-hero__title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  margin-bottom: 0.75rem;
+}
+
+.architecture-page .arch-hero__icon {
+  color: var(--accent);
+  font-size: 1.35em;
+}
+
+.architecture-page .arch-hero__lead {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 52rem;
+  margin: 0;
+}
+
+.arch-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.35rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.arch-panel--compact {
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.arch-panel__title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arch-panel__title--success {
+  color: #3fb950;
+}
+
+.architecture-page .arch-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+.architecture-page .arch-list li + li {
+  margin-top: 0.5rem;
+}
+
+.architecture-page .arch-list strong {
+  color: var(--text-primary);
+}
+
+.arch-pipeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.arch-pipeline__step {
+  display: flex;
+  gap: 1rem;
+  padding: 0 0 1.25rem 0.5rem;
+  position: relative;
+}
+
+.arch-pipeline__step:not(.arch-pipeline__step--last)::before {
+  content: "";
+  position: absolute;
+  left: calc(0.5rem + 15px);
+  top: 40px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border-muted);
+  border-radius: 1px;
+}
+
+.arch-pipeline__num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--step-accent, var(--accent));
+  background: var(--bg-inset);
+  border: 1px solid var(--step-accent, var(--border));
+}
+
+.arch-pipeline__body {
+  min-width: 0;
+  padding-top: 0.1rem;
+}
+
+.arch-pipeline__label {
+  display: block;
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.arch-pipeline__text {
+  margin: 0 0 0.65rem;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.arch-pipeline__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.arch-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  padding: 0.28rem 0.5rem;
+  border-radius: 6px;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  color: var(--text-tertiary);
+}
+
+.arch-tag--accent {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--accent-subtle);
+}
+
+.arch-stack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.arch-stack-chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile case study tech stack panel
+   -------------------------------------------------------------------------- */
+.case-study-tech-panel {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.35rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.case-study-tech-panel__heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-tertiary);
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.case-study-tech-panel__heading .bi {
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.case-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: 0.5rem;
+}
+
+.case-tech-chip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid var(--border);
+  background: var(--bg-inset);
+  color: var(--text-secondary);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.case-tech-chip:hover {
+  border-color: var(--text-tertiary);
+  color: var(--text-primary);
+}
+
+.case-tech-chip--flutter {
+  border-color: rgba(1, 117, 194, 0.45);
+  color: #54c5f8;
+}
+
+.case-tech-chip--dart {
+  border-color: rgba(0, 180, 171, 0.4);
+  color: #41d9d0;
+}
+
+.case-tech-chip--data {
+  border-color: rgba(163, 113, 247, 0.45);
+  color: #d2a8ff;
+}
+
+.case-tech-chip--security {
+  border-color: rgba(248, 81, 73, 0.35);
+  color: #ff7b72;
+}
+
+.case-tech-chip--state {
+  border-color: rgba(88, 166, 255, 0.4);
+  color: #79c0ff;
+}
+
+.case-tech-chip--hardware {
+  border-color: rgba(210, 153, 34, 0.45);
+  color: #e3b341;
+}
+
+.case-tech-chip--docs {
+  border-color: rgba(255, 123, 114, 0.35);
+  color: #ffa28b;
+}
+
+.case-tech-chip--gist {
+  border-color: rgba(139, 148, 158, 0.5);
+  color: #c9d1d9;
+}
+
+.case-tech-chip--cloud {
+  border-color: rgba(66, 133, 244, 0.45);
+  color: #8ab4f8;
+}
+
+.case-tech-chip--android {
+  border-color: rgba(61, 220, 132, 0.4);
+  color: #56d364;
+}
+
+.case-tech-chip--viz {
+  border-color: rgba(232, 151, 108, 0.45);
+  color: var(--accent);
+}

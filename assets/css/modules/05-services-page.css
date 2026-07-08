@@ -1,0 +1,453 @@
+/* --------------------------------------------------------------------------
+   Services page: GitHub-style layout (gh-services-page)
+   -------------------------------------------------------------------------- */
+.gh-services-page .services-gh {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.gh-services-page .gh-svc-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.gh-services-page .gh-svc-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--text-primary);
+}
+
+.gh-services-page .gh-svc-lead {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  max-width: 42rem;
+  margin: 0;
+}
+
+.gh-services-page .gh-svc-notice {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  border-left: 4px solid var(--accent);
+}
+
+.gh-services-page .gh-svc-notice-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
+.gh-services-page .gh-svc-notice-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--text-primary);
+}
+
+.gh-services-page .gh-svc-notice-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.gh-services-page .gh-svc-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 22px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.gh-services-page .gh-svc-card:hover {
+  border-color: var(--text-tertiary);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.gh-services-page .gh-svc-card--blue {
+  border-top: 3px solid var(--gh-link);
+}
+
+.gh-services-page .gh-svc-card--orange {
+  border-top: 3px solid var(--accent);
+}
+
+.gh-services-page .gh-svc-card--pink {
+  border-top: 3px solid #f778ba;
+}
+
+.gh-services-page .gh-svc-card__icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  font-size: 1.1rem;
+}
+
+.gh-services-page .gh-svc-card--blue .gh-svc-card__icon {
+  color: var(--gh-link);
+}
+
+.gh-services-page .gh-svc-card--orange .gh-svc-card__icon {
+  color: var(--accent);
+}
+
+.gh-services-page .gh-svc-card--pink .gh-svc-card__icon {
+  color: #f778ba;
+}
+
+.gh-services-page .gh-svc-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--text-primary);
+}
+
+.gh-services-page .gh-svc-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.gh-services-page .gh-svc-card__title a:hover {
+  color: var(--gh-link);
+}
+
+.gh-services-page .gh-svc-card__desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.gh-services-page .gh-svc-card__cta {
+  margin-top: 14px;
+  align-self: flex-start;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.gh-services-page .gh-svc-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+  padding-top: 0.5rem;
+  max-height: 5rem;
+  overflow: hidden;
+  transition:
+    opacity 0.22s ease,
+    visibility 0.22s ease,
+    transform 0.22s ease,
+    max-height 0.28s ease,
+    margin 0.28s ease,
+    padding 0.28s ease;
+}
+
+.gh-services-page .gh-svc-more-wrap--concealed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(6px);
+  max-height: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.gh-services-page .gh-svc-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1.1rem 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-secondary, #8b949e);
+  border: 1px solid var(--border-muted, #30363d);
+  border-radius: 999px;
+  background: rgba(33, 38, 45, 0.65);
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.gh-services-page .gh-svc-more-btn:hover {
+  color: var(--gh-link);
+  border-color: rgba(88, 166, 255, 0.45);
+  background: rgba(88, 166, 255, 0.08);
+  transform: translateY(2px);
+}
+
+.gh-services-page .gh-svc-more-btn__icon {
+  font-size: 1rem;
+  line-height: 1;
+  animation: gh-svc-more-bob 1.6s ease-in-out infinite;
+}
+
+.gh-services-page .gh-svc-more-btn:hover .gh-svc-more-btn__icon {
+  animation: none;
+  transform: translateY(2px);
+}
+
+@keyframes gh-svc-more-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.gh-services-page .thinking-gh__head {
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.gh-services-page .thinking-gh__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.gh-services-page .thinking-gh__subtitle {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.gh-services-page .essay-card--gh {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+}
+
+.gh-services-page .essay-card--gh .card-body {
+  flex: 1;
+}
+
+.gh-services-page .essay-card--gh .essay-card__footer {
+  margin-top: auto;
+  padding: 10px 1rem 12px;
+  border-top: 1px solid var(--border-muted);
+  background: var(--bg-inset);
+}
+
+.gh-services-page .essay-card__link {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--gh-link);
+}
+
+.gh-services-page .essay-card--gh:hover .essay-card__link {
+  text-decoration: underline;
+}
+
+/* Services sidebar: GitHub repo “About” panel */
+.gh-services-page .gh-services-about-card {
+  padding: 0 0 8px;
+  border: 1px solid var(--border, #30363d);
+  border-radius: 6px;
+  background: var(--bg-surface, #0d1117);
+  overflow: hidden;
+}
+
+.gh-services-page .gh-services-about__title {
+  margin: 0;
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary, #f0f6fc);
+  border-bottom: 1px solid var(--border-muted, #21262d);
+}
+
+.gh-services-page .gh-services-about__intro {
+  margin: 0;
+  padding: 12px 16px 10px;
+  line-height: 1.55;
+  color: var(--text-secondary, #8b949e);
+}
+
+.gh-services-page .gh-services-about__subhead {
+  margin: 16px 0 0;
+  padding: 0 16px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary, #8b949e);
+  border-bottom: 1px solid var(--border-muted, #21262d);
+}
+
+.gh-services-page .gh-services-about__subhead--bar {
+  margin-top: 20px;
+}
+
+.gh-services-page .gh-repo-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  padding: 0 16px 6px;
+}
+
+.gh-services-page .gh-repo-topic {
+  display: inline-block;
+  padding: 0.22rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.35;
+  white-space: nowrap;
+  border-radius: 2em;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+.gh-services-page .gh-repo-topic--ai {
+  color: #a5d6ff;
+  border: 1px solid rgba(49, 120, 198, 0.55);
+  background: rgba(49, 120, 198, 0.14);
+}
+
+.gh-services-page .gh-repo-topic--ai:hover {
+  color: #dbefff;
+  border-color: rgba(121, 192, 255, 0.55);
+  background: rgba(49, 120, 198, 0.26);
+}
+
+.gh-services-page .gh-repo-topic--be {
+  color: #d2a8ff;
+  border: 1px solid rgba(163, 113, 247, 0.55);
+  background: rgba(163, 113, 247, 0.12);
+}
+
+.gh-services-page .gh-repo-topic--be:hover {
+  color: #e6d7ff;
+  border-color: rgba(188, 140, 255, 0.65);
+  background: rgba(163, 113, 247, 0.24);
+}
+
+.gh-services-page .gh-repo-topic--ops {
+  color: #7ee787;
+  border: 1px solid rgba(63, 185, 80, 0.55);
+  background: rgba(63, 185, 80, 0.12);
+}
+
+.gh-services-page .gh-repo-topic--ops:hover {
+  color: #aff5b4;
+  border-color: rgba(86, 211, 100, 0.65);
+  background: rgba(63, 185, 80, 0.24);
+}
+
+.gh-services-page .gh-repo-lang-bar {
+  display: flex;
+  height: 8px;
+  margin: 0 16px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #21262d;
+  outline: 1px solid var(--border, #30363d);
+}
+
+.gh-services-page .gh-repo-lang-bar__seg {
+  display: block;
+  height: 100%;
+  min-width: 2px;
+}
+
+.gh-services-page .gh-repo-lang-bar__seg--ai {
+  background: #3178c6;
+}
+
+.gh-services-page .gh-repo-lang-bar__seg--be {
+  background: #a371f7;
+}
+
+.gh-services-page .gh-repo-lang-bar__seg--ops {
+  background: #3fb950;
+}
+
+.gh-services-page .gh-repo-lang-legend {
+  padding: 10px 16px 0;
+}
+
+.gh-services-page .gh-repo-lang-legend__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.gh-services-page .gh-repo-lang-legend__row:last-child {
+  margin-bottom: 0;
+}
+
+.gh-services-page .gh-repo-lang-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.gh-services-page .gh-repo-lang-dot--ai {
+  background: #3178c6;
+}
+
+.gh-services-page .gh-repo-lang-dot--be {
+  background: #a371f7;
+}
+
+.gh-services-page .gh-repo-lang-dot--ops {
+  background: #3fb950;
+}
+
+.gh-services-page .gh-repo-lang-pct {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary, #8b949e);
+}
+
+.gh-services-page .gh-repo-lang-footnote {
+  margin-top: 10px;
+  padding: 0 16px 14px;
+  line-height: 1.45;
+  font-size: 0.6875rem;
+}
+
+.kirundi-fellowship-body {
+  font-size: 0.97rem;
+  line-height: 1.85;
+}
