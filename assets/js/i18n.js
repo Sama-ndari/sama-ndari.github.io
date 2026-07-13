@@ -412,6 +412,18 @@ const I18N = {
     proj_sdr_title: "Autonomous SDR Agent",
     proj_sdr_desc: '<strong>Problem:</strong> Sales outreach requires constant manual email follow-ups.<br><strong>Architecture:</strong> OpenAI SDK agent with SendGrid email integration and Pushover notifications.<br><strong>Outcome:</strong> Autonomous agent that manages full email threads.',
 
+    proj_opsmanager_cat: "Multi-Agent Orchestration",
+    proj_opsmanager_title: "AI Operations Manager Agent",
+    proj_opsmanager_desc: '<strong>Problem:</strong> Complex business tasks need coordinated input from Finance, HR, and Engineering - not a single generic LLM reply.<br><strong>Architecture:</strong> OpenAI Agents SDK orchestrator with parallel expert agents (map-reduce), tools for logging/reporting/notifications, and structured handoffs.<br><strong>Outcome:</strong> Virtual boardroom that turns high-level ops requests into consolidated executive reports.',
+
+    proj_scholarship_cat: "Autonomous Agent / Education",
+    proj_scholarship_title: "Autonomous Scholarship SDR Agent",
+    proj_scholarship_desc: '<strong>Problem:</strong> Master\'s scholarship outreach emails need deep research, quality drafts, and safe delivery - not blind templates.<br><strong>Architecture:</strong> Multi-LLM pipeline with web research planner, input guardrails, draft evaluation, and SendGrid delivery from a Jupyter notebook.<br><strong>Outcome:</strong> End-to-end agent that researches universities, selects the best draft, and sends professional application emails.',
+
+    proj_ade_cat: "AI Safety / Human-in-the-Loop",
+    proj_ade_title: "Autonomous Decision Engine",
+    proj_ade_desc: '<strong>Problem:</strong> Uncontrolled AI autonomy risks irreversible actions, credential exposure, and opaque decisions.<br><strong>Architecture:</strong> LangGraph risk-aware router that chooses AUTONOMOUS, TOOLS, HUMAN, or STOP - with audit trails, Campus France workflow, and Pushover alerts.<br><strong>Outcome:</strong> Accountable decision framework where high-risk tasks always keep humans in control.',
+
     proj_sentinel_cat: "Cybersecurity AI",
     proj_sentinel_title: "SentinelAI SOC Assistant",
     proj_sentinel_desc: '<strong>Problem:</strong> SOC analysts are overwhelmed triaging security alerts manually.<br><strong>Architecture:</strong> FastAPI backend with OpenAI for alert analysis, mapped to MITRE ATT&CK framework.<br><strong>Outcome:</strong> AI assistant that classifies threats in real time.',
@@ -853,6 +865,18 @@ const I18N = {
     proj_sdr_cat: "Agent Autonome",
     proj_sdr_title: "Agent SDR Autonome",
     proj_sdr_desc: '<strong>Probl\u00e8me :</strong> La prospection commerciale n\u00e9cessite des relances email manuelles constantes.<br><strong>Architecture :</strong> Agent OpenAI SDK avec int\u00e9gration email SendGrid et notifications Pushover.<br><strong>R\u00e9sultat :</strong> Agent autonome qui g\u00e8re des fils d\'emails complets.',
+
+    proj_opsmanager_cat: "Orchestration Multi-Agents",
+    proj_opsmanager_title: "Agent Manager d'Op\u00e9rations IA",
+    proj_opsmanager_desc: '<strong>Probl\u00e8me :</strong> Les t\u00e2ches business complexes exigent Finance, RH et Engineering - pas une r\u00e9ponse LLM g\u00e9n\u00e9rique.<br><strong>Architecture :</strong> Orchestrateur OpenAI Agents SDK avec agents experts en parall\u00e8le (map-reduce), outils de logging/reporting/notifications et handoffs structur\u00e9s.<br><strong>R\u00e9sultat :</strong> Boardroom virtuel qui transforme des demandes ops en rapports ex\u00e9cutifs consolid\u00e9s.',
+
+    proj_scholarship_cat: "Agent Autonome / \u00c9ducation",
+    proj_scholarship_title: "Agent SDR Bourses Autonome",
+    proj_scholarship_desc: '<strong>Probl\u00e8me :</strong> Les emails de candidature Master n\u00e9cessitent recherche profonde, brouillons de qualit\u00e9 et envoi s\u00fbr - pas des templates aveugles.<br><strong>Architecture :</strong> Pipeline multi-LLM avec planner de recherche web, guardrails d\'entr\u00e9e, \u00e9valuation de brouillons et livraison SendGrid depuis un notebook Jupyter.<br><strong>R\u00e9sultat :</strong> Agent bout-en-bout qui recherche les universit\u00e9s, s\u00e9lectionne le meilleur brouillon et envoie des emails professionnels.',
+
+    proj_ade_cat: "S\u00e9curit\u00e9 IA / Human-in-the-Loop",
+    proj_ade_title: "Autonomous Decision Engine",
+    proj_ade_desc: '<strong>Probl\u00e8me :</strong> L\'autonomie IA non contr\u00f4l\u00e9e risque actions irr\u00e9versibles, exposition de credentials et d\u00e9cisions opaques.<br><strong>Architecture :</strong> Routeur LangGraph risk-aware qui choisit AUTONOMOUS, TOOLS, HUMAN ou STOP - avec audit trail, workflow Campus France et alertes Pushover.<br><strong>R\u00e9sultat :</strong> Cadre d\u00e9cisionnel accountable o\u00f9 les t\u00e2ches \u00e0 haut risque gardent l\'humain aux commandes.',
 
     proj_sentinel_cat: "IA Cybers\u00e9curit\u00e9",
     proj_sentinel_title: "Assistant SOC SentinelAI",
