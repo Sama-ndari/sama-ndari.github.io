@@ -218,9 +218,18 @@
 
   // AOS: init on DOM ready so scroll animations work before window "load" (images/fonts).
   // Overview felt slow because init waited for full load; other pages benefited less visibly.
+  function prefersReducedMotion() {
+    return (
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }
   function initAOS() {
-    if (typeof AOS === "undefined") return;
+    // Leave the CSS failsafe in charge (content visible, no motion) when AOS is
+    // unavailable or the user prefers reduced motion.
+    if (typeof AOS === "undefined" || prefersReducedMotion()) return;
     AOS.init({ duration: 400, easing: "ease-out", once: true, mirror: false });
+    document.documentElement.classList.add("aos-ready");
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initAOS);
@@ -228,7 +237,9 @@
     initAOS();
   }
   window.addEventListener("load", () => {
-    if (typeof AOS !== "undefined") AOS.refresh();
+    if (typeof AOS !== "undefined" && document.documentElement.classList.contains("aos-ready")) {
+      AOS.refresh();
+    }
   });
 
   // PureCounter
@@ -268,6 +279,19 @@
         });
         typedEl._typed = newTyped;
       }
+    });
+  }
+
+  // Avatar skeleton: drop the shimmer once the portrait has painted (or failed).
+  function initAvatarSkeleton() {
+    document.querySelectorAll(".gh-avatar").forEach(img => {
+      if (img.complete && img.naturalWidth > 0) {
+        img.classList.add("is-loaded");
+        return;
+      }
+      const done = () => img.classList.add("is-loaded");
+      img.addEventListener("load", done, { once: true });
+      img.addEventListener("error", done, { once: true });
     });
   }
 
@@ -794,6 +818,7 @@
     initNavProjectCountBadge();
     initLangToggle();
     initThemeToggle();
+    initAvatarSkeleton();
     initContactForm();
     initGhServicesMoreHint();
     initProjectsRepositoryUI();

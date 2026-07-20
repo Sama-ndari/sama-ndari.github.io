@@ -71,6 +71,20 @@
   border-bottom-color: var(--border);
 }
 
+/* Logo is a near-white line-art on transparent → give it a circular dark
+   backing in light mode: visible on the white topbar, and the round shape
+   drops the square corners so only the black circle shows. */
+[data-theme="light"] .gh-logo img {
+  background: #0d1117;
+  border-radius: 50%;
+}
+
+/* Splash / preloader: the loader bars are white — recolour them for the
+   light-mode white backdrop so the splash stays visible. */
+[data-theme="light"] .loader {
+  color: var(--accent);
+}
+
 [data-theme="light"] .gh-tab-count {
   background: var(--bg-surface);
   color: var(--text-primary);
@@ -156,75 +170,90 @@
 }
 
 /* Projects page: GitHub repository list */
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-search,
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-filter,
-[data-theme="light"] html[data-app-page="projects"] .gh-star-btn,
-[data-theme="light"] html[data-app-page="projects"] .gh-star-caret {
+html[data-theme="light"][data-app-page="projects"] .gh-repo-search,
+html[data-theme="light"][data-app-page="projects"] .gh-repo-filter,
+html[data-theme="light"][data-app-page="projects"] .gh-star-btn,
+html[data-theme="light"][data-app-page="projects"] .gh-star-caret {
   background: var(--bg-surface);
   border-color: var(--border);
   color: var(--text-primary);
 }
 
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-menu {
+html[data-theme="light"][data-app-page="projects"] .gh-repo-menu {
   background: #ffffff;
   border-color: var(--border);
   box-shadow: 0 12px 28px rgba(31, 35, 40, 0.15);
 }
 
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-menu button {
+html[data-theme="light"][data-app-page="projects"] .gh-repo-menu button {
   color: var(--text-primary);
 }
 
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-menu button:hover {
+html[data-theme="light"][data-app-page="projects"] .gh-repo-menu button:hover {
   background: var(--bg-surface-hover);
 }
 
-[data-theme="light"] html[data-app-page="projects"] .gh-star-btn:hover,
-[data-theme="light"] html[data-app-page="projects"] .gh-star-caret:hover {
+html[data-theme="light"][data-app-page="projects"] .gh-star-btn:hover,
+html[data-theme="light"][data-app-page="projects"] .gh-star-caret:hover {
   background: var(--bg-surface-hover);
   border-color: var(--text-tertiary);
 }
 
-[data-theme="light"] html[data-app-page="projects"] .gh-star-btn svg,
-[data-theme="light"] html[data-app-page="projects"] .gh-star-caret svg {
+html[data-theme="light"][data-app-page="projects"] .gh-star-btn svg,
+html[data-theme="light"][data-app-page="projects"] .gh-star-caret svg {
   fill: var(--text-secondary);
 }
 
-[data-theme="light"] html[data-app-page="projects"] #projects .project-card:hover {
+html[data-theme="light"][data-app-page="projects"] #projects .project-card:hover {
   background: rgba(31, 35, 40, 0.04);
 }
 
-[data-theme="light"] html[data-app-page="projects"] #projects .project-card__title,
-[data-theme="light"] html[data-app-page="projects"] #projects .project-card:hover .project-card__title {
+html[data-theme="light"][data-app-page="projects"] #projects .project-card__title,
+html[data-theme="light"][data-app-page="projects"] #projects .project-card:hover .project-card__title {
   color: var(--gh-link);
 }
 
-[data-theme="light"] html[data-app-page="projects"] #projects .project-card__desc,
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-meta {
+html[data-theme="light"][data-app-page="projects"] #projects .project-card__desc,
+html[data-theme="light"][data-app-page="projects"] .gh-repo-meta {
   color: var(--text-secondary);
 }
 
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-visibility[data-i18n="repo_status_learning"] {
+html[data-theme="light"][data-app-page="projects"] .gh-repo-visibility[data-i18n="repo_status_learning"] {
   color: var(--text-secondary);
   border-color: var(--border);
 }
 
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-type {
+html[data-theme="light"][data-app-page="projects"] .gh-repo-type {
   border-color: var(--border);
   color: var(--text-secondary);
 }
 
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-tag {
+html[data-theme="light"][data-app-page="projects"] .gh-repo-tag {
   color: var(--gh-link);
   background: rgba(9, 105, 218, 0.1);
 }
 
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-links .btn-action {
+/* Action buttons: base rules use `#projects` (id) so light overrides must too. */
+html[data-theme="light"][data-app-page="projects"] #projects .btn-action,
+html[data-theme="light"][data-app-page="projects"] #projects .btn-action--primary,
+html[data-theme="light"][data-app-page="projects"] #projects .btn-action--demo,
+html[data-theme="light"][data-app-page="projects"] #projects .btn-action--ghost {
+  background: var(--bg-surface);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+html[data-theme="light"][data-app-page="projects"] #projects .gh-repo-links .btn-action {
+  background: transparent;
   border-color: var(--border);
   color: var(--gh-link);
 }
 
-[data-theme="light"] html[data-app-page="projects"] .gh-repo-links .btn-action:hover {
+html[data-theme="light"][data-app-page="projects"] #projects .gh-repo-links .btn-action:hover {
   background: rgba(9, 105, 218, 0.08);
   border-color: var(--gh-link);
+}
+
+html[data-theme="light"][data-app-page="projects"] .gh-repo-search::placeholder {
+  color: var(--text-tertiary);
 }

@@ -224,6 +224,29 @@
   border: 3px solid #30363d;
   box-shadow: 0 0 0 6px rgba(13, 17, 23, 0.85);
   margin-bottom: 0;
+  background-color: var(--bg-surface);
+}
+
+/* Skeleton shimmer shown until the portrait finishes loading (JS adds
+   .is-loaded). Avoids the empty ringed circle on first paint. */
+.gh-avatar:not(.is-loaded) {
+  background-image: linear-gradient(
+    100deg,
+    var(--bg-surface) 30%,
+    var(--bg-surface-hover) 50%,
+    var(--bg-surface) 70%
+  );
+  background-size: 200% 100%;
+  animation: gh-avatar-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes gh-avatar-shimmer {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
 }
 
 .gh-avatar-tag {

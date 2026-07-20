@@ -263,6 +263,18 @@ img {
 }
 
 /* --------------------------------------------------------------------------
+   AOS failsafe: scroll-animated content stays visible AND interactive until
+   AOS initialises (JS adds .aos-ready to <html>). If AOS is slow, fails to
+   load, or reduced-motion is on, content simply stays put — never a blank
+   panel and never dead pointer-events. AOS takes over once .aos-ready is set.
+   -------------------------------------------------------------------------- */
+html:not(.aos-ready) [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+/* --------------------------------------------------------------------------
    Header / Top Navbar
    -------------------------------------------------------------------------- */
 #header {
