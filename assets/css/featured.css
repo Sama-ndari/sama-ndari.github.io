@@ -788,8 +788,7 @@ html[data-app-page="projects"] .gh-repo-type[data-type="Web"] {
   border-color: rgba(88, 166, 255, 0.4);
 }
 
-html[data-app-page="projects"] .gh-star-btn,
-html[data-app-page="projects"] .gh-star-caret {
+html[data-app-page="projects"] .gh-star-btn {
   height: 28px;
   background: #21262d;
   border: 1px solid #30363d;
@@ -800,12 +799,9 @@ html[data-app-page="projects"] .gh-star-caret {
   align-items: center;
   gap: 6px;
   cursor: pointer;
-}
-
-html[data-app-page="projects"] .gh-star-btn {
   padding: 0 12px;
-  border-radius: 6px 0 0 6px;
-  border-right: 0;
+  border-radius: 6px;
+  text-decoration: none;
 }
 
 html[data-app-page="projects"] .gh-star-btn svg {
@@ -814,21 +810,22 @@ html[data-app-page="projects"] .gh-star-btn svg {
   fill: #8b949e;
 }
 
-html[data-app-page="projects"] .gh-star-caret {
-  padding: 0 8px;
-  border-radius: 0 6px 6px 0;
+html[data-app-page="projects"] .gh-star-count {
+  color: #8b949e;
+  font-weight: 500;
 }
 
-html[data-app-page="projects"] .gh-star-caret svg {
-  width: 16px;
-  height: 16px;
-  fill: #8b949e;
+html[data-app-page="projects"] .gh-star-count::before {
+  content: "\00b7";
+  margin: 0 5px;
+  color: #484f58;
 }
 
-html[data-app-page="projects"] .gh-star-btn:hover,
-html[data-app-page="projects"] .gh-star-caret:hover {
+html[data-app-page="projects"] .gh-star-btn:hover {
   background: #30363d;
   border-color: #6e7681;
+  color: #c9d1d9;
+  text-decoration: none;
 }
 
 html[data-app-page="projects"] .gh-repo-graph {

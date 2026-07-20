@@ -403,27 +403,27 @@
 
   function getProjectMetaConfig() {
     return {
-      proj_kirundi_title: { language: "Python", type: "AI", status: "repo_status_flagship", tags: ["tag_data_eng", "tag_open_source"], order: 1 },
-      proj_velora_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_dart", "tag_productivity", "tag_mobile", "tag_flutter"], order: 2 },
-      proj_esama_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_flutter", "tag_saas", "tag_paying_users"], order: 3 },
-      proj_fabwash_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_flutter", "tag_b2b", "tag_deployed"], order: 4 },
-      proj_notifspy_title: { language: "Dart", type: "Mobile", status: "repo_status_dev", tags: ["tag_mobile", "tag_flutter", "tag_utility"], order: 5 },
-      proj_contrib_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_ai", "tag_data_eng"], order: 6 },
-      proj_langid_title: { language: "Python", type: "AI", status: "repo_status_deployed", tags: ["tag_nlp", "tag_classification"], order: 7 },
-      proj_tasky_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_browser_ext"], order: 8 },
-      proj_interview_title: { language: "Python", type: "AI", status: "repo_status_deployed", tags: ["tag_ai", "tag_chatbot", "tag_hr_tech"], order: 9 },
-      proj_devswarm_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_multi_agent"], order: 10 },
-      proj_rag_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_enterprise_ai"], order: 11 },
-      proj_sdr_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_autonomous_agent"], order: 12 },
-      proj_opsmanager_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_multi_agent", "tag_autonomous_agent"], order: 13 },
-      proj_scholarship_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_autonomous_agent", "tag_ai"], order: 14 },
-      proj_ade_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_autonomous_agent", "tag_ai"], order: 15 },
-      proj_sentinel_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_cybersecurity"], order: 16 },
-      proj_aiclone_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_ai", "tag_rag"], order: 17 },
-      proj_llmsem_title: { language: "Python", type: "AI", status: "repo_status_research", tags: ["tag_nlp", "tag_research"], order: 18 },
-      proj_samakod_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_utility", "tag_deployed", "tag_open_source"], order: 19 },
-      proj_samaapps_title: { language: "Dart", type: "Mobile", status: "repo_status_deployed", tags: ["tag_flutter", "tag_saas", "tag_deployed"], order: 98 },
-      proj_samaweb_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_saas", "tag_deployed"], order: 99 }
+      proj_kirundi_title: { language: "Python", type: "AI", status: "repo_status_flagship", tags: ["tag_data_eng", "tag_open_source"], order: 1, githubOwner: "Sama-ndari", githubRepo: "kirundi-contribution-app" },
+      proj_velora_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_dart", "tag_productivity", "tag_mobile", "tag_flutter"], order: 2, githubRepo: "velora-releases" },
+      proj_esama_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_flutter", "tag_saas", "tag_paying_users"], order: 3, githubRepo: "esama-releases" },
+      proj_fabwash_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_flutter", "tag_b2b", "tag_deployed"], order: 4, githubRepo: null },
+      proj_notifspy_title: { language: "Dart", type: "Mobile", status: "repo_status_dev", tags: ["tag_mobile", "tag_flutter", "tag_utility"], order: 5, githubRepo: "NotifSpy" },
+      proj_contrib_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_ai", "tag_data_eng"], order: 6, githubRepo: "kirundi-contribution-app" },
+      proj_langid_title: { language: "Python", type: "AI", status: "repo_status_deployed", tags: ["tag_nlp", "tag_classification"], order: 7, githubRepo: null },
+      proj_tasky_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_browser_ext"], order: 8, githubRepo: null },
+      proj_interview_title: { language: "Python", type: "AI", status: "repo_status_deployed", tags: ["tag_ai", "tag_chatbot", "tag_hr_tech"], order: 9, githubRepo: "Interview-tool" },
+      proj_devswarm_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_multi_agent"], order: 10, githubRepo: "dev-swarm-autonomous-agency" },
+      proj_rag_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_enterprise_ai"], order: 11, githubRepo: "enterprise-rag-chatbot" },
+      proj_sdr_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_autonomous_agent"], order: 12, githubRepo: "autonomous-sdr-agent" },
+      proj_opsmanager_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_multi_agent", "tag_autonomous_agent"], order: 13, githubRepo: "ai-operations-manager-agent" },
+      proj_scholarship_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_autonomous_agent", "tag_ai"], order: 14, githubRepo: "autonomous-scholarship-sdr-agent" },
+      proj_ade_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_autonomous_agent", "tag_ai"], order: 15, githubRepo: "autonomous-decision-engine" },
+      proj_sentinel_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_cybersecurity"], order: 16, githubRepo: "sentinelai-soc-assistant" },
+      proj_aiclone_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_ai", "tag_rag"], order: 17, githubRepo: "personal-ai-clone" },
+      proj_llmsem_title: { language: "Python", type: "AI", status: "repo_status_research", tags: ["tag_nlp", "tag_research"], order: 18, githubRepo: "llm-semantic-drift-analysis" },
+      proj_samakod_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_utility", "tag_deployed", "tag_open_source"], order: 19, githubRepo: "samakod" },
+      proj_samaapps_title: { language: "Dart", type: "Mobile", status: "repo_status_deployed", tags: ["tag_flutter", "tag_saas", "tag_deployed"], order: 98, githubRepo: null },
+      proj_samaweb_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_saas", "tag_deployed"], order: 99, githubRepo: null }
     };
   }
 
@@ -558,6 +558,90 @@
       .catch(() => {});
   }
 
+  const GH_STAR_USER = "Sama-ndari";
+  const GH_STAR_CACHE_KEY = "sama-github-stars-v1";
+  const GH_STAR_CACHE_TTL_MS = 60 * 60 * 1000;
+  const GH_STAR_SVG =
+    '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path></svg>';
+  let cachedGithubStars = null;
+
+  function readGithubStarsCache() {
+    try {
+      const raw = sessionStorage.getItem(GH_STAR_CACHE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (!parsed || Date.now() - parsed.ts > GH_STAR_CACHE_TTL_MS) return null;
+      return new Map(Object.entries(parsed.data || {}));
+    } catch (_err) {
+      return null;
+    }
+  }
+
+  function writeGithubStarsCache(starsMap) {
+    try {
+      const data = Object.fromEntries(starsMap.entries());
+      sessionStorage.setItem(GH_STAR_CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+    } catch (_err) {
+      /* private mode or quota */
+    }
+  }
+
+  function fetchGitHubRepoStars() {
+    const cached = readGithubStarsCache();
+    if (cached) {
+      cachedGithubStars = cached;
+      return Promise.resolve(cached);
+    }
+    return fetch(`https://api.github.com/users/${GH_STAR_USER}/repos?per_page=100&type=owner`, {
+      headers: { Accept: "application/vnd.github+json" }
+    })
+      .then(res => (res.ok ? res.json() : Promise.reject(new Error("GitHub repos API failed"))))
+      .then(repos => {
+        const starsMap = new Map();
+        (repos || []).forEach(repo => {
+          if (!repo || !repo.name) return;
+          starsMap.set(repo.name.toLowerCase(), Number(repo.stargazers_count) || 0);
+        });
+        writeGithubStarsCache(starsMap);
+        cachedGithubStars = starsMap;
+        return starsMap;
+      })
+      .catch(() => {
+        cachedGithubStars = new Map();
+        return cachedGithubStars;
+      });
+  }
+
+  function extractGithubRepoFromAnchors(anchors) {
+    for (const anchor of anchors) {
+      const href = anchor.getAttribute("href") || "";
+      const match = href.match(/github\.com\/([^/]+)\/([^/?#]+)/i);
+      if (!match) continue;
+      return { owner: match[1], name: match[2] };
+    }
+    return null;
+  }
+
+  function resolveGithubRepo(meta, anchors) {
+    if (meta.githubRepo === null) return null;
+    if (meta.githubRepo) {
+      return { owner: meta.githubOwner || GH_STAR_USER, name: meta.githubRepo };
+    }
+    return extractGithubRepoFromAnchors(anchors);
+  }
+
+  function lookupGithubStarCount(repoInfo) {
+    if (!repoInfo || !cachedGithubStars) return null;
+    if (repoInfo.owner.toLowerCase() !== GH_STAR_USER.toLowerCase()) return null;
+    const count = cachedGithubStars.get(repoInfo.name.toLowerCase());
+    return count === undefined ? null : count;
+  }
+
+  function formatGithubStarCount(count) {
+    const locale = typeof getLang === "function" && getLang() === "fr" ? "fr-FR" : "en-US";
+    return Number(count).toLocaleString(locale);
+  }
+
   function clearRepoDecorationNodes(body) {
     body.querySelector(".gh-repo-head")?.remove();
     body.querySelector(".gh-repo-tags")?.remove();
@@ -575,24 +659,34 @@
     });
   }
 
-  function buildRepoStarRow() {
+  function buildRepoStarRow(repoInfo, starCount) {
+    if (!repoInfo) return null;
+
+    const repoUrl = `https://github.com/${repoInfo.owner}/${repoInfo.name}`;
     const starRow = document.createElement("div");
     starRow.className = "gh-star-row";
-    const starBtn = document.createElement("button");
-    starBtn.type = "button";
-    starBtn.className = "gh-star-btn";
-    const svgStar =
-      '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path></svg>';
-    starBtn.innerHTML = svgStar;
+
+    const starLink = document.createElement("a");
+    starLink.className = "gh-star-btn";
+    starLink.href = repoUrl;
+    starLink.target = "_blank";
+    starLink.rel = "noopener noreferrer";
+    starLink.setAttribute("data-i18n-title", "repo_star_link_title");
+    starLink.title = t("repo_star_link_title");
+
     const starLbl = document.createElement("span");
     starLbl.textContent = t("repo_star_btn");
-    starBtn.appendChild(starLbl);
-    const caretBtn = document.createElement("button");
-    caretBtn.type = "button";
-    caretBtn.className = "gh-star-caret";
-    caretBtn.innerHTML =
-      '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path></svg>';
-    starRow.append(starBtn, caretBtn);
+    starLink.innerHTML = GH_STAR_SVG;
+    starLink.appendChild(starLbl);
+
+    if (starCount !== null && starCount !== undefined) {
+      const countEl = document.createElement("span");
+      countEl.className = "gh-star-count";
+      countEl.textContent = formatGithubStarCount(starCount);
+      starLink.appendChild(countEl);
+    }
+
+    starRow.appendChild(starLink);
     return starRow;
   }
 
@@ -618,7 +712,7 @@
     return Array.from(actionsEl.querySelectorAll("a[href]"));
   }
 
-  function buildRepoActionsRow(actionsEl, item, metaRow, actionAnchors) {
+  function buildRepoActionsRow(actionsEl, item, metaRow, actionAnchors, meta) {
     const anchors = actionAnchors?.length
       ? actionAnchors
       : Array.from(actionsEl.querySelectorAll("a[href]"));
@@ -634,7 +728,11 @@
     const graphSvg = document.createElement("span");
     graphSvg.className = "gh-repo-graph";
     graphSvg.innerHTML = `<svg width="155" height="28" viewBox="0 0 155 28"><path d="${buildGraphPath()}" fill="none" stroke="#2ea043" stroke-width="1.5" opacity="0.5"/></svg>`;
-    actionsEl.append(buildRepoStarRow(), graphSvg);
+
+    const repoInfo = resolveGithubRepo(meta, anchors);
+    const starRow = buildRepoStarRow(repoInfo, lookupGithubStarCount(repoInfo));
+    if (starRow) actionsEl.append(starRow, graphSvg);
+    else actionsEl.append(graphSvg);
   }
 
   function renderRepoDecorations(item, meta) {
@@ -676,7 +774,7 @@
     metaRow.appendChild(typeBadge);
     tagsWrap.insertAdjacentElement("afterend", metaRow);
 
-    if (actionsEl) buildRepoActionsRow(actionsEl, item, metaRow, actionAnchors);
+    if (actionsEl) buildRepoActionsRow(actionsEl, item, metaRow, actionAnchors, meta);
 
     item.dataset.repoLanguage = meta.language;
     item.dataset.repoType = meta.type;
@@ -798,19 +896,69 @@
     io.observe(thinking);
   }
 
+  function revealProjectCommandTarget(hashKey) {
+    const key = String(hashKey || window.location.hash.replace(/^#/, "")).trim();
+    if (!key || !key.startsWith("proj_")) return false;
+
+    const container = document.querySelector("html[data-app-page='projects'] #projects .portfolio-container");
+    if (!container) return false;
+
+    if (container._samaRepoFilters) {
+      const { state, typeBtn, languageBtn, sortBtn } = container._samaRepoFilters;
+      state.query = "";
+      state.type = "All";
+      state.language = "All";
+      const searchInput = document.querySelector(".gh-repo-search");
+      if (searchInput) searchInput.value = "";
+      syncRepoFilterButtonLabels(state, typeBtn, languageBtn, sortBtn);
+      applyRepoFiltersAndSort(container, state);
+    }
+
+    if (window.location.hash.replace(/^#/, "") !== key) {
+      window.location.hash = key;
+    }
+
+    const titleEl = document.querySelector(`[data-i18n="${key}"]`);
+    const item = titleEl?.closest(".portfolio-item");
+    if (!item) return false;
+
+    item.style.display = "";
+    window.requestAnimationFrame(() => {
+      item.scrollIntoView({ behavior: "smooth", block: "center" });
+      item.classList.add("gh-command-highlight");
+      window.setTimeout(() => item.classList.remove("gh-command-highlight"), 2200);
+    });
+    return true;
+  }
+
+  function scrollToProjectCommandTarget() {
+    revealProjectCommandTarget();
+  }
+
   function initProjectsRepositoryUI() {
     const container = document.querySelector("html[data-app-page='projects'] #projects .portfolio-container");
     if (!container) return;
-    const config = getProjectMetaConfig();
-    const items = Array.from(container.querySelectorAll(".portfolio-item"));
-    items.forEach(item => {
-      const key = item.querySelector(".project-card__title")?.getAttribute("data-i18n");
-      if (!key || !config[key]) return;
-      renderRepoDecorations(item, config[key]);
+
+    function renderProjectsRepositoryUI() {
+      const config = getProjectMetaConfig();
+      const items = Array.from(container.querySelectorAll(".portfolio-item"));
+      items.forEach(item => {
+        const key = item.querySelector(".project-card__title")?.getAttribute("data-i18n");
+        if (!key || !config[key]) return;
+        renderRepoDecorations(item, config[key]);
+      });
+      items.sort((a, b) => Number(a.dataset.repoOrder || "999") - Number(b.dataset.repoOrder || "999"));
+      items.forEach(item => container.appendChild(item));
+      setupRepoFilters(container);
+    }
+
+    fetchGitHubRepoStars().finally(() => {
+      renderProjectsRepositoryUI();
+      scrollToProjectCommandTarget();
     });
-    items.sort((a, b) => Number(a.dataset.repoOrder || "999") - Number(b.dataset.repoOrder || "999"));
-    items.forEach(item => container.appendChild(item));
-    setupRepoFilters(container);
+
+    window.addEventListener("hashchange", scrollToProjectCommandTarget);
+    window.revealProjectCommandTarget = revealProjectCommandTarget;
   }
 
   // Init on DOMContentLoaded

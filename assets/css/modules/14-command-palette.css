@@ -1,0 +1,187 @@
+/* --------------------------------------------------------------------------
+   Command palette (GitHub-style / search)
+   -------------------------------------------------------------------------- */
+.gh-search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.gh-search:hover,
+.gh-search:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.gh-search-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gh-search-kbd {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  font-size: 11px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  color: var(--text-secondary);
+  background: var(--bg);
+  border: 1px solid var(--border-muted);
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.gh-search-icon {
+  display: none;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 991.98px) {
+  .gh-topbar-inner {
+    gap: 8px;
+  }
+
+  .gh-search {
+    flex: 0 0 32px;
+    width: 32px;
+    min-width: 32px;
+    max-width: 32px;
+    height: 32px;
+    margin: 0 0 0 auto;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .gh-search-label,
+  .gh-search-kbd {
+    display: none !important;
+  }
+
+  .gh-search-icon {
+    display: inline-flex;
+  }
+}
+
+.gh-command-palette::backdrop {
+  background: rgba(1, 4, 9, 0.72);
+}
+
+.gh-command-palette {
+  width: min(560px, calc(100vw - 32px));
+  max-height: min(70vh, 520px);
+  margin: 12vh auto 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md, 12px);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  box-shadow: 0 16px 70px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.gh-command-palette__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.gh-command-palette__header i {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.gh-command-palette__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+}
+
+.gh-command-palette__input::placeholder {
+  color: var(--text-secondary);
+}
+
+.gh-command-palette__results {
+  max-height: min(52vh, 420px);
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.gh-command-palette__group-label {
+  padding: 8px 10px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.gh-command-palette__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: var(--radius-sm, 6px);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.gh-command-palette__item i {
+  color: var(--text-secondary);
+  font-size: 15px;
+  width: 18px;
+  text-align: center;
+}
+
+.gh-command-palette__item-label {
+  flex: 1;
+  min-width: 0;
+}
+
+.gh-command-palette__item-hint {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.gh-command-palette__item.is-active,
+.gh-command-palette__item:hover {
+  background: rgba(56, 139, 253, 0.12);
+  color: var(--text-primary);
+}
+
+.gh-command-palette__empty {
+  padding: 20px 12px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+html[data-app-page="projects"] .portfolio-item.gh-command-highlight .project-card {
+  outline: 2px solid rgba(88, 166, 255, 0.65);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm, 6px);
+}

@@ -79,13 +79,13 @@
 }
 
 @media (max-width: 991.98px) {
-  .gh-search {
+  .gh-breadcrumb {
     display: none;
   }
 
   /* Keep logo + title left; language + menu grouped on the right (not centered). */
   .gh-topbar-actions {
-    margin-left: auto;
+    margin-left: 0;
   }
 }
 
