@@ -177,6 +177,32 @@
   box-sizing: border-box;
 }
 
+/* Loading skeletons: shimmer while GitHub / Hugging Face data is fetched. */
+@keyframes impact-shimmer {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.impact-cell--skeleton {
+  background: var(--border-muted);
+  animation: impact-shimmer 1.2s ease-in-out infinite;
+}
+
+.impact-inline-stat__val.is-loading {
+  display: inline-block;
+  min-width: 3ch;
+  min-height: 1.05rem;
+  color: transparent;
+  border-radius: 4px;
+  background: var(--border-muted);
+  animation: impact-shimmer 1.2s ease-in-out infinite;
+}
+
 .impact-cell--empty,
 .impact-cell--l0 {
   background: #161b22;

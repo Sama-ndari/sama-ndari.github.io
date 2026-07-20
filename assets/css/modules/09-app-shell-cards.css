@@ -189,17 +189,34 @@
 }
 
 .overview-hero-text .hero-role-line {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
   min-height: 1.35em;
+  margin-bottom: 4px;
+  padding: 5px 12px 5px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  background: var(--bg-inset);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-sm);
+}
+
+.overview-hero-text .hero-role-line::before {
+  content: "\276F";
+  color: var(--accent);
+  font-weight: 700;
+  align-self: center;
 }
 
 .overview-hero-text .hero-role-prefix {
-  font-weight: 600;
-  color: var(--text-secondary);
+  font-weight: 500;
+  color: var(--text-tertiary);
 }
 
 .overview-hero-text .hero-role-typed {
   color: var(--text-primary);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .overview-hero-text .hero-role-typed .typed-cursor {

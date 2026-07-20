@@ -258,6 +258,8 @@ const I18N = {
     project_slider_scroll_hint: "Drag the bar or use arrows to browse images",
     gh_search_placeholder: "Type / to search",
     lang_toggle_title: "Switch language (EN / FR)",
+    theme_toggle_title: "Switch theme (light / dark)",
+    theme_toggle_aria: "Toggle color theme",
     gh_tab_overview: "Overview",
     gh_readme_file: "README.md",
     gh_blob_file: "developer.json",
@@ -711,6 +713,8 @@ const I18N = {
     project_slider_scroll_hint: "Glissez la barre ou utilisez les fl\u00e8ches pour parcourir les images",
     gh_search_placeholder: "Tapez / pour rechercher",
     lang_toggle_title: "Changer de langue (FR / EN)",
+    theme_toggle_title: "Changer de thème (clair / sombre)",
+    theme_toggle_aria: "Basculer le thème de couleur",
     gh_tab_overview: "Aper\u00e7u",
     gh_readme_file: "README.md",
     gh_blob_file: "developer.json",
@@ -944,6 +948,42 @@ function applyI18nHead() {
 
 try {
   if (typeof window !== "undefined") window.applyI18nHead = applyI18nHead;
+} catch (_e) {}
+
+/* --------------------------------------------------------------------------
+   Color theme (light / dark). Applied before paint to avoid a flash.
+   -------------------------------------------------------------------------- */
+function getTheme() {
+  const stored = safeStorage("sama-theme");
+  if (stored === "light" || stored === "dark") return stored;
+  try {
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+      return "light";
+    }
+  } catch (_e) {
+    /* matchMedia unavailable */
+  }
+  return "dark";
+}
+
+function setTheme(theme) {
+  const value = theme === "light" ? "light" : "dark";
+  safeStorage("sama-theme", value);
+  applyThemeHead();
+}
+
+function applyThemeHead() {
+  if (typeof document === "undefined") return;
+  document.documentElement.setAttribute("data-theme", getTheme());
+}
+
+try {
+  if (typeof window !== "undefined") {
+    window.getTheme = getTheme;
+    window.setTheme = setTheme;
+    window.applyThemeHead = applyThemeHead;
+  }
+  applyThemeHead();
 } catch (_e) {}
 
 function applyI18n() {

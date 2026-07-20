@@ -12,8 +12,8 @@
   --bg-surface-hover: #1c2128;
   --bg-inset: #010409;
   --text-primary: #e6edf3;
-  --text-secondary: #8b949e;
-  --text-tertiary: #6e7681;
+  --text-secondary: #9ba3ae;
+  --text-tertiary: #848d97;
   --accent: #e8976c;
   --accent-hover: #f0a77e;
   --accent-muted: rgba(232, 151, 108, 0.15);
@@ -53,6 +53,14 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Smooth cross-document page navigation on supporting browsers (Chromium).
+   Gracefully ignored elsewhere and disabled for reduced-motion users. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
 }
 
 body {
@@ -202,8 +210,10 @@ img {
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  right: 16px;
-  bottom: 80px;
+  /* Bottom-left so it never overlaps the bottom-right chat widget launcher. */
+  left: 16px;
+  right: auto;
+  bottom: 24px;
   z-index: 996;
   background: var(--bg-surface);
   border: 1px solid var(--border);
@@ -394,10 +404,16 @@ img {
   height: 40px;
   align-items: center;
   justify-content: center;
+  color: var(--text-secondary);
 }
 
 .mobile-nav-toggle i {
-  color: var(--text-secondary);
+  color: inherit;
+}
+
+.mobile-nav-toggle:focus-visible {
+  border-color: var(--gh-link);
+  box-shadow: 0 0 0 3px rgba(56, 139, 253, 0.32);
 }
 
 @media (max-width: 991px) {
@@ -449,9 +465,10 @@ img {
   .mobile-nav-active .mobile-nav-toggle {
     background: var(--accent);
     border-color: var(--accent);
+    color: var(--bg);
   }
 
   .mobile-nav-active .mobile-nav-toggle i {
-    color: var(--bg);
+    color: inherit;
   }
 }

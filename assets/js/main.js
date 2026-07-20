@@ -53,9 +53,10 @@
 
   // Mobile nav
   on("click", ".mobile-nav-toggle", function (e) {
-    select("body").classList.toggle("mobile-nav-active");
+    const isOpen = select("body").classList.toggle("mobile-nav-active");
     this.classList.toggle("bi-list");
     this.classList.toggle("bi-x");
+    this.setAttribute("aria-expanded", isOpen ? "true" : "false");
   });
 
   // Scrollto links
@@ -68,6 +69,7 @@
       let toggle = select(".mobile-nav-toggle");
       toggle.classList.toggle("bi-list");
       toggle.classList.toggle("bi-x");
+      toggle.setAttribute("aria-expanded", "false");
       }
       scrollto(this.hash);
   }, true);
@@ -266,6 +268,27 @@
         });
         typedEl._typed = newTyped;
       }
+    });
+  }
+
+  // Color theme toggle
+  function updateThemeToggleIcon(btn) {
+    const isLight = (typeof getTheme === "function" ? getTheme() : "dark") === "light";
+    const icon = btn.querySelector("i");
+    if (icon) {
+      icon.className = isLight ? "bi bi-moon-stars" : "bi bi-sun";
+    }
+  }
+
+  function initThemeToggle() {
+    const btn = document.getElementById("themeToggle");
+    if (!btn || typeof getTheme !== "function" || typeof setTheme !== "function") return;
+    updateThemeToggleIcon(btn);
+    btn.addEventListener("click", () => {
+      const next = getTheme() === "light" ? "dark" : "light";
+      setTheme(next);
+      updateThemeToggleIcon(btn);
+      if (typeof AOS !== "undefined") AOS.refresh();
     });
   }
 
@@ -476,7 +499,12 @@
     if (!text) return 0;
     const metaMatch = text.match(/SAMA_WEB_CATALOG\s*=\s*\{[^}]*websiteCount:\s*(\d+)/);
     if (metaMatch) return Number(metaMatch[1]) || 0;
-    return (text.match(/productType:\s*"website"/g) || []).length;
+    const byType = (text.match(/productType:\s*"website"/g) || []).length;
+    if (byType) return byType;
+    // Fallback: count entries in the `APPS` array (const or var declaration).
+    const appsBlock = text.match(/(?:const|var)\s+APPS\s*=\s*\[([\s\S]*?)\];/);
+    if (!appsBlock) return 0;
+    return (appsBlock[1].match(/^\s+id:\s*"/gm) || []).length;
   }
 
   function fetchSamaAppsCatalogCount() {
@@ -765,6 +793,7 @@
     applyI18n();
     initNavProjectCountBadge();
     initLangToggle();
+    initThemeToggle();
     initContactForm();
     initGhServicesMoreHint();
     initProjectsRepositoryUI();

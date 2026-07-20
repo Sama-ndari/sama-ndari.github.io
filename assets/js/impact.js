@@ -21,12 +21,40 @@
   function setImpactMetric(root, selector, val) {
     var el = root.querySelector(selector);
     if (!el) return;
+    el.classList.remove("is-loading");
     if (val === null || val === undefined || val === "") {
       el.textContent = "\u2014";
       return;
     }
     el.textContent =
       typeof val === "number" ? val.toLocaleString(impactLocaleBcp47()) : String(val);
+  }
+
+  function markImpactMetricsLoading(root) {
+    [
+      ".impact-stat-sentences",
+      ".impact-stat-projects",
+      ".impact-stat-repos",
+      ".impact-stat-downloads"
+    ].forEach(function (selector) {
+      var el = root.querySelector(selector);
+      if (el) {
+        el.textContent = "";
+        el.classList.add("is-loading");
+      }
+    });
+  }
+
+  /** Placeholder grid shown while the real contribution data loads. */
+  function renderHeatmapSkeleton(mount) {
+    mount.innerHTML = "";
+    var total = 53 * 7;
+    var i;
+    for (i = 0; i < total; i++) {
+      var div = document.createElement("div");
+      div.className = "impact-cell impact-cell--skeleton";
+      mount.appendChild(div);
+    }
   }
 
   /** GitHub user API runs alone so HF/CSV slowness never blocks public_repos. */
@@ -51,6 +79,7 @@
   }
 
   function fetchImpactOverviewMetrics(root) {
+    markImpactMetricsLoading(root);
     var pc = root.getAttribute("data-project-count");
     if (pc) setImpactMetric(root, ".impact-stat-projects", Number(pc));
 
@@ -217,6 +246,7 @@
     if (!intro || !monthRow || !gridMount) return;
     setYearNavActive(nav, year);
     intro.textContent = "\u2026";
+    renderHeatmapSkeleton(gridMount);
     fetch(CONTRIB_API + GH_USER + "?y=" + year)
       .then(function (r) {
         return r.ok ? r.json() : null;

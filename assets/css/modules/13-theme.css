@@ -1,0 +1,230 @@
+/* ==========================================================================
+   Theme toggle control + Light theme
+   Dark stays the default (defined in 01-base.css). Light is opt-in via
+   :root[data-theme="light"], set before paint by applyThemeHead() in i18n.js.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Theme toggle button (shared by both themes)
+   -------------------------------------------------------------------------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 0;
+  cursor: pointer;
+  transition:
+    color var(--transition-base),
+    border-color var(--transition-base),
+    background var(--transition-base);
+}
+
+.theme-toggle:hover {
+  color: var(--text-primary);
+  border-color: var(--text-tertiary);
+}
+
+.theme-toggle:focus-visible {
+  outline: none;
+  border-color: var(--gh-link);
+  box-shadow: 0 0 0 3px rgba(56, 139, 253, 0.32);
+}
+
+/* --------------------------------------------------------------------------
+   Light theme: variable overrides
+   -------------------------------------------------------------------------- */
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-surface: #f6f8fa;
+  --bg-surface-hover: #eaeef2;
+  --bg-inset: #f6f8fa;
+  --text-primary: #1f2328;
+  --text-secondary: #59636e;
+  --text-tertiary: #6e7781;
+  --accent: #b8531f;
+  --accent-hover: #9a4419;
+  --accent-muted: rgba(184, 83, 31, 0.14);
+  --accent-subtle: rgba(184, 83, 31, 0.08);
+  --border: #d1d9e0;
+  --border-muted: #d8dee4;
+  --gh-link: #0969da;
+  --shadow-sm: 0 1px 3px rgba(31, 35, 40, 0.08);
+  --shadow-md: 0 4px 12px rgba(31, 35, 40, 0.1);
+  --shadow-lg: 0 8px 24px rgba(31, 35, 40, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   Light theme: hardcoded-colour overrides (values that bypass the variables)
+   -------------------------------------------------------------------------- */
+
+/* App shell */
+[data-theme="light"] .gh-topbar {
+  background: #ffffff;
+  border-bottom-color: var(--border);
+}
+
+[data-theme="light"] .gh-tab-count {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+[data-theme="light"] .gh-avatar {
+  border-color: var(--border);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="light"] .gh-avatar-tag {
+  background: #ffffff;
+  border-color: var(--border);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="light"] .lang-toggle {
+  color: var(--text-primary);
+  border-color: var(--border);
+  background: var(--bg-surface);
+  box-shadow: none;
+}
+
+[data-theme="light"] .lang-toggle:hover {
+  color: var(--text-primary);
+  border-color: var(--text-tertiary);
+  background: var(--bg-surface-hover);
+  box-shadow: none;
+}
+
+/* Overview code blob + legacy hero code: GitHub light syntax palette */
+[data-theme="light"] .tok-k,
+[data-theme="light"] .code-keyword {
+  color: #cf222e;
+}
+
+[data-theme="light"] .tok-n,
+[data-theme="light"] .tok-p,
+[data-theme="light"] .tok-b,
+[data-theme="light"] .code-key {
+  color: #0550ae;
+}
+
+[data-theme="light"] .tok-s,
+[data-theme="light"] .code-string {
+  color: #0a3069;
+}
+
+[data-theme="light"] .tok-o {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .code-bracket {
+  color: #953800;
+}
+
+[data-theme="light"] .gh-achievement-badge {
+  border-color: var(--border);
+}
+
+/* Contribution heatmap: GitHub light cell palette */
+[data-theme="light"] .impact-cell--empty,
+[data-theme="light"] .impact-cell--l0 {
+  background: #ebedf0;
+  box-shadow: inset 0 0 0 1px rgba(27, 31, 36, 0.06);
+}
+
+[data-theme="light"] .impact-cell--l1 {
+  background: #9be9a8;
+}
+
+[data-theme="light"] .impact-cell--l2 {
+  background: #40c463;
+}
+
+[data-theme="light"] .impact-cell--l3 {
+  background: #30a14e;
+}
+
+[data-theme="light"] .impact-cell--l4 {
+  background: #216e39;
+}
+
+/* Projects page: GitHub repository list */
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-search,
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-filter,
+[data-theme="light"] html[data-app-page="projects"] .gh-star-btn,
+[data-theme="light"] html[data-app-page="projects"] .gh-star-caret {
+  background: var(--bg-surface);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-menu {
+  background: #ffffff;
+  border-color: var(--border);
+  box-shadow: 0 12px 28px rgba(31, 35, 40, 0.15);
+}
+
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-menu button {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-menu button:hover {
+  background: var(--bg-surface-hover);
+}
+
+[data-theme="light"] html[data-app-page="projects"] .gh-star-btn:hover,
+[data-theme="light"] html[data-app-page="projects"] .gh-star-caret:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--text-tertiary);
+}
+
+[data-theme="light"] html[data-app-page="projects"] .gh-star-btn svg,
+[data-theme="light"] html[data-app-page="projects"] .gh-star-caret svg {
+  fill: var(--text-secondary);
+}
+
+[data-theme="light"] html[data-app-page="projects"] #projects .project-card:hover {
+  background: rgba(31, 35, 40, 0.04);
+}
+
+[data-theme="light"] html[data-app-page="projects"] #projects .project-card__title,
+[data-theme="light"] html[data-app-page="projects"] #projects .project-card:hover .project-card__title {
+  color: var(--gh-link);
+}
+
+[data-theme="light"] html[data-app-page="projects"] #projects .project-card__desc,
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-meta {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-visibility[data-i18n="repo_status_learning"] {
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-type {
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-tag {
+  color: var(--gh-link);
+  background: rgba(9, 105, 218, 0.1);
+}
+
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-links .btn-action {
+  border-color: var(--border);
+  color: var(--gh-link);
+}
+
+[data-theme="light"] html[data-app-page="projects"] .gh-repo-links .btn-action:hover {
+  background: rgba(9, 105, 218, 0.08);
+  border-color: var(--gh-link);
+}
