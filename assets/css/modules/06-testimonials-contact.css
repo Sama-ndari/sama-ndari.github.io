@@ -7,62 +7,83 @@
   background: var(--bg-surface);
 }
 
+/* GitHub Discussions-style comment card: avatar + handle header, then the
+   quote in a bordered speech bubble with a caret pointing up to the header. */
 .testimonials .testimonial-item {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  grid-template-areas:
+    "avatar name"
+    "avatar role"
+    "body   body";
+  align-content: start;
+  column-gap: 12px;
+  row-gap: 2px;
   text-align: left;
-  padding: 18px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--bg-surface);
-  min-height: 240px;
+  padding: 16px 16px 4px;
+  min-height: 170px;
 }
 
 .testimonials .testimonial-item .testimonial-img {
-  width: 56px;
-  height: 56px;
+  grid-area: avatar;
+  align-self: start;
+  width: 44px;
+  height: 44px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid var(--border);
-  margin: 0 0 10px;
+  border: 1px solid var(--border);
+  margin: 0;
 }
 
 .testimonials .testimonial-item h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 0 0 2px;
+  grid-area: name;
+  align-self: end;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
   color: var(--gh-link);
 }
 
 .testimonials .testimonial-item h4 {
+  grid-area: role;
+  align-self: start;
   font-size: 12px;
-  color: var(--text-secondary);
-  margin: 0 0 12px;
+  color: var(--text-tertiary);
+  margin: 0;
   font-weight: 500;
 }
 
+/* Drop the decorative quote glyphs — GitHub comments don't use them. */
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: var(--accent-muted);
-  font-size: 26px;
-}
-
-.testimonials .testimonial-item .quote-icon-left {
-  display: inline-block;
-  left: -5px;
-  position: relative;
-}
-
-.testimonials .testimonial-item .quote-icon-right {
-  display: inline-block;
-  right: -5px;
-  position: relative;
-  top: 10px;
+  display: none;
 }
 
 .testimonials .testimonial-item p {
-  margin: 0;
+  grid-area: body;
+  position: relative;
+  margin: 12px 0 0;
+  padding: 12px 14px;
   color: var(--text-secondary);
   line-height: 1.6;
   font-style: normal;
+  font-size: 14px;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.testimonials .testimonial-item p::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 20px;
+  width: 11px;
+  height: 11px;
+  background: var(--bg-inset);
+  border-left: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  transform: rotate(45deg);
 }
 
 .testimonials .swiper-pagination {

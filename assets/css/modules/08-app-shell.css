@@ -136,6 +136,12 @@
   gap: 4px;
   padding: 0 16px;
   overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gh-tabs-inner::-webkit-scrollbar {
+  display: none;
 }
 
 .gh-tab {
