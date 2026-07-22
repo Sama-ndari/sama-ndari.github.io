@@ -1,0 +1,358 @@
+/* ==========================================================================
+   AI clone discussion thread
+   ========================================================================== */
+
+/* Conversation — Copilot style: assistant flows next to its avatar,
+   the visitor gets a right-aligned bubble. No cards, no thread rail. */
+.me-chat-msg {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  animation: me-chat-rise 0.22s ease both;
+  /* Leave room for the fixed topbar (top) and docked composer (bottom) when a
+     message is scrolled into view. */
+  scroll-margin: 120px 0 240px;
+}
+
+@keyframes me-chat-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* Assistant + thinking rows: avatar on the left, content beside it */
+.me-chat-msg.assistant,
+.me-chat-msg.typing {
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.me-chat-msg.typing {
+  align-items: center;
+}
+
+.me-chat-msg__avatar {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  /* Dark backing in both themes so the light line-art mark stays visible. */
+  background: #0d1117;
+  display: grid;
+  place-items: center;
+  margin-top: 2px;
+}
+
+.me-chat-msg__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Assistant body: plain flowing text */
+.me-chat-msg__body {
+  flex: 1;
+  min-width: 0;
+  padding-top: 2px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.me-chat-msg__body p {
+  margin: 0 0 0.7rem;
+}
+
+.me-chat-msg__body p:last-child {
+  margin-bottom: 0;
+}
+
+.me-chat-msg__body a {
+  color: var(--gh-link);
+  text-decoration: none;
+}
+
+.me-chat-msg__body a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.me-chat-msg__body code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: rgba(110, 118, 129, 0.2);
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+}
+
+/* Visitor: right-aligned rounded bubble */
+.me-chat-msg.user {
+  justify-content: flex-end;
+}
+
+.me-chat-msg.user .me-chat-msg__bubble {
+  max-width: 78%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-muted);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+/* Error row */
+.me-chat-msg.error {
+  justify-content: center;
+  max-width: 100%;
+}
+
+.me-chat-msg.error .me-chat-msg__bubble {
+  max-width: 36rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px solid rgba(248, 81, 73, 0.35);
+  color: var(--text-primary);
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+/* Thinking indicator */
+.me-chat__thinking {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  animation: me-chat-thinking 1.4s ease-in-out infinite;
+}
+
+@keyframes me-chat-thinking {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Composer dock — fixed to the viewport bottom (chips + composer) */
+.me-chat__dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  z-index: 50;
+  width: min(760px, calc(100% - 24px));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Composer — Copilot-style rounded input with an internal toolbar */
+.me-chat__composer {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-surface);
+  padding: 12px 14px 10px;
+  box-shadow: var(--shadow-lg);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.me-chat__composer:focus-within {
+  border-color: var(--gh-link);
+  box-shadow: var(--shadow-lg), 0 0 0 3px rgba(56, 139, 253, 0.22);
+}
+
+.me-chat__input {
+  display: block;
+  width: 100%;
+  min-height: 24px;
+  max-height: 180px;
+  resize: none;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding: 4px 2px 2px;
+}
+
+.me-chat__input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Internal toolbar: persona tag (left) + send icon (right) */
+.me-chat__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.me-chat__persona {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 30px;
+  padding: 0 12px 0 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.me-chat__persona-avatar {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.me-chat__send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.me-chat__send:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.me-chat__send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.me-chat__send:focus-visible {
+  outline: 2px solid var(--gh-link);
+  outline-offset: 2px;
+}
+
+.me-chat__send .bi {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Message actions (copy + regenerate), revealed on hover like Copilot */
+.me-chat-msg__actions {
+  display: flex;
+  gap: 2px;
+  margin-top: 8px;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.me-chat-msg:hover .me-chat-msg__actions,
+.me-chat-msg.is-last .me-chat-msg__actions,
+.me-chat-msg__actions:focus-within {
+  opacity: 1;
+}
+
+.me-chat-msg__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  font-size: 15px;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.me-chat-msg__action:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
+}
+
+.me-chat-msg__action.is-copied {
+  color: #2ea043;
+}
+
+/* Regenerate applies to the latest reply only */
+.me-chat-msg__regen {
+  display: none;
+}
+
+.me-chat-msg.is-last .me-chat-msg__regen {
+  display: inline-flex;
+}
+
+/* User edit affordance: pencil left of the bubble, revealed on hover */
+.me-chat-msg.user {
+  align-items: center;
+  gap: 4px;
+}
+
+.me-chat-msg__actions--user {
+  margin-top: 0;
+  align-self: center;
+}
+
+.me-chat-msg.user:hover .me-chat-msg__actions--user,
+.me-chat-msg__actions--user:focus-within {
+  opacity: 1;
+}
+
+/* Composer highlights while editing a previous message */
+.me-chat__composer.is-editing {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg), 0 0 0 3px var(--accent-muted);
+}
+
+/* Light mode: the header, welcome and persona marks are light line-art on a
+   transparent PNG — give them a dark backing so they stay visible on white. */
+[data-theme="light"] .me-chat__welcome-avatar,
+[data-theme="light"] .me-chat__meta-avatar,
+[data-theme="light"] .me-chat__persona-avatar {
+  background: #0d1117;
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .me-chat-msg,
+  .me-chat__thinking,
+  .clone-launcher {
+    animation: none;
+    transition: none;
+  }
+}

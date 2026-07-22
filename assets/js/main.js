@@ -264,6 +264,9 @@
       if (typeof refreshImpactContributionLocale === "function") {
         refreshImpactContributionLocale();
       }
+      if (typeof refreshMeChatLocale === "function") {
+        refreshMeChatLocale();
+      }
       reinitHeroRoleTyped();
       // Re-init typed with new language
       const typedEl = select(".typed");

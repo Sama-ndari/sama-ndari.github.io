@@ -210,7 +210,7 @@ img {
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  /* Bottom-left so it never overlaps the bottom-right chat widget launcher. */
+  /* Bottom-left so it never overlaps the bottom-right clone launcher. */
   left: 16px;
   right: auto;
   bottom: 24px;

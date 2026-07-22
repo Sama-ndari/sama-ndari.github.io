@@ -10,7 +10,8 @@
     { id: "nav-projects", i18n: "nav_projects", page: "projects.html", icon: "bi-kanban", group: "command_group_nav" },
     { id: "nav-resume", i18n: "nav_resume", page: "resume.html", icon: "bi-file-earmark-text", group: "command_group_nav" },
     { id: "nav-services", i18n: "nav_services", page: "services.html", icon: "bi-briefcase", group: "command_group_nav" },
-    { id: "nav-contact", i18n: "nav_contact", page: "contact.html", icon: "bi-envelope", group: "command_group_nav" }
+    { id: "nav-contact", i18n: "nav_contact", page: "contact.html", icon: "bi-envelope", group: "command_group_nav" },
+    { id: "nav-clone", i18n: "nav_clone", page: "ai.html", icon: "bi-chat-dots", group: "command_group_nav", keywords: "ai clone chat assistant" }
   ];
 
   const PROJECT_TITLE_KEYS = [

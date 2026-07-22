@@ -1,0 +1,238 @@
+/* ==========================================================================
+   AI clone page shell (GitHub Discussion style)
+   ========================================================================== */
+
+/* ---- Dedicated chat page: natural document flow (GitHub Discussion feel) ---- */
+body.page-ai-clone .gh-app {
+  padding-top: 104px;
+  background: var(--bg);
+}
+
+body.page-ai-clone #footer,
+body.page-ai-clone .back-to-top,
+body.page-ai-clone #preloader {
+  display: none !important;
+}
+
+.me-chat {
+  display: flex;
+  flex-direction: column;
+  max-width: 920px;
+  width: 100%;
+  margin: 0 auto;
+  /* Bottom padding clears the fixed composer dock so the last message stays visible. */
+  padding: 12px 16px 168px;
+  gap: 10px;
+}
+
+/* Page head — GitHub issue/discussion title */
+.me-chat__pagehead {
+  flex-shrink: 0;
+}
+
+.me-chat__pagehead-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.me-chat__page-title {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.me-chat__page-meta {
+  margin: 6px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.me-chat__meta-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+
+.me-chat__page-meta strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.me-chat__meta-sep {
+  color: var(--text-tertiary);
+}
+
+.me-chat__online-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #3fb950;
+  font-weight: 500;
+}
+
+.me-chat__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3fb950;
+  box-shadow: 0 0 0 2px rgba(63, 185, 80, 0.25);
+}
+
+.me-chat__clear {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color var(--transition-fast), background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.me-chat__clear:hover {
+  color: #ff7b72;
+  background: var(--bg-surface-hover);
+  border-color: rgba(248, 81, 73, 0.4);
+}
+
+.me-chat__clear:focus-visible {
+  outline: 2px solid var(--gh-link);
+  outline-offset: 2px;
+}
+
+.me-chat__clear .bi {
+  font-size: 14px;
+}
+
+@media (max-width: 520px) {
+  .me-chat__clear-label {
+    display: none;
+  }
+
+  .me-chat__clear {
+    width: 32px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+/* Thread panel */
+.me-chat__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.me-chat__messages {
+  padding: 4px 2px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Welcome — light and centred (Copilot-style, no bordered card) */
+.me-chat__welcome {
+  width: 100%;
+  text-align: center;
+  padding: 20px 12px 4px;
+}
+
+.me-chat__welcome.is-hidden {
+  display: none;
+}
+
+.me-chat__welcome-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  margin: 0 auto 14px;
+  display: block;
+  box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--border);
+}
+
+.me-chat__welcome-title {
+  margin: 0 0 6px;
+  font-size: clamp(1.25rem, 2.8vw, 1.55rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.me-chat__welcome-text {
+  margin: 0 auto;
+  max-width: 48ch;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* Suggestion pills — Copilot quick-action row, sits above the composer */
+.me-chat__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+body.me-chat-active .me-chat__suggestions {
+  display: none;
+}
+
+.me-chat__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.me-chat__chip .bi {
+  color: var(--text-tertiary);
+  font-size: 0.95rem;
+}
+
+.me-chat__chip:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--text-tertiary);
+}
+
+.me-chat__chip:hover .bi {
+  color: var(--gh-link);
+}
+
+.me-chat__chip:focus-visible {
+  outline: 2px solid var(--gh-link);
+  outline-offset: 2px;
+}

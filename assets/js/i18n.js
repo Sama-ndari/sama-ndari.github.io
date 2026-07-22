@@ -4,6 +4,43 @@ const I18N = {
     nav_projects: "Projects",
     nav_services: "Services",
     nav_contact: "Contact",
+    nav_clone: "AI Clone",
+
+    clone_launcher_label: "Talk to my clone",
+    clone_launcher_aria: "Open chat with Samandari AI clone",
+    clone_page_crumb: "ai-clone",
+    clone_header_name: "Samandari",
+    clone_header_status: "Personal AI · online",
+    clone_clear_aria: "Clear conversation",
+    clone_clear_label: "Clear",
+    clone_messages_aria: "Conversation",
+    clone_page_title: "Talk to my clone",
+    clone_online: "Online",
+    clone_author_assistant: "Samandari",
+    clone_author_visitor: "You",
+    clone_thinking: "Thinking…",
+    clone_copy: "Copy",
+    clone_copied: "Copied",
+    clone_regenerate: "Regenerate",
+    clone_edit: "Edit message",
+    clone_welcome_title: "Hi, I'm Samandari.",
+    clone_welcome_text: "Ask me about my path, my projects, or just say hi. I'm up at any hour. The real Samandari needs sleep.",
+    clone_chip_path: "Your path",
+    clone_chip_projects: "Your projects",
+    clone_chip_skills: "Your skills",
+    clone_chip_contact: "Contact you",
+    clone_prompt_path: "Tell me about your background.",
+    clone_prompt_projects: "What projects are you working on?",
+    clone_prompt_skills: "What are your technical skills?",
+    clone_prompt_contact: "How can I contact you?",
+    clone_input_label: "Your message",
+    clone_input_placeholder: "Ask me anything…",
+    clone_send_aria: "Send message",
+    clone_composer_persona: "Ask Samandari",
+    clone_err_network: "Oops — I need a coffee. Be right back.",
+    clone_err_http: "Error 😅 — not you, me. Try again, I'll make it up.",
+    page_title_ai: "Samandari | Talk to my clone",
+    meta_desc_ai: "Chat with Samandari's personal AI clone — ask about career, projects, and skills.",
 
     hero_label: "AI Engineer",
     hero_heading_1: "I build AI systems that",
@@ -474,6 +511,43 @@ const I18N = {
     nav_projects: "Projets",
     nav_services: "Services",
     nav_contact: "Contact",
+    nav_clone: "Clone IA",
+
+    clone_launcher_label: "Parler à mon clone",
+    clone_launcher_aria: "Ouvrir le chat avec le clone IA de Samandari",
+    clone_page_crumb: "ai-clone",
+    clone_header_name: "Samandari",
+    clone_header_status: "IA personnelle · en ligne",
+    clone_clear_aria: "Effacer la conversation",
+    clone_clear_label: "Effacer",
+    clone_messages_aria: "Conversation",
+    clone_page_title: "Parler à mon clone",
+    clone_online: "En ligne",
+    clone_author_assistant: "Samandari",
+    clone_author_visitor: "Vous",
+    clone_thinking: "Réflexion…",
+    clone_copy: "Copier",
+    clone_copied: "Copié",
+    clone_regenerate: "Régénérer",
+    clone_edit: "Modifier le message",
+    clone_welcome_title: "Bonjour, je suis Samandari.",
+    clone_welcome_text: "Interrogez-moi sur mon parcours, mes projets, ou dites simplement bonjour. Je réponds à toute heure. Le vrai Samandari, lui, a besoin d'une sieste.",
+    clone_chip_path: "Ton parcours",
+    clone_chip_projects: "Tes projets",
+    clone_chip_skills: "Tes compétences",
+    clone_chip_contact: "Te contacter",
+    clone_prompt_path: "Parle-moi de ton parcours.",
+    clone_prompt_projects: "Sur quels projets travailles-tu ?",
+    clone_prompt_skills: "Quelles sont tes compétences techniques ?",
+    clone_prompt_contact: "Comment puis-je te contacter ?",
+    clone_input_label: "Votre message",
+    clone_input_placeholder: "Posez-moi une question…",
+    clone_send_aria: "Envoyer le message",
+    clone_composer_persona: "Demander à Samandari",
+    clone_err_network: "Oups, j’ai besoin d’un café. Je reviens vite.",
+    clone_err_http: "Erreur 😅 — pas toi, moi. Réessaie, je me rattrape.",
+    page_title_ai: "Samandari | Parler à mon clone",
+    meta_desc_ai: "Discutez avec le clone IA de Samandari — parcours, projets et compétences.",
 
     hero_label: "Ing\u00e9nieur IA",
     hero_heading_1: "Je construis des syst\u00e8mes IA qui",
@@ -1056,5 +1130,13 @@ function applyI18n() {
     if (!val) return;
     el.setAttribute("alt", val);
   });
+
+  if (document.body.classList.contains("page-ai-clone")) {
+    document.title = t("page_title_ai");
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) {
+      desc.setAttribute("content", t("meta_desc_ai"));
+    }
+  }
 
 }
