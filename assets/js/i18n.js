@@ -333,7 +333,7 @@ const I18N = {
     resume_li_phone: "+257 77 568 903",
     resume_li_email: "cezaremardini10@gmail.com",
 
-    projects_apk: "APK",
+    projects_play_store: "Play Store",
 
     contact_address_value: "Carama, Bujumbura, Burundi",
     contact_maps_title: "Google Maps: Bujumbura, Burundi",
@@ -840,7 +840,7 @@ const I18N = {
     resume_li_phone: "+257 77 568 903",
     resume_li_email: "cezaremardini10@gmail.com",
 
-    projects_apk: "APK",
+    projects_play_store: "Play Store",
 
     contact_address_value: "Carama, Bujumbura, Burundi",
     contact_maps_title: "Google Maps: Bujumbura, Burundi",
