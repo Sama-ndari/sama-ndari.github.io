@@ -128,7 +128,7 @@
     aiclone_li1: "<strong>Category</strong>: Agentic AI / RAG",
     aiclone_li2: "<strong>Project date</strong>: Dec 2025",
     aiclone_li3:
-      '<strong>Live demo</strong>: <a href="https://44c046f3ea50c2195e.gradio.live/" target="_blank" rel="noopener noreferrer">Gradio web app</a>',
+      '<strong>Live demo</strong>: <a href="../../../ai.html">Talk to my clone</a>',
     aiclone_li4:
       '<strong>Repository</strong>: <a href="https://github.com/Sama-ndari/personal-ai-clone" target="_blank" rel="noopener noreferrer">View on GitHub</a>',
     aiclone_li5: "<strong>Stack</strong>: Python, GPT-4o, Gradio, Pushover API",
@@ -314,7 +314,7 @@
     aiclone_li1: "<strong>Cat\u00e9gorie</strong> : IA agentique / RAG",
     aiclone_li2: "<strong>Date</strong> : d\u00e9c. 2025",
     aiclone_li3:
-      '<strong>D\u00e9mo</strong> : <a href="https://44c046f3ea50c2195e.gradio.live/" target="_blank" rel="noopener noreferrer">Application Gradio</a>',
+      '<strong>D\u00e9mo</strong> : <a href="../../../ai.html">Parler \u00e0 mon clone</a>',
     aiclone_li4:
       '<strong>D\u00e9p\u00f4t</strong> : <a href="https://github.com/Sama-ndari/personal-ai-clone" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>',
     aiclone_li5: "<strong>Stack</strong> : Python, GPT-4o, Gradio, Pushover API",

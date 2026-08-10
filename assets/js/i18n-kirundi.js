@@ -93,7 +93,7 @@
     kirundi_det_li4:
       '<strong>Contribution app</strong>: <a href="https://www.samandari.dev/kirundi-contribution-app/" target="_blank" rel="noopener noreferrer">Try the app</a>',
     kirundi_det_li5:
-      '<strong>GitHub</strong>: <a href="https://github.com/Ijwi-ryIkirundi-AI" target="_blank" rel="noopener noreferrer">Organization</a>',
+      '<strong>GitHub</strong>: <a href="https://github.com/Ijwi-ry-Ikirundi-AI" target="_blank" rel="noopener noreferrer">Organization</a>',
     kirundi_det_heading: "Kirundi AI ecosystem 🇧🇮",
     kirundi_det_intro:
       "A complete infrastructure to digitize the Kirundi language for AI applications. This flagship project combines a gold-standard dataset hosted on Hugging Face with a gamified web application that enables community-driven data collection.",
@@ -211,7 +211,7 @@
     kirundi_det_li4:
       '<strong>App de contribution</strong> : <a href="https://www.samandari.dev/kirundi-contribution-app/" target="_blank" rel="noopener noreferrer">Essayer l\u2019app</a>',
     kirundi_det_li5:
-      '<strong>GitHub</strong> : <a href="https://github.com/Ijwi-ryIkirundi-AI" target="_blank" rel="noopener noreferrer">Organisation</a>',
+      '<strong>GitHub</strong> : <a href="https://github.com/Ijwi-ry-Ikirundi-AI" target="_blank" rel="noopener noreferrer">Organisation</a>',
     kirundi_det_heading: "\u00c9cosyst\u00e8me IA Kirundi \ud83c\udde7\ud83c\uddee",
     kirundi_det_intro:
       "Une infrastructure compl\u00e8te pour num\u00e9riser le kirundi \u00e0 des fins d'IA. Ce projet phare combine un jeu de donn\u00e9es de r\u00e9f\u00e9rence sur Hugging Face et une application web ludique pour la collecte communautaire.",
