@@ -43,7 +43,7 @@
     { id: "ext-hf", i18n: "command_ext_hf", href: "https://huggingface.co/samandari", icon: "bi-robot", group: "command_group_external", keywords: "huggingface hf model" },
     { id: "ext-apps", i18n: "command_ext_apps", href: "https://apps.samandari.dev/", icon: "bi-phone", group: "command_group_external", keywords: "samaapps mobile android" },
     { id: "ext-web", i18n: "command_ext_web", href: "https://web.samandari.dev/", icon: "bi-globe", group: "command_group_external", keywords: "samaweb website" },
-    { id: "ext-linkedin", i18n: "gh_link_linkedin", href: "https://www.linkedin.com/in/jules-cesar-junior-ndayisenga-8b79592a8", icon: "bi-linkedin", group: "command_group_external", keywords: "linkedin" }
+    { id: "ext-linkedin", i18n: "gh_link_linkedin", href: "https://www.linkedin.com/in/sama-ndari/", icon: "bi-linkedin", group: "command_group_external", keywords: "linkedin" }
   ];
 
   const ACTION_COMMANDS = [

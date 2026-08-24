@@ -38,6 +38,13 @@
   box-shadow: 0 0 0 3px rgba(56, 139, 253, 0.32);
 }
 
+/* Theme switch: circular reveal driven from main.js via WAAPI (Marketplace). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 /* --------------------------------------------------------------------------
    Light theme: variable overrides
    -------------------------------------------------------------------------- */

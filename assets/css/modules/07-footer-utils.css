@@ -320,6 +320,12 @@
   flex-shrink: 0;
 }
 
+/* Light line-art mark on light pill → dark circular backing (same as logo / chat). */
+[data-theme="light"] .clone-launcher__avatar {
+  background: #0d1117;
+  border-color: #0d1117;
+}
+
 .clone-launcher__label {
   font-size: 0.875rem;
   font-weight: 600;

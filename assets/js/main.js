@@ -299,24 +299,66 @@
     });
   }
 
-  // Color theme toggle
-  function updateThemeToggleIcon(btn) {
-    const isLight = (typeof getTheme === "function" ? getTheme() : "dark") === "light";
-    const icon = btn.querySelector("i");
-    if (icon) {
-      icon.className = isLight ? "bi bi-moon-stars" : "bi bi-sun";
+  // Color theme toggle — circular reveal (same as Marketplace)
+  function updateThemeToggleIcon(btn, theme) {
+    if (!btn) return;
+    const value = theme || (typeof getTheme === "function" ? getTheme() : "dark");
+    btn.innerHTML =
+      value === "dark"
+        ? '<i class="bi bi-sun-fill" aria-hidden="true"></i>'
+        : '<i class="bi bi-moon-fill" aria-hidden="true"></i>';
+  }
+
+  function applyThemeTransition(next, sourceBtn) {
+    const apply = function () {
+      if (typeof setTheme === "function") setTheme(next);
+      updateThemeToggleIcon(document.getElementById("themeToggle"), next);
+      if (typeof AOS !== "undefined") AOS.refresh();
+    };
+
+    const reduceMotion =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!document.startViewTransition || reduceMotion || !sourceBtn) {
+      apply();
+      return;
     }
+
+    const rect = sourceBtn.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const radius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = document.startViewTransition(apply);
+    transition.ready
+      .then(function () {
+        document.documentElement.animate(
+          {
+            clipPath: [
+              "circle(0px at " + x + "px " + y + "px)",
+              "circle(" + radius + "px at " + x + "px " + y + "px)"
+            ]
+          },
+          {
+            duration: 550,
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+            pseudoElement: "::view-transition-new(root)"
+          }
+        );
+      })
+      .catch(function () {});
   }
 
   function initThemeToggle() {
     const btn = document.getElementById("themeToggle");
     if (!btn || typeof getTheme !== "function" || typeof setTheme !== "function") return;
     updateThemeToggleIcon(btn);
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", function () {
       const next = getTheme() === "light" ? "dark" : "light";
-      setTheme(next);
-      updateThemeToggleIcon(btn);
-      if (typeof AOS !== "undefined") AOS.refresh();
+      applyThemeTransition(next, this);
     });
   }
 
