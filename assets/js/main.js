@@ -449,9 +449,9 @@
   function getProjectMetaConfig() {
     return {
       proj_kirundi_title: { language: "Python", type: "AI", status: "repo_status_flagship", tags: ["tag_data_eng", "tag_open_source"], order: 1, githubOwner: "Sama-ndari", githubRepo: "kirundi-contribution-app" },
-      proj_velora_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_dart", "tag_productivity", "tag_mobile", "tag_flutter"], order: 2, githubRepo: "velora-releases" },
+      proj_velora_title: { language: "Dart", type: "Mobile", status: "repo_status_deployed", tags: ["tag_dart", "tag_productivity", "tag_mobile", "tag_flutter", "tag_free"], order: 2, githubRepo: "velora-releases" },
       proj_esama_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_flutter", "tag_saas", "tag_paying_users"], order: 3, githubRepo: "esama-releases" },
-      proj_fabwash_title: { language: "Dart", type: "Mobile", status: "repo_status_revenue", tags: ["tag_flutter", "tag_b2b", "tag_deployed"], order: 4, githubRepo: null },
+      proj_fabwash_title: { language: "Dart", type: "Mobile", status: "repo_status_deployed", tags: ["tag_flutter", "tag_b2b", "tag_deployed"], order: 4, githubRepo: null },
       proj_notifspy_title: { language: "Dart", type: "Mobile", status: "repo_status_dev", tags: ["tag_mobile", "tag_flutter", "tag_utility"], order: 5, githubRepo: "NotifSpy" },
       proj_contrib_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_ai", "tag_data_eng"], order: 6, githubRepo: "kirundi-contribution-app" },
       proj_langid_title: { language: "Python", type: "AI", status: "repo_status_deployed", tags: ["tag_nlp", "tag_classification"], order: 7, githubRepo: null },

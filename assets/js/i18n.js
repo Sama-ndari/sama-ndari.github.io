@@ -165,7 +165,7 @@ const I18N = {
     projects_research: "Research",
 
     repo_status_flagship: "Flagship Project",
-    repo_status_revenue: "Revenue",
+    repo_status_revenue: "Subscription",
     repo_status_deployed: "Deployed",
     repo_status_dev: "In Development",
     repo_status_learning: "Learning Project",
@@ -176,6 +176,7 @@ const I18N = {
     tag_flutter: "flutter",
     tag_saas: "saas",
     tag_paying_users: "paying-users",
+    tag_free: "free",
     tag_dart: "dart",
     tag_productivity: "productivity",
     tag_mobile: "mobile-app",
@@ -351,7 +352,7 @@ const I18N = {
     gh_org_asyst: "Asyst Ressources Ltd.",
     badge_flagship: "Flagship",
     badge_active: "Active",
-    badge_revenue: "Revenue",
+    badge_revenue: "Subscription",
     badge_deployed: "Deployed",
     badge_dev: "In Development",
     badge_learning: "Learning Project",
@@ -434,9 +435,9 @@ const I18N = {
     proj_samakod_title: "SAMAKOD: URL → QR Generator",
     proj_samakod_desc: '<strong>Problem:</strong> Quick QR codes need a tool with no signup, no backend, and offline use.<br><strong>Architecture:</strong> Static HTML/CSS/JS with vendored QR library , paste URL, preview on canvas, download PNG.<br><strong>Outcome:</strong> Live at <a href="https://sama-ndari.github.io/samakod/" target="_blank" rel="noopener noreferrer">sama-ndari.github.io/samakod</a>, works offline.',
 
-    proj_velora_cat: "Flutter / Paid App / Subscription",
+    proj_velora_cat: "Flutter / Free App / Productivity",
     proj_velora_title: "Velora: Productivity & Wellness",
-    proj_velora_desc: '<strong>Problem:</strong> Existing productivity apps are either too complex, require internet, or lack monetization for indie developers.<br><strong>Architecture:</strong> Flutter offline-first app with Hive, custom device-tied license activation, GitHub Gist remote admin, and Google Drive backup.<br><strong>Outcome:</strong> Paid app with active subscribers.',
+    proj_velora_desc: '<strong>Problem:</strong> Existing productivity apps are either too complex or require constant internet.<br><strong>Architecture:</strong> Flutter offline-first app with Hive, GitHub Gist remote admin, and Google Drive backup.<br><strong>Outcome:</strong> Free on Google Play — habits, goals, expenses, and wellness tools with zero cost to users.',
 
     proj_fabwash_cat: "Flutter / B2B SaaS / Deployed",
     proj_fabwash_title: "FabWash: Carwash Management",
@@ -672,7 +673,7 @@ const I18N = {
     projects_research: "Recherche",
 
     repo_status_flagship: "Projet Phare",
-    repo_status_revenue: "Revenus",
+    repo_status_revenue: "Abonnement",
     repo_status_deployed: "D\u00e9ploy\u00e9",
     repo_status_dev: "En D\u00e9veloppement",
     repo_status_learning: "Projet d'\u00c9tude",
@@ -683,6 +684,7 @@ const I18N = {
     tag_flutter: "flutter",
     tag_saas: "saas",
     tag_paying_users: "utilisateurs-payants",
+    tag_free: "gratuit",
     tag_dart: "dart",
     tag_productivity: "productivit\u00e9",
     tag_mobile: "app-mobile",
@@ -859,7 +861,7 @@ const I18N = {
 
     badge_flagship: "Phare",
     badge_active: "Actif",
-    badge_revenue: "Revenus",
+    badge_revenue: "Abonnement",
     badge_deployed: "D\u00e9ploy\u00e9",
     badge_dev: "En d\u00e9veloppement",
     badge_learning: "Projet d'apprentissage",
@@ -942,9 +944,9 @@ const I18N = {
     proj_samakod_title: "SAMAKOD : G\u00e9n\u00e9rateur URL \u2192 QR",
     proj_samakod_desc: '<strong>Probl\u00e8me :</strong> Les QR codes rapides n\u00e9cessitent un outil sans inscription, sans backend et utilisable hors ligne.<br><strong>Architecture :</strong> HTML/CSS/JS statique avec librairie QR int\u00e9gr\u00e9e \u2014 coller l\u2019URL, pr\u00e9visualiser sur canvas, t\u00e9l\u00e9charger en PNG.<br><strong>R\u00e9sultat :</strong> En ligne sur <a href="https://sama-ndari.github.io/samakod/" target="_blank" rel="noopener noreferrer">sama-ndari.github.io/samakod</a>, fonctionne hors ligne.',
 
-    proj_velora_cat: "Flutter / App Payante / Abonnement",
+    proj_velora_cat: "Flutter / App Gratuite / Productivit\u00e9",
     proj_velora_title: "Velora : Productivit\u00e9 & Bien-\u00eatre",
-    proj_velora_desc: '<strong>Probl\u00e8me :</strong> Les apps de productivit\u00e9 existantes sont soit trop complexes, n\u00e9cessitent internet, ou manquent de mon\u00e9tisation pour les d\u00e9veloppeurs ind\u00e9pendants.<br><strong>Architecture :</strong> Application Flutter offline-first avec Hive, activation de licence li\u00e9e \u00e0 l\'appareil, admin distant GitHub Gist, et sauvegarde Google Drive.<br><strong>R\u00e9sultat :</strong> Application payante avec des abonn\u00e9s actifs.',
+    proj_velora_desc: '<strong>Probl\u00e8me :</strong> Les apps de productivit\u00e9 existantes sont soit trop complexes, soit d\u00e9pendantes d\'internet.<br><strong>Architecture :</strong> Application Flutter offline-first avec Hive, admin distant GitHub Gist, et sauvegarde Google Drive.<br><strong>R\u00e9sultat :</strong> Gratuite sur Google Play — habitudes, objectifs, d\u00e9penses et bien-\u00eatre, sans frais pour les utilisateurs.',
 
     proj_fabwash_cat: "Flutter / B2B SaaS / D\u00e9ploy\u00e9",
     proj_fabwash_title: "FabWash : Gestion de Lavage Auto",
