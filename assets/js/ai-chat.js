@@ -454,7 +454,12 @@
     });
   }
 
-  if (clearBtn) {
+  const clearAnim =
+    clearBtn && typeof window.initMeChatClear === "function"
+      ? window.initMeChatClear(clearBtn, clearChat)
+      : null;
+
+  if (clearBtn && !clearAnim) {
     clearBtn.addEventListener("click", clearChat);
   }
 
@@ -479,7 +484,10 @@
   // Re-render the thread on language change so dynamically-built message cards
   // (author, "commented", Owner badge, avatar initial) follow the locale like
   // the static [data-i18n] nodes do. Called by initLangToggle in main.js.
-  window.refreshMeChatLocale = renderHistory;
+  window.refreshMeChatLocale = function () {
+    renderHistory();
+    if (clearAnim) clearAnim.syncLetters();
+  };
 
   renderHistory();
   inputEl.focus();

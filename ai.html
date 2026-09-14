@@ -71,9 +71,30 @@
           <h1 class="me-chat__page-title">
             <span data-i18n="clone_page_title">Talk to my clone</span>
           </h1>
-          <button type="button" id="me-chat-clear" class="me-chat__clear" data-i18n-aria-label="clone_clear_aria" data-i18n-title="clone_clear_aria" title="Clear conversation">
-            <i class="bi bi-trash3" aria-hidden="true"></i>
-            <span class="me-chat__clear-label" data-i18n="clone_clear_label">Clear</span>
+          <button type="button" id="me-chat-clear" class="me-chat__clear" data-i18n-aria-label="clone_clear_aria" data-i18n-title="clone_clear_aria" title="Clear conversation" style="--p: 0">
+            <span class="me-chat__clear-icon" aria-hidden="true">
+              <svg class="me-chat__clear-bin" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <defs>
+                  <clipPath id="me-chat-clear-clip">
+                    <path d="M7.2 8.2h9.6l-0.9 11.1A1.8 1.8 0 0 1 14.1 21H9.9a1.8 1.8 0 0 1-1.8-1.7L7.2 8.2z"></path>
+                  </clipPath>
+                </defs>
+                <g class="me-chat__clear-lid">
+                  <path d="M9 3.8h6"></path>
+                  <path d="M4.5 7h15"></path>
+                </g>
+                <g clip-path="url(#me-chat-clear-clip)">
+                  <rect class="me-chat__clear-fill" x="7" y="8" width="10" height="13" fill="currentColor"></rect>
+                </g>
+                <g class="me-chat__clear-can">
+                  <path d="M6.5 7.2l1.05 11.5A1.9 1.9 0 0 0 9.45 21h5.1a1.9 1.9 0 0 0 1.9-1.3L17.5 7.2"></path>
+                  <path d="M10.2 11v6.2"></path>
+                  <path d="M13.8 11v6.2"></path>
+                </g>
+              </svg>
+            </span>
+            <span class="me-chat__clear-label sr-only" data-i18n="clone_clear_label">Clear</span>
+            <span class="me-chat__clear-letters" aria-hidden="true"></span>
           </button>
         </div>
         <p class="me-chat__page-meta">
@@ -136,6 +157,7 @@
 
   <script defer src="assets/js/command-palette.js"></script>
   <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/me-chat-clear.js"></script>
   <script defer src="assets/js/ai-chat.js"></script>
 </body>
 </html>

@@ -94,21 +94,24 @@ body.page-ai-clone #preloader {
 }
 
 .me-chat__clear {
+  --p: 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  height: 32px;
-  padding: 0 12px;
-  border-radius: var(--radius-sm);
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px 0 10px;
+  border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--bg-surface);
   color: var(--text-secondary);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   flex-shrink: 0;
-  transition: color var(--transition-fast), background var(--transition-fast),
-    border-color var(--transition-fast);
+  overflow: visible;
+  position: relative;
+  transition: color 0.2s ease, background 0.25s ease, border-color 0.25s ease,
+    transform 0.15s ease;
 }
 
 .me-chat__clear:hover {
@@ -117,24 +120,145 @@ body.page-ai-clone #preloader {
   border-color: rgba(248, 81, 73, 0.4);
 }
 
+.me-chat__clear:active {
+  transform: scale(0.96);
+}
+
 .me-chat__clear:focus-visible {
   outline: 2px solid var(--gh-link);
   outline-offset: 2px;
 }
 
-.me-chat__clear .bi {
-  font-size: 14px;
+.me-chat__clear:disabled {
+  cursor: wait;
+  opacity: 1;
+}
+
+.me-chat__clear-icon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.me-chat__clear-bin {
+  display: block;
+  overflow: visible;
+}
+
+.me-chat__clear-lid {
+  transform-origin: 9px 7px;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.me-chat__clear-can {
+  transform-origin: 12px 14px;
+}
+
+.me-chat__clear-fill {
+  opacity: 0.42;
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  /* Fill rises as letters land (--p from 0 → 1). */
+  transform: translateY(calc((1 - var(--p, 0)) * 100%));
+  transition: transform 0.18s ease-out;
+}
+
+.me-chat__clear-letters {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+}
+
+.me-chat__clear-char {
+  display: inline-block;
+  position: relative;
+  will-change: transform, opacity;
+}
+
+.me-chat__clear.is-eating {
+  color: #fff;
+  background: linear-gradient(135deg, #da3633 0%, #f85149 100%);
+  border-color: transparent;
+  pointer-events: none;
+}
+
+.me-chat__clear.is-eating .me-chat__clear-lid {
+  transform: translate(-1px, -4px) rotate(-32deg);
+}
+
+.me-chat__clear.is-eating .me-chat__clear-can {
+  animation: me-chat-clear-gulp 0.5s ease 0.2s both;
+}
+
+.me-chat__clear.is-eating .me-chat__clear-char.is-flying {
+  animation: me-chat-clear-fly 0.72s cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+  animation-delay: calc(var(--i) * 55ms);
+}
+
+@keyframes me-chat-clear-fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  /* Arc over the open lid */
+  42% {
+    transform: translate(var(--mx), var(--my)) rotate(calc(var(--rot) * 0.45)) scale(0.9);
+    opacity: 1;
+  }
+  /* Drop into the bin */
+  100% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.25);
+    opacity: 0;
+  }
+}
+
+@keyframes me-chat-clear-gulp {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.16, 0.88);
+  }
+  65% {
+    transform: scale(0.9, 1.12);
+  }
 }
 
 @media (max-width: 520px) {
-  .me-chat__clear-label {
+  .me-chat__clear-letters {
     display: none;
   }
 
   .me-chat__clear {
-    width: 32px;
+    width: 36px;
     padding: 0;
     justify-content: center;
+  }
+
+  .me-chat__clear.is-eating .me-chat__clear-can {
+    animation: me-chat-clear-gulp 0.55s ease both;
+  }
+
+  .me-chat__clear.is-eating .me-chat__clear-fill {
+    transform: translateY(0);
+    transition-duration: 0.45s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .me-chat__clear,
+  .me-chat__clear-lid,
+  .me-chat__clear-can,
+  .me-chat__clear-char,
+  .me-chat__clear-fill {
+    transition: none !important;
+    animation: none !important;
   }
 }
 
