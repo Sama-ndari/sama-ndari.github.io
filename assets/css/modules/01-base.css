@@ -223,23 +223,32 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-base);
+  color: var(--text-primary);
+  transition: background var(--transition-base), border-color var(--transition-base),
+    color var(--transition-base), opacity var(--transition-base), visibility var(--transition-base);
   cursor: pointer;
+  text-decoration: none;
+}
+
+/* CSS chevron — visible even if Bootstrap Icons fails to load. */
+.back-to-top::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(2px) rotate(-135deg);
+  flex-shrink: 0;
 }
 
 .back-to-top i {
-  font-size: 20px;
-  color: var(--text-secondary);
-  line-height: 0;
+  display: none;
 }
 
 .back-to-top:hover {
   background: var(--accent);
   border-color: var(--accent);
-}
-
-.back-to-top:hover i {
-  color: var(--bg);
+  color: #0d1117;
 }
 
 .back-to-top.active {

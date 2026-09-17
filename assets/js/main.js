@@ -1006,6 +1006,28 @@
     window.revealProjectCommandTarget = revealProjectCommandTarget;
   }
 
+  function initRepoNewJoke() {
+    const btn = document.getElementById("repoNewBtn");
+    const dialog = document.getElementById("repoNewJoke");
+    if (!btn || !dialog || typeof dialog.showModal !== "function") return;
+
+    function openJoke(event) {
+      event.preventDefault();
+      dialog.showModal();
+    }
+
+    function closeJoke() {
+      if (dialog.open) dialog.close();
+    }
+
+    btn.addEventListener("click", openJoke);
+    document.getElementById("repoNewJokeClose")?.addEventListener("click", closeJoke);
+    document.getElementById("repoNewJokeCloseX")?.addEventListener("click", closeJoke);
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) closeJoke();
+    });
+  }
+
   // Init on DOMContentLoaded
   document.addEventListener("DOMContentLoaded", function () {
     applyI18n();
@@ -1016,6 +1038,7 @@
     initContactForm();
     initGhServicesMoreHint();
     initProjectsRepositoryUI();
+    initRepoNewJoke();
     fetchLiveUserCounts();
     fetchSamaAppsCatalogCount();
     fetchSamaWebSiteCount();

@@ -473,6 +473,118 @@ html[data-app-page="projects"] .gh-repo-new {
   background: #238636;
   border-color: rgba(240, 246, 252, 0.1);
   color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+html[data-app-page="projects"] .gh-repo-new:hover {
+  background: #2ea043;
+}
+
+html[data-app-page="projects"] .gh-repo-new:focus-visible {
+  outline: 2px solid #58a6ff;
+  outline-offset: 2px;
+}
+
+.repo-new-joke {
+  padding: 0;
+  border: none;
+  background: transparent;
+  max-width: min(92vw, 420px);
+  width: 100%;
+}
+
+.repo-new-joke::backdrop {
+  background: rgba(1, 4, 9, 0.72);
+  backdrop-filter: blur(3px);
+}
+
+.repo-new-joke__panel {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.repo-new-joke__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.repo-new-joke__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.repo-new-joke__x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.repo-new-joke__x:hover {
+  color: var(--text-primary);
+  border-color: var(--text-tertiary);
+}
+
+.repo-new-joke__body {
+  margin: 0;
+  padding: 18px 16px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.repo-new-joke__actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 16px 16px;
+}
+
+.repo-new-joke__ok {
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  background: #238636;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.repo-new-joke__ok:hover {
+  background: #2ea043;
+}
+
+html[data-theme="light"][data-app-page="projects"] .gh-repo-new {
+  background: #1f883d;
+  border-color: rgba(31, 35, 40, 0.15);
+  color: #fff;
+}
+
+html[data-theme="light"] .repo-new-joke__ok {
+  background: #1f883d;
+}
+
+html[data-theme="light"] .repo-new-joke__ok:hover {
+  background: #1a7f37;
 }
 
 html[data-app-page="projects"] .gh-repo-filter::after {

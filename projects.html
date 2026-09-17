@@ -128,7 +128,7 @@
                       <button type="button" data-value="Name" data-i18n-text="repo_sort_name">Name</button>
                     </div>
                   </div>
-                  <a href="https://apps.samandari.dev/" target="_blank" rel="noopener noreferrer" class="gh-repo-new" data-i18n="repo_new">New</a>
+                  <button type="button" class="gh-repo-new" id="repoNewBtn" data-i18n="repo_new" data-i18n-aria-label="repo_new">New</button>
                 </div>
                 <div class="portfolio-container">
             <div class="portfolio-item col-12"><div class="project-card"><div class="project-card__body"><span class="project-card__category" data-i18n="proj_kirundi_cat"></span><h4 class="project-card__title" data-i18n="proj_kirundi_title"></h4><p class="project-card__desc" data-i18n="proj_kirundi_desc"></p><div class="project-card__actions"><a href="portfolio/ai/kirundi/details.html" class="btn-action btn-action--primary portfolio-details-lightbox" data-glightbox="type: external"><span data-i18n="projects_details"></span></a><a href="portfolio/ai/kirundi/case-study.html" class="btn-action btn-action--ghost"><span data-i18n="projects_case_study"></span></a><a href="portfolio/ai/kirundi/architecture.html" class="btn-action btn-action--ghost"><span data-i18n="projects_architecture"></span></a><a href="portfolio/ai/kirundi/fellowship.html" class="btn-action btn-action--ghost"><span data-i18n="projects_fellowship"></span></a><a href="https://huggingface.co/datasets/Ijwi-ry-Ikirundi-AI/Kirundi_Open_Speech_Dataset" target="_blank" rel="noopener noreferrer" class="btn-action btn-action--ghost"><span data-i18n="projects_dataset"></span></a></div></div></div></div>
@@ -177,6 +177,21 @@
       <div class="credits" data-i18n="footer_designed">Designed by Samandari</div>
     </div>
   </footer>
+
+  <dialog id="repoNewJoke" class="repo-new-joke" data-i18n-aria-label="repo_new_joke_title">
+    <div class="repo-new-joke__panel">
+      <div class="repo-new-joke__header">
+        <h2 class="repo-new-joke__title" id="repoNewJokeTitle" data-i18n="repo_new_joke_title">Hold up</h2>
+        <button type="button" class="repo-new-joke__x" id="repoNewJokeCloseX" data-i18n-aria-label="repo_new_joke_close" aria-label="Close">
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+      <p class="repo-new-joke__body" data-i18n="repo_new_joke_body">New repo? Bold move. My coffee hasn't even compiled yet. Go star an existing one instead.</p>
+      <div class="repo-new-joke__actions">
+        <button type="button" class="repo-new-joke__ok" id="repoNewJokeClose" data-i18n="repo_new_joke_close">Fair enough</button>
+      </div>
+    </div>
+  </dialog>
 
   <script defer src="assets/vendor/aos/aos.js"></script>
   <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
