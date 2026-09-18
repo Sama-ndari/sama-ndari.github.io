@@ -363,7 +363,7 @@ const I18N = {
 
     resume_edu_1_title: "Bachelor in Software Engineering",
     resume_edu_1_school: "Lake Tanganyika University, Campus Kigobe, Bujumbura",
-    resume_edu_1_desc: "Focusing on Software Architecture, Distributed Systems, and Advanced Database Management.",
+    resume_edu_1_desc: "Completed with a focus on Software Architecture, Distributed Systems, and Advanced Database Management.",
     resume_edu_2_title: "Diploma in Nursing",
     resume_edu_2_school: "Ecole Paramedicale de Gitega, Gitega",
     resume_edu_2_desc: 'Graduated with <strong>Distinction</strong>. Gained critical thinking and crisis management skills through 20+ months of intensive clinical rotations in Emergency and Internal Medicine departments.<br><br><a href="#" class="cert-inline-link" data-media-open data-media-id="diplome-etat">State Diploma<i class="bi bi-patch-check" aria-hidden="true"></i></a> &middot; <a href="#" class="cert-inline-link" data-media-open data-media-id="diplome-humanites">Humanities Diploma<i class="bi bi-patch-check" aria-hidden="true"></i></a>',
@@ -875,7 +875,7 @@ const I18N = {
 
     resume_edu_1_title: "Licence en G\u00e9nie Logiciel",
     resume_edu_1_school: "Universit\u00e9 du Lac Tanganyika, Campus Kigobe, Bujumbura",
-    resume_edu_1_desc: "Sp\u00e9cialisation en Architecture Logicielle, Syst\u00e8mes Distribu\u00e9s et Gestion Avanc\u00e9e de Bases de Donn\u00e9es.",
+    resume_edu_1_desc: "Formation termin\u00e9e, avec sp\u00e9cialisation en Architecture Logicielle, Syst\u00e8mes Distribu\u00e9s et Gestion Avanc\u00e9e de Bases de Donn\u00e9es.",
     resume_edu_2_title: "Dipl\u00f4me en Sciences Infirmi\u00e8res",
     resume_edu_2_school: "\u00c9cole Param\u00e9dicale de Gitega, Gitega",
     resume_edu_2_desc: 'Dipl\u00f4m\u00e9 avec <strong>Distinction</strong>. Acquisition de comp\u00e9tences en pens\u00e9e critique et gestion de crise \u00e0 travers 20+ mois de rotations cliniques intensives en services d\'Urgences et de M\u00e9decine Interne.<br><br><a href="#" class="cert-inline-link" data-media-open data-media-id="diplome-etat">Dipl\u00f4me d\'\u00c9tat<i class="bi bi-patch-check" aria-hidden="true"></i></a> &middot; <a href="#" class="cert-inline-link" data-media-open data-media-id="diplome-humanites">Dipl\u00f4me Humanit\u00e9s<i class="bi bi-patch-check" aria-hidden="true"></i></a>',
