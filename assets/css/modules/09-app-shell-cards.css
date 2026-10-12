@@ -247,8 +247,37 @@
 }
 
 .gh-blob-path-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
   font-family: var(--font-mono);
   color: var(--text-secondary);
+}
+
+.gh-window-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.gh-window-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.gh-window-dot--close {
+  background: #ff5f57;
+}
+
+.gh-window-dot--min {
+  background: #6e7681;
+}
+
+.gh-window-dot--zoom {
+  background: #27c93f;
 }
 
 .gh-blob-path-row strong {
@@ -296,6 +325,40 @@
   flex: 1;
   padding: 16px 20px;
   color: var(--text-primary);
+}
+
+.gh-code-canvas > div {
+  min-height: 1.65em;
+}
+
+.gh-line-num.is-pending {
+  opacity: 0.28;
+}
+
+.gh-line-num.is-active {
+  color: var(--gh-link);
+}
+
+.gh-typer-caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: var(--gh-link);
+  animation: gh-typer-blink 1.05s steps(1) infinite;
+}
+
+@keyframes gh-typer-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gh-typer-caret {
+    animation: none;
+  }
 }
 
 .tok-k {

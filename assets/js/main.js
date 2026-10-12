@@ -41,13 +41,43 @@
     window.scrollTo({ top: elementPos, behavior: "smooth" });
   };
 
-  // Back to top
+  /** Draw a progress ring around the back-to-top control. Returns a paint fn. */
+  function mountScrollRing(button) {
+    const svgNS = "http://www.w3.org/2000/svg";
+    const radius = 23;
+    const length = 2 * Math.PI * radius;
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("class", "back-to-top__ring");
+    svg.setAttribute("viewBox", "0 0 56 56");
+    svg.setAttribute("aria-hidden", "true");
+    ["track", "progress"].forEach((name) => {
+      const circle = document.createElementNS(svgNS, "circle");
+      circle.setAttribute("class", "back-to-top__" + name);
+      circle.setAttribute("cx", "28");
+      circle.setAttribute("cy", "28");
+      circle.setAttribute("r", String(radius));
+      svg.appendChild(circle);
+    });
+    const progress = svg.querySelector(".back-to-top__progress");
+    progress.style.strokeDasharray = length + " " + length;
+    button.prepend(svg);
+    return function paintScrollRing() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      progress.style.strokeDashoffset = String(length * (1 - ratio));
+    };
+  }
+
+  // Back to top, with a scroll-progress ring around the existing button.
   let backtotop = select(".back-to-top");
   if (backtotop) {
+    const paintScrollRing = mountScrollRing(backtotop);
     const toggle = () => {
       backtotop.classList.toggle("active", window.scrollY > 100);
+      paintScrollRing();
     };
     window.addEventListener("load", toggle);
+    window.addEventListener("resize", paintScrollRing);
     onscroll(document, toggle);
   }
 
@@ -268,6 +298,7 @@
         refreshMeChatLocale();
       }
       reinitHeroRoleTyped();
+      if (typeof reinitGhBlobTyper === "function") reinitGhBlobTyper();
       // Re-init typed with new language
       const typedEl = select(".typed");
       if (typedEl && typeof Typed !== "undefined") {
@@ -1066,6 +1097,7 @@
     }
 
     reinitHeroRoleTyped();
+    if (typeof reinitGhBlobTyper === "function") reinitGhBlobTyper();
 
     // Languages typed in About section
     const langTyped = select(".lang-typed");

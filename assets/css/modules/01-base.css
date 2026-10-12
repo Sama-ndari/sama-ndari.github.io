@@ -230,6 +230,30 @@ img {
   text-decoration: none;
 }
 
+.back-to-top__ring {
+  position: absolute;
+  inset: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  pointer-events: none;
+  transform: rotate(-90deg);
+}
+
+.back-to-top__track,
+.back-to-top__progress {
+  fill: none;
+  stroke-width: 3;
+}
+
+.back-to-top__track {
+  stroke: var(--border);
+}
+
+.back-to-top__progress {
+  stroke: var(--gh-link);
+  stroke-linecap: round;
+}
+
 /* CSS chevron — visible even if Bootstrap Icons fails to load. */
 .back-to-top::before {
   content: "";
