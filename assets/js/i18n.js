@@ -438,6 +438,10 @@ const I18N = {
     proj_samakod_title: "SAMAKOD: URL → QR Generator",
     proj_samakod_desc: '<strong>Problem:</strong> Quick QR codes need a tool with no signup, no backend, and offline use.<br><strong>Architecture:</strong> Static HTML/CSS/JS with vendored QR library , paste URL, preview on canvas, download PNG.<br><strong>Outcome:</strong> Live at <a href="https://sama-ndari.github.io/samakod/" target="_blank" rel="noopener noreferrer">sama-ndari.github.io/samakod</a>, works offline.',
 
+    proj_chatgptmd_cat: "CLI / TypeScript / ChatGPT",
+    proj_chatgptmd_title: "chatgpt-md-export",
+    proj_chatgptmd_desc: '<strong>Problem:</strong> Shared ChatGPT threads are hard to hand off to another AI without messy copy-paste or dead browser “Save As” HTML.<br><strong>Architecture:</strong> Zero-dependency Node/TypeScript CLI — URL → private <code>backend-api</code> fetch → Markdown + collapsible HTML + JSON; attachments when the token owns the files.<br><strong>Outcome:</strong> Open-source at <a href="https://github.com/Sama-ndari/chatgpt-md-export" target="_blank" rel="noopener noreferrer">github.com/Sama-ndari/chatgpt-md-export</a>; soft-fails cross-account uploads with a clear placeholder.',
+
     proj_velora_cat: "Flutter / Free App / Productivity",
     proj_velora_title: "Velora: Productivity & Wellness",
     proj_velora_desc: '<strong>Problem:</strong> Existing productivity apps are either too complex or require constant internet.<br><strong>Architecture:</strong> Flutter offline-first app with Hive, GitHub Gist remote admin, and Google Drive backup.<br><strong>Outcome:</strong> Free on Google Play — habits, goals, expenses, and wellness tools with zero cost to users.',
@@ -949,6 +953,10 @@ const I18N = {
     proj_samakod_cat: "Web / Utilitaire / Sans Backend",
     proj_samakod_title: "SAMAKOD : G\u00e9n\u00e9rateur URL \u2192 QR",
     proj_samakod_desc: '<strong>Probl\u00e8me :</strong> Les QR codes rapides n\u00e9cessitent un outil sans inscription, sans backend et utilisable hors ligne.<br><strong>Architecture :</strong> HTML/CSS/JS statique avec librairie QR int\u00e9gr\u00e9e \u2014 coller l\u2019URL, pr\u00e9visualiser sur canvas, t\u00e9l\u00e9charger en PNG.<br><strong>R\u00e9sultat :</strong> En ligne sur <a href="https://sama-ndari.github.io/samakod/" target="_blank" rel="noopener noreferrer">sama-ndari.github.io/samakod</a>, fonctionne hors ligne.',
+
+    proj_chatgptmd_cat: "CLI / TypeScript / ChatGPT",
+    proj_chatgptmd_title: "chatgpt-md-export",
+    proj_chatgptmd_desc: '<strong>Probl\u00e8me :</strong> Les fils ChatGPT partag\u00e9s sont difficiles \u00e0 refiler \u00e0 une autre IA sans copier-coller sale ou HTML \u00ab Enregistrer sous \u00bb mort.<br><strong>Architecture :</strong> CLI Node/TypeScript z\u00e9ro d\u00e9pendance \u2014 URL \u2192 fetch <code>backend-api</code> priv\u00e9 \u2192 Markdown + HTML pliable + JSON ; PJ si le token est proprio.<br><strong>R\u00e9sultat :</strong> Open-source sur <a href="https://github.com/Sama-ndari/chatgpt-md-export" target="_blank" rel="noopener noreferrer">github.com/Sama-ndari/chatgpt-md-export</a> ; soft-fail clair si upload d\u2019un autre compte.',
 
     proj_velora_cat: "Flutter / App Gratuite / Productivit\u00e9",
     proj_velora_title: "Velora : Productivit\u00e9 & Bien-\u00eatre",

@@ -487,6 +487,7 @@
       proj_contrib_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_ai", "tag_data_eng"], order: 6, githubRepo: "kirundi-contribution-app" },
       proj_langid_title: { language: "Python", type: "AI", status: "repo_status_deployed", tags: ["tag_nlp", "tag_classification"], order: 7, githubRepo: null },
       proj_tasky_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_browser_ext"], order: 8, githubRepo: null },
+      proj_chatgptmd_title: { language: "TypeScript", type: "Web", status: "repo_status_deployed", tags: ["tag_utility", "tag_open_source", "tag_ai"], order: 8.5, githubRepo: "chatgpt-md-export" },
       proj_interview_title: { language: "Python", type: "AI", status: "repo_status_deployed", tags: ["tag_ai", "tag_chatbot", "tag_hr_tech"], order: 9, githubRepo: "Interview-tool" },
       proj_devswarm_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_multi_agent"], order: 10, githubRepo: "dev-swarm-autonomous-agency" },
       proj_rag_title: { language: "Python", type: "AI", status: "repo_status_learning", tags: ["tag_enterprise_ai"], order: 11, githubRepo: "enterprise-rag-chatbot" },
