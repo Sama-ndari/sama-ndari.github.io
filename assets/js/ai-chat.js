@@ -230,21 +230,23 @@
   }
 
   function politeErrorMessage(err, status) {
-    if (status && status !== 200) {
-      return translate(
-        "clone_err_http",
-        "Erreur 😅 — pas toi, moi. Réessaie, je me rattrape."
-      );
-    }
-
     const raw = err?.message ?? "";
     if (
+      status === 0 ||
+      raw === "offline" ||
       err instanceof TypeError ||
       /failed to fetch|networkerror|load failed|network request failed/i.test(raw)
     ) {
       return translate(
         "clone_err_network",
         "Oups, j’ai besoin d’un café. Je reviens vite."
+      );
+    }
+
+    if (status && status !== 200) {
+      return translate(
+        "clone_err_http",
+        "Erreur 😅 — pas toi, moi. Réessaie, je me rattrape."
       );
     }
 
@@ -256,10 +258,15 @@
 
   async function requestAssistantReply(message, contextHistory) {
     isGenerating = true;
-    sendBtn.disabled = true;
+    if (window.SamaUx) window.SamaUx.setButtonLoading(sendBtn, true);
+    else sendBtn.disabled = true;
     const typingRow = showTyping();
 
     try {
+      if (navigator.onLine === false) {
+        throw Object.assign(new Error("offline"), { status: 0 });
+      }
+
       const res = await fetch(API_URL, {
         method: "POST",
         headers: {
@@ -270,6 +277,20 @@
       });
 
       const data = await res.json().catch(() => ({}));
+
+      if (res.status === 401 || res.status === 403) {
+        if (window.SamaUx) {
+          window.SamaUx.showPermissionDenied(
+            translate(
+              "ux_permission_chat",
+              "This chat action is not authorized. The API key may be missing or invalid."
+            )
+          );
+        }
+        throw Object.assign(new Error(data.error ?? `HTTP ${res.status}`), {
+          status: res.status,
+        });
+      }
 
       if (!res.ok) {
         throw Object.assign(new Error(data.error ?? `HTTP ${res.status}`), {
@@ -288,7 +309,8 @@
       appendMessage("error", politeErrorMessage(err, err?.status), "error");
     } finally {
       isGenerating = false;
-      sendBtn.disabled = false;
+      if (window.SamaUx) window.SamaUx.setButtonLoading(sendBtn, false);
+      else sendBtn.disabled = false;
       inputEl.focus();
     }
   }

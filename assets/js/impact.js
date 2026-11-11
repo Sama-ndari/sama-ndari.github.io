@@ -273,12 +273,21 @@
         );
       })
       .catch(function () {
-        intro.textContent = t("impact_contributions_intro")
-          .replace("{{n}}", "0")
-          .replace("{{year}}", String(year));
+        intro.textContent = t("impact_fetch_error");
         monthRow.innerHTML = "";
-        gridMount.innerHTML = "";
+        gridMount.innerHTML =
+          '<div class="ux-fetch-error">' +
+          t("impact_fetch_error") +
+          ' <button type="button" data-impact-retry>' +
+          t("impact_fetch_retry") +
+          "</button></div>";
         gridMount.removeAttribute("aria-label");
+        var retry = gridMount.querySelector("[data-impact-retry]");
+        if (retry) {
+          retry.addEventListener("click", function () {
+            loadHeatmapYear(root, year, nav);
+          });
+        }
       });
   }
 

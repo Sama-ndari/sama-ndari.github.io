@@ -157,8 +157,30 @@
 
     if (!list.length) {
       const empty = document.createElement("div");
-      empty.className = "gh-command-palette__empty";
-      empty.textContent = translate("command_no_results");
+      empty.className = "gh-command-palette__empty ux-empty";
+      empty.innerHTML =
+        '<p class="ux-empty__title"></p><p class="ux-empty__text"></p>' +
+        '<div class="ux-empty__actions">' +
+        '<button type="button" class="ux-empty__chip" data-suggest="projects.html"></button>' +
+        '<button type="button" class="ux-empty__chip" data-suggest="resume.html"></button>' +
+        '<button type="button" class="ux-empty__chip" data-suggest="contact.html"></button>' +
+        "</div>";
+      empty.querySelector(".ux-empty__title").textContent = translate("command_no_results");
+      empty.querySelector(".ux-empty__text").textContent = translate("command_no_results_hint");
+      empty.querySelector('[data-suggest="projects.html"]').textContent = translate(
+        "command_suggest_projects"
+      );
+      empty.querySelector('[data-suggest="resume.html"]').textContent = translate(
+        "command_suggest_resume"
+      );
+      empty.querySelector('[data-suggest="contact.html"]').textContent = translate(
+        "command_suggest_contact"
+      );
+      empty.querySelectorAll("[data-suggest]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          window.location.href = btn.getAttribute("data-suggest");
+        });
+      });
       resultsEl.appendChild(empty);
       return;
     }

@@ -104,28 +104,32 @@
             </div>
             <div class="col-lg-8 order-1 order-lg-2">
               <div class="gh-contact-form-panel">
-                <form id="contactForm" action="https://formspree.io/f/manpgkrz" method="POST" class="php-email-form">
+                <form id="contactForm" action="https://formspree.io/f/manpgkrz" method="POST" class="php-email-form" novalidate>
                   <div class="row">
                     <div class="col-md-6 form-group">
                       <label for="name" class="visually-hidden" data-i18n="contact_name_placeholder">Your Name</label>
-                      <input type="text" name="name" class="form-control" id="name" data-i18n-placeholder="contact_name_placeholder" required>
+                      <input type="text" name="name" class="form-control" id="name" data-i18n-placeholder="contact_name_placeholder" required minlength="2" autocomplete="name" aria-required="true">
+                      <div class="ux-field-error" id="name-error" role="alert"></div>
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
                       <label for="email" class="visually-hidden" data-i18n="contact_email_placeholder">Your Email</label>
-                      <input type="email" class="form-control" name="email" id="email" data-i18n-placeholder="contact_email_placeholder" required>
+                      <input type="email" class="form-control" name="email" id="email" data-i18n-placeholder="contact_email_placeholder" required autocomplete="email" aria-required="true">
+                      <div class="ux-field-error" id="email-error" role="alert"></div>
                     </div>
                   </div>
                   <div class="form-group mt-3">
                     <label for="subject" class="visually-hidden" data-i18n="contact_subject_placeholder">Subject</label>
-                    <input type="text" class="form-control" name="subject" id="subject" data-i18n-placeholder="contact_subject_placeholder" required>
+                    <input type="text" class="form-control" name="subject" id="subject" data-i18n-placeholder="contact_subject_placeholder" required minlength="3" aria-required="true">
+                    <div class="ux-field-error" id="subject-error" role="alert"></div>
                   </div>
                   <div class="form-group mt-3">
                     <label for="message" class="visually-hidden" data-i18n="contact_message_placeholder">Message</label>
-                    <textarea class="form-control" name="message" id="message" rows="6" data-i18n-placeholder="contact_message_placeholder" required></textarea>
+                    <textarea class="form-control" name="message" id="message" rows="6" data-i18n-placeholder="contact_message_placeholder" required minlength="10" aria-required="true"></textarea>
+                    <div class="ux-field-error" id="message-error" role="alert"></div>
                   </div>
                   <div class="my-3"><div id="form-status" role="alert" aria-live="polite"></div></div>
                   <div class="text-center text-md-start">
-                    <button type="submit" data-i18n="contact_send"></button>
+                    <button type="submit" id="contactSubmit" data-i18n="contact_send"></button>
                   </div>
                 </form>
               </div>
@@ -157,6 +161,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center" data-i18n-aria-label="nav_back_to_top_aria"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <script defer src="assets/js/command-palette.js"></script>
+  <script defer src="assets/js/ux-shell.js"></script>
   <script defer src="assets/js/main.js"></script>
 
   <script defer src="assets/js/clone-launcher.js"></script>

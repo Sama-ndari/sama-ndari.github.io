@@ -393,15 +393,109 @@
     });
   }
 
+  function clearContactFieldErrors(form) {
+    form.querySelectorAll(".is-invalid").forEach((el) => {
+      el.classList.remove("is-invalid");
+      el.removeAttribute("aria-invalid");
+    });
+    form.querySelectorAll(".ux-field-error").forEach((el) => {
+      el.textContent = "";
+      el.classList.remove("is-visible");
+    });
+  }
+
+  function setContactFieldError(input, message) {
+    if (!input) return;
+    input.classList.add("is-invalid");
+    input.setAttribute("aria-invalid", "true");
+    const error = document.getElementById(input.id + "-error");
+    if (!error) return;
+    error.textContent = message;
+    error.classList.add("is-visible");
+  }
+
+  function validateContactForm(form) {
+    clearContactFieldErrors(form);
+    const name = form.querySelector("#name");
+    const email = form.querySelector("#email");
+    const subject = form.querySelector("#subject");
+    const message = form.querySelector("#message");
+    let firstInvalid = null;
+
+    if (!name || name.value.trim().length < 2) {
+      setContactFieldError(name, t("contact_err_name"));
+      firstInvalid = firstInvalid || name;
+    }
+    const emailValue = email ? email.value.trim() : "";
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+      setContactFieldError(email, t("contact_err_email"));
+      firstInvalid = firstInvalid || email;
+    }
+    if (!subject || subject.value.trim().length < 3) {
+      setContactFieldError(subject, t("contact_err_subject"));
+      firstInvalid = firstInvalid || subject;
+    }
+    if (!message || message.value.trim().length < 10) {
+      setContactFieldError(message, t("contact_err_message"));
+      firstInvalid = firstInvalid || message;
+    }
+
+    if (firstInvalid) firstInvalid.focus();
+    return !firstInvalid;
+  }
+
+  function renderContactSuccess(status) {
+    status.className = "is-success";
+    status.innerHTML =
+      "<div>" +
+      t("contact_success_celebrate") +
+      "</div><div class=\"ux-success-next\" aria-label=\"" +
+      t("contact_success_next") +
+      "\">" +
+      '<a href="projects.html">' +
+      t("contact_success_projects") +
+      "</a>" +
+      '<a href="ai.html">' +
+      t("contact_success_clone") +
+      "</a></div>";
+  }
+
   // Contact form
   function initContactForm() {
     const form = document.getElementById("contactForm");
     if (!form) return;
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    ["name", "email", "subject", "message"].forEach((id) => {
+      const field = form.querySelector("#" + id);
+      if (!field) return;
+      field.addEventListener("input", () => {
+        field.classList.remove("is-invalid");
+        field.removeAttribute("aria-invalid");
+        const error = document.getElementById(id + "-error");
+        if (error) {
+          error.textContent = "";
+          error.classList.remove("is-visible");
+        }
+      });
+    });
+
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       const status = document.getElementById("form-status");
       if (!status) return;
+      status.className = "";
       status.textContent = "";
+
+      if (navigator.onLine === false) {
+        status.className = "is-error";
+        status.textContent = t("contact_err_offline");
+        return;
+      }
+
+      if (!validateContactForm(form)) return;
+
+      if (window.SamaUx) window.SamaUx.setButtonLoading(submitBtn, true);
       const fd = new FormData(event.target);
       fetch(event.target.action, {
         method: form.method,
@@ -409,9 +503,18 @@
         headers: { Accept: "application/json" }
       })
         .then(function (response) {
+          if (response.status === 401 || response.status === 403) {
+            if (window.SamaUx) {
+              window.SamaUx.showPermissionDenied(t("ux_permission_body"));
+            }
+            status.className = "is-error";
+            status.textContent = t("contact_error");
+            return null;
+          }
           if (response.ok) {
-            status.textContent = t("contact_success");
+            renderContactSuccess(status);
             form.reset();
+            clearContactFieldErrors(form);
             return null;
           }
           return response
@@ -420,6 +523,7 @@
               return null;
             })
             .then(function (body) {
+              status.className = "is-error";
               if (body && Array.isArray(body.errors)) {
                 const parts = body.errors
                   .map(function (e) {
@@ -433,7 +537,11 @@
             });
         })
         .catch(function () {
+          status.className = "is-error";
           status.textContent = t("contact_error");
+        })
+        .finally(function () {
+          if (window.SamaUx) window.SamaUx.setButtonLoading(submitBtn, false);
         });
     });
   }
@@ -879,9 +987,11 @@
       const matchesQuery = (item.dataset.repoText || "").includes(state.query);
       const matchesType = state.type === "All" || item.dataset.repoType === state.type;
       const matchesLanguage = state.language === "All" || item.dataset.repoLanguage === state.language;
-      item.style.display = matchesQuery && matchesType && matchesLanguage ? "" : "none";
+      const matches = matchesQuery && matchesType && matchesLanguage;
+      item.dataset.repoMatch = matches ? "1" : "0";
+      item.style.display = matches ? "" : "none";
     });
-    const visible = items.filter((item) => item.style.display !== "none");
+    const visible = items.filter((item) => item.dataset.repoMatch === "1");
     visible.sort((a, b) => {
       if (state.sort === "Name") {
         const aName = a.querySelector(".project-card__title")?.textContent || "";
@@ -891,6 +1001,117 @@
       return Number(a.dataset.repoOrder || "999") - Number(b.dataset.repoOrder || "999");
     });
     visible.forEach((item) => container.appendChild(item));
+    renderProjectsEmptyState(container, state, visible.length);
+    if (container._samaInfinite) container._samaInfinite.refresh();
+  }
+
+  function ensureProjectsEmptyHost(container) {
+    let host = container.parentElement?.querySelector(".ux-projects-empty");
+    if (host) return host;
+    host = document.createElement("div");
+    host.className = "ux-empty ux-projects-empty";
+    host.hidden = true;
+    container.insertAdjacentElement("afterend", host);
+    return host;
+  }
+
+  function renderProjectsEmptyState(container, state, visibleCount) {
+    const host = ensureProjectsEmptyHost(container);
+    const infinite = container.parentElement?.querySelector(".ux-infinite-loader");
+    if (visibleCount > 0) {
+      host.hidden = true;
+      host.innerHTML = "";
+      return;
+    }
+    if (infinite) infinite.classList.remove("is-visible");
+    host.hidden = false;
+    host.innerHTML =
+      '<p class="ux-empty__title"></p><p class="ux-empty__text"></p>' +
+      '<div class="ux-empty__actions">' +
+      '<button type="button" class="ux-empty__chip" data-ux-empty="clear"></button>' +
+      '<button type="button" class="ux-empty__chip" data-ux-empty="ai"></button>' +
+      "</div>";
+    host.querySelector(".ux-empty__title").textContent = t("projects_empty_title");
+    host.querySelector(".ux-empty__text").textContent = t("projects_empty_text");
+    host.querySelector('[data-ux-empty="clear"]').textContent = t("projects_empty_clear");
+    host.querySelector('[data-ux-empty="ai"]').textContent = t("projects_empty_ai");
+    host.querySelector('[data-ux-empty="clear"]').onclick = () => {
+      state.query = "";
+      state.type = "All";
+      state.language = "All";
+      const searchInput = document.querySelector(".gh-repo-search");
+      if (searchInput) searchInput.value = "";
+      if (container._samaRepoFilters) {
+        const { typeBtn, languageBtn, sortBtn } = container._samaRepoFilters;
+        syncRepoFilterButtonLabels(state, typeBtn, languageBtn, sortBtn);
+      }
+      applyRepoFiltersAndSort(container, state);
+    };
+    host.querySelector('[data-ux-empty="ai"]').onclick = () => {
+      state.type = "AI";
+      if (container._samaRepoFilters) {
+        const { typeBtn, languageBtn, sortBtn } = container._samaRepoFilters;
+        syncRepoFilterButtonLabels(state, typeBtn, languageBtn, sortBtn);
+      }
+      applyRepoFiltersAndSort(container, state);
+    };
+  }
+
+  function setupProjectsInfiniteScroll(container) {
+    const PAGE = 6;
+    let revealed = PAGE;
+    let loader = container.parentElement?.querySelector(".ux-infinite-loader");
+    if (!loader) {
+      loader = document.createElement("div");
+      loader.className = "ux-infinite-loader";
+      loader.innerHTML =
+        '<span class="ux-infinite-loader__dot" aria-hidden="true"></span>' +
+        "<span data-ux-infinite-label></span>";
+      container.insertAdjacentElement("afterend", loader);
+    }
+
+    function matchedItems() {
+      return Array.from(container.querySelectorAll('.portfolio-item[data-repo-match="1"]'));
+    }
+
+    function paint() {
+      const matched = matchedItems();
+      matched.forEach((item, index) => {
+        item.style.display = index < revealed ? "" : "none";
+      });
+      const hasMore = matched.length > revealed;
+      loader.classList.toggle("is-visible", hasMore);
+      const label = loader.querySelector("[data-ux-infinite-label]");
+      if (label) label.textContent = t("projects_loading_more");
+    }
+
+    const sentinel = document.createElement("div");
+    sentinel.setAttribute("aria-hidden", "true");
+    sentinel.style.height = "1px";
+    loader.after(sentinel);
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        const matched = matchedItems();
+        if (revealed >= matched.length) return;
+        loader.classList.add("is-visible");
+        window.setTimeout(() => {
+          revealed += PAGE;
+          paint();
+        }, 350);
+      },
+      { rootMargin: "120px" }
+    );
+    io.observe(sentinel);
+
+    container._samaInfinite = {
+      refresh() {
+        revealed = PAGE;
+        paint();
+      }
+    };
+    paint();
   }
 
   function setupRepoFilters(container) {
@@ -940,6 +1161,7 @@
 
     syncRepoFilterButtonLabels(state, typeBtn, languageBtn, sortBtn);
     container._samaRepoFilters = { state, typeBtn, languageBtn, sortBtn };
+    setupProjectsInfiniteScroll(container);
     runFilters();
   }
 
