@@ -16,7 +16,7 @@
 
   const PROJECT_TITLE_KEYS = [
     "proj_kirundi_title",
-    "proj_esama_title",
+    // "proj_esama_title", // temporarily hidden while unpublished on Play Store
     "proj_tasky_title",
     "proj_samakod_title",
     "proj_velora_title",
